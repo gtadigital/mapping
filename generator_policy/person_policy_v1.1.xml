@@ -60,11 +60,60 @@
     <pattern>Death_to/{term}</pattern>
   </generator>
 
-  <!-- ID -->
+  <!-- E42 -->
 
   <generator name="IdURI" prefix="sari" shorten="yes">
     <pattern>Id/{term}</pattern>
   </generator>
+
+  <generator name="act_nc_identifier_gnd" prefix="sari" shorten="yes">
+    <pattern>act_nc_identifier_gnd/{term}</pattern>
+  </generator>
+
+  <generator name="generic_contributor_sari_gnd_uuid" prefix="sari" shorten="yes">
+    <pattern>generic_contributor_sari_gnd_uuid/{term}</pattern>
+  </generator>
+
+  <generator name="act_nc_identifier_sikart" prefix="sari" shorten="yes">
+    <pattern>act_nc_identifier_sikart/{term}</pattern>
+  </generator>
+
+  <generator name="act_nc_identifier_ulan" prefix="sari" shorten="yes">
+    <pattern>act_nc_identifier_ulan/{term}</pattern>
+  </generator>
+
+  <generator name="generic_contributor_sari_ulan_uuid" prefix="sari" shorten="yes">
+    <pattern>generic_contributor_sari_ulan_uuid/{term}</pattern>
+  </generator>
+
+  <generator name="act_nc_identifier_wikidata" prefix="sari" shorten="yes">
+    <pattern>act_nc_identifier_wikidata/{term}</pattern>
+  </generator>
+
+  <generator name="generic_contributor_sari_wikidata_uuid" prefix="sari" shorten="yes">
+    <pattern>generic_contributor_sari_wikidata_uuid/{term}</pattern>
+  </generator>
+
+
+  <generator name="act_exist_birth_place_uuid" prefix="sari" shorten="yes">
+    <pattern>act_exist_birth_place_uuid/{term}</pattern>
+  </generator>
+
+  <generator name="act_exist_death_place" prefix="sari" shorten="yes">
+    <pattern>act_exist_death_place/{term}</pattern>
+  </generator>
+
+  <generator name="act_social_father_uuid" prefix="sari" shorten="yes">
+    <pattern>act_social_father_uuid/{term}</pattern>
+  </generator>
+
+  <generator name="act_social_mother_uuid" prefix="sari" shorten="yes">
+    <pattern>act_social_mother_uuid/{term}</pattern>
+  </generator>
+
+  <generator name="act_social_national_affiliation_uuid" prefix="sari" shorten="yes">
+    <pattern>act_social_national_affiliation_uuid/{term}</pattern>
+  </generator>  
 
   <!-- E55 -->
   <generator name="TypeURI" prefix="sari" shorten="yes">
