@@ -25,7 +25,7 @@
                 </namespaces>
             </target_info>
             <target_info>
-                <target_schema schema_file="CPR1.0.2___09-12-2019192241___11283___29-02-2020175629___8478___08-10-2020075117___11494___08-10-2020200905___6300.rdfs" type="rdfs" version="1.0">CIDOC-Cpr</target_schema>
+                <target_schema schema_file="CPR1.0.2___09-12-2019192241___11283___29-02-2020175629___8478___08-10-2020075117___11494___08-10-2020200905___6300___12-10-2020073426___560___13-10-2020061244___1913.rdfs" type="rdfs" version="1.0">CIDOC-Cpr</target_schema>
                 <namespaces>
                     <namespace prefix="cpr" uri="https://www.schema.swissartresearch.net/cpr/"/>
                 </namespaces>
@@ -37,7 +37,7 @@
                 </namespaces>
             </target_info>
             <target_info>
-                <target_schema schema_file="FRBR2.4-draft___29-02-2020175614___11477___08-10-2020075338___3886___08-10-2020200905___8458___12-10-2020073426___11546___12-10-2020213411___10162.rdfs" type="rdfs" version="2.4">FRBROO</target_schema>
+                <target_schema schema_file="FRBR2.4-draft___29-02-2020175614___11477___08-10-2020075338___3886___08-10-2020200905___8458___12-10-2020073426___11546___13-10-2020061245___12270.rdfs" type="rdfs" version="2.4">FRBROO</target_schema>
                 <namespaces>
                     <namespace prefix="frbr" uri="http://iflastandards.info/ns/fr/frbr/frbroo/"/>
                 </namespaces>
@@ -52,8 +52,8 @@
         <example_data_info>
             <example_data_from/>
             <example_data_contact_person/>
-            <example_data_source_record xml_link="person_source___08-10-2020090205___11210___08-10-2020200905___11721___12-10-2020073426___8211___12-10-2020213411___3323.xml"/>
-            <generator_policy_info generator_link="person_policy_v1.1___13-10-2020093554___4817.xml"/>
+            <example_data_source_record xml_link="person_source___08-10-2020090205___11210___08-10-2020200905___11721___12-10-2020073426___8211___13-10-2020061245___10982.xml"/>
+            <generator_policy_info generator_link="person_policy_v1.1___13-10-2020215246___5463.xml"/>
             <example_data_target_record/>
             <thesaurus_info/>
         </example_data_info>
@@ -187,7 +187,7 @@
                     <target_node>
                         <entity>
                             <type>crm:E41_Appellation</type>
-                            <instance_generator name="UUID">
+                            <instance_generator name="PersonAlternativeAppellationURI">
                                 <arg name="term" type="xpath">text()</arg>
                             </instance_generator>
                             <label_generator name="Literal">
@@ -201,7 +201,7 @@
                                     <instance_info>
                                         <constant/>
                                     </instance_info>
-                                    <instance_generator name="UUID">
+                                    <instance_generator name="PersonAlternativeAppellationDEURI">
                                         <arg name="term" type="xpath">text()</arg>
                                     </instance_generator>
                                     <label_generator name="Literal">
@@ -216,7 +216,7 @@
                                     <instance_info>
                                         <constant/>
                                     </instance_info>
-                                    <instance_generator name="UUID">
+                                    <instance_generator name="PersonAlternativeAppellationENURI">
                                         <arg name="term" type="xpath">text()</arg>
                                     </instance_generator>
                                     <label_generator name="Literal">
@@ -374,6 +374,48 @@
                             <type>http://www.w3.org/2001/XMLSchema#dateTime</type>
                             <instance_generator name="Literal">
                                 <arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>act_nc_identifier_gnd</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P1_is_identified_by</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>act_nc_identifier_gnd</source_node>
+                    <target_node>
+                        <entity>
+                            <type>crm:E42_Identifier</type>
+                            <instance_generator name="act_nc_identifier_gnd">
+                                <arg name="term" type="xpath">text()</arg>
+                            </instance_generator>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>generic_contributor_sari_gnd_uuid</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P1_is_identified_by</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>generic_contributor_sari_gnd_uuid</source_node>
+                    <target_node>
+                        <entity>
+                            <type>crm:E42_Identifier</type>
+                            <instance_generator name="generic_contributor_sari_gnd_uuid">
+                                <arg name="term" type="xpath">text()</arg>
                             </instance_generator>
                         </entity>
                     </target_node>
