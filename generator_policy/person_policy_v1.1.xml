@@ -28,6 +28,10 @@
     <pattern>Person/Appellation/HonorificName{term}</pattern>
   </generator>
 
+    <generator name="PersonAlternativeAppellationURI" prefix="sari" shorten="yes">
+    <pattern>Person/Appellation/Alternative{term}</pattern>
+  </generator>
+
       <generator name="PersonAlternativeAppellationDEURI" prefix="sari" shorten="yes">
     <pattern>Person/Appellation/Alternative/de{term}</pattern>
   </generator>
