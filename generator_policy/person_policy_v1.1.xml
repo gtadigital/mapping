@@ -1,4 +1,4 @@
-<!-- Person Generator Policy file v1.0 -->
+<!-- Person Generator Policy file v1.1 -->
 <!-- Author: Matteo Lorenzini ETH-GTA -->
 <generator_policy>
   <!-- Concept entity -->
@@ -29,10 +29,14 @@
   </generator>
 
       <generator name="PersonAlternativeAppellationURI" prefix="sari" shorten="yes">
-    <pattern>Person/Appellation/Alternative{term}</pattern>
+    <pattern>Person/Appellation/Alternative/de{term}</pattern>
+  </generator>
+
+  <generator name="PersonAlternativeAppellationURI" prefix="sari" shorten="yes">
+    <pattern>Person/Appellation/Alternative/en{term}</pattern>
   </generator>
   
-  <!-- Time Span -->
+  <!-- E52 -->
 
   <generator name="TimeSpan" prefix="sari" shorten="yes">
     <pattern>Chronology/{term}</pattern>
@@ -53,6 +57,7 @@
   </generator>
 
   <!-- ID -->
+
   <generator name="IdURI" prefix="sari" shorten="yes">
     <pattern>Id/{term}</pattern>
   </generator>
@@ -61,21 +66,16 @@
   <generator name="TypeURI" prefix="sari" shorten="yes">
     <pattern>Type/{term}</pattern>
   </generator>
-    <!-- Type Geneder de -->
+  
   <generator name="Gender_de_URI" prefix="sari" shorten="yes">
-    <pattern>Type/{term}</pattern>
+    <pattern>Type/gender_de{term}</pattern>
   </generator>
-    <!-- Type Geneder en -->
+
   <generator name="Gender_en_URI" prefix="sari" shorten="yes">
-    <pattern>Type/{term}</pattern>
+    <pattern>Type/gender_en{term}</pattern>
   </generator>
 
-
-  <!-- Type Appellation -->
-  <generator name="Gender_en_URI " prefix="sari" shorten="yes">
-    <pattern>Type/{term}</pattern>
-  </generator>
-
+  
 
   <!-- Thing entity -->
   <generator name="ThingURI" prefix="sari" shorten="yes">
