@@ -20,7 +20,7 @@
     <pattern>Person/{term}</pattern>
   </generator>
   <!-- E41 -->
-  <generator name="PersonAppellationURI" prefix="sari" shorten="yes">
+  <generator name="PersonAppellationURI" prefix="sari" shorten="no">
     <pattern>Person/Appellation/{term}</pattern>
   </generator>
 

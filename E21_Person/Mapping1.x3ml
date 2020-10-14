@@ -53,7 +53,7 @@
             <example_data_from/>
             <example_data_contact_person/>
             <example_data_source_record xml_link="person_source___08-10-2020090205___11210___08-10-2020200905___11721___12-10-2020073426___8211___13-10-2020061245___10982___14-10-2020074246___11665.xml"/>
-            <generator_policy_info generator_link="person_policy_v1.1___13-10-2020215246___5463___14-10-2020074246___7005.xml"/>
+            <generator_policy_info generator_link="person_policy_v1.1___14-10-2020121601___12999.xml"/>
             <example_data_target_record/>
             <thesaurus_info/>
         </example_data_info>
@@ -135,7 +135,7 @@
                             <instance_generator name="PersonAppellationURI">
                                 <arg name="term" type="xpath">text()</arg>
                             </instance_generator>
-                            <label_generator name="Literal">
+                            <label_generator name="prefLabel">
                                 <arg name="text" type="xpath">text()</arg>
                                 <arg name="language" type="xpath">../act_nc_name_lang_akronym/text()</arg>
                             </label_generator>
@@ -167,7 +167,7 @@
                             </instance_generator>
                             <label_generator name="Literal">
                                 <arg name="text" type="xpath">text()</arg>
-                                <arg name="language" type="constant">../act_nc_honname_lang_akronym/text()</arg>
+                                <arg name="language" type="xpath">../act_nc_honname_lang_akronym/text()</arg>
                             </label_generator>
                         </entity>
                     </target_node>
