@@ -7,9 +7,9 @@ Institute for the History and Theory of Architecture, gta digital, ETH Zurich
 
 ## License:
 
-ProfileParser (c) by Institute for the History and Theory of Architecture, gta digital, ETH Zurich
+Mapping (c) by Institute for the History and Theory of Architecture, gta digital, ETH Zurich
 
-ProfileParser is licensed under a
+Mapping is licensed under a
 Creative Commons Attribution-ShareAlike 4.0 International License.
 
 This file is subject to the terms and conditions defined in file 'LICENSE.txt', which is part of this source code package.
