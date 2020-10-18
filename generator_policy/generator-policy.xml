@@ -98,6 +98,10 @@
 <generator name="URIwithWikidataId" prefix="wikidata">
 	<pattern>{id}</pattern>
 </generator>
+
+<generator name="URIwithSikartId" prefix="sikart">
+	<pattern>{id}</pattern>
+</generator>
 	
 <generator name="URIwithOneType" prefix="sari" uuid="true">
 	<pattern>{type}/</pattern>
