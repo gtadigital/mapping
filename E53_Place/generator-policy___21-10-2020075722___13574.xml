@@ -34,6 +34,10 @@
 <generator name="placeIdentifierUri" prefix="sari">
 	<pattern>place/{place_id}/{identifier_type}/{identifier}</pattern>
 </generator>
+
+<generator name="placeIdentifierUri-hashed" prefix="sari">
+	<pattern>place/{place_id}/{identifier_type}/{identifier}</pattern>
+</generator>
 	
 <generator name="personAppellationUri" prefix="sari" shorten="true">
 	<pattern>person/{person_id}/appellation/{appellation_id}</pattern>

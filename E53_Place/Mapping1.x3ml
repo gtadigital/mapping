@@ -13,31 +13,31 @@
         </source>
         <target>
             <target_info>
-                <target_schema schema_file="cidoc_crm_v6.2.1-2018April___29-02-2020175551___9148___08-10-2020074718___8039___08-10-2020200904___6987___12-10-2020073426___410___12-10-2020213410___13694___14-10-2020074245___7108___17-10-2020155620___8488.rdfs" type="rdfs" version="6.2.1">CIDOC-CRM</target_schema>
+                <target_schema schema_file="cidoc_crm_v6.2.1-2018April___29-02-2020175551___9148___08-10-2020074718___8039___08-10-2020200904___6987___12-10-2020073426___410___12-10-2020213410___13694___14-10-2020074245___7108___17-10-2020155620___8488___21-10-2020074547___2.rdfs" type="rdfs" version="6.2.1">CIDOC-CRM</target_schema>
                 <namespaces>
                     <namespace prefix="crm" uri="http://www.cidoc-crm.org/cidoc-crm/"/>
                 </namespaces>
             </target_info>
             <target_info>
-                <target_schema schema_file="CRMpc_v1.1.1___29-02-2020175640___1716___08-10-2020074954___7791___08-10-2020200905___537___14-10-2020074245___453___17-10-2020155620___5142.rdfs" type="rdfs" version="1.1">CIDOC-CRMpc</target_schema>
+                <target_schema schema_file="CRMpc_v1.1.1___29-02-2020175640___1716___08-10-2020074954___7791___08-10-2020200905___537___14-10-2020074245___453___17-10-2020155620___5142___21-10-2020074547___2476.rdfs" type="rdfs" version="1.1">CIDOC-CRMpc</target_schema>
                 <namespaces>
                     <namespace prefix="crmpc" uri="http://www.cidoc-crm.org/crmpc/"/>
                 </namespaces>
             </target_info>
             <target_info>
-                <target_schema schema_file="CPR1.0.2___09-12-2019192241___11283___29-02-2020175629___8478___08-10-2020075117___11494___08-10-2020200905___6300___12-10-2020073426___560___13-10-2020061244___1913___14-10-2020074245___2006___17-10-2020155620___5376.rdfs" type="rdfs" version="1.0">CIDOC-Cpr</target_schema>
+                <target_schema schema_file="CPR1.0.2___09-12-2019192241___11283___29-02-2020175629___8478___08-10-2020075117___11494___08-10-2020200905___6300___12-10-2020073426___560___13-10-2020061244___1913___14-10-2020074245___2006___17-10-2020155620___5376___21-10-2020074548___10188.rdfs" type="rdfs" version="1.0">CIDOC-Cpr</target_schema>
                 <namespaces>
                     <namespace prefix="cpr" uri="https://www.schema.swissartresearch.net/cpr/"/>
                 </namespaces>
             </target_info>
             <target_info>
-                <target_schema schema_file="CRMdig_v3.2___29-02-2020175559___13812___08-10-2020075202___5793___08-10-2020200905___7007___12-10-2020073426___3265___12-10-2020213411___12182___14-10-2020074246___4406___15-10-2020142612___13472.rdfs" type="rdfs" version="3.2">CIDOC-CRMdig</target_schema>
+                <target_schema schema_file="CRMdig_v3.2___29-02-2020175559___13812___08-10-2020075202___5793___08-10-2020200905___7007___12-10-2020073426___3265___12-10-2020213411___12182___14-10-2020074246___4406___15-10-2020142612___13472___21-10-2020074548___173.rdfs" type="rdfs" version="3.2">CIDOC-CRMdig</target_schema>
                 <namespaces>
                     <namespace prefix="crmdig" uri="http://www.ics.forth.gr/isl/CRMdig/"/>
                 </namespaces>
             </target_info>
             <target_info>
-                <target_schema schema_file="FRBR2.4-draft___29-02-2020175614___11477___08-10-2020075338___3886___08-10-2020200905___8458___12-10-2020073426___11546___13-10-2020061245___12270___14-10-2020074246___5060___17-10-2020155621___5729.rdfs" type="rdfs" version="2.4">FRBROO</target_schema>
+                <target_schema schema_file="FRBR2.4-draft___29-02-2020175614___11477___08-10-2020075338___3886___08-10-2020200905___8458___12-10-2020073426___11546___13-10-2020061245___12270___14-10-2020074246___5060___17-10-2020155621___5729___21-10-2020074548___3147.rdfs" type="rdfs" version="2.4">FRBROO</target_schema>
                 <namespaces>
                     <namespace prefix="frbr" uri="http://iflastandards.info/ns/fr/frbr/frbroo/"/>
                 </namespaces>
@@ -52,8 +52,8 @@
         <example_data_info>
             <example_data_from/>
             <example_data_contact_person/>
-            <example_data_source_record xml_link="test_canton_20200707___20-10-2020214303___167.xml"/>
-            <generator_policy_info generator_link="generator-policy___18-10-2020133913___5041.xml"/>
+            <example_data_source_record xml_link="test_canton_20200707___20-10-2020214303___167___21-10-2020074548___5625.xml"/>
+            <generator_policy_info generator_link="generator-policy___21-10-2020075722___13574.xml"/>
             <example_data_target_record/>
             <thesaurus_info/>
         </example_data_info>
