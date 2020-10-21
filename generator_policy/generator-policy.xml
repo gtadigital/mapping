@@ -23,9 +23,6 @@
 	<pattern>{type}/{id}</pattern>
 </generator>
 	
-<generator name="URIwithTypeAndId_hashed" prefix="sari" shorten="true">
-	<pattern>{type}/{id}</pattern>
-</generator>
 
 <generator name="URIwith2TypesAndId" prefix="sari">
 	<pattern>{type1}/{type2}/{id}</pattern>
