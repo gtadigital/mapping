@@ -53,7 +53,7 @@
             <example_data_from/>
             <example_data_contact_person/>
             <example_data_source_record xml_link="test_canton_20200707___20-10-2020214303___167.xml"/>
-            <generator_policy_info generator_link="generator-policy___23-10-2020110054___2772.xml"/>
+            <generator_policy_info generator_link="generator-policy___27-10-2020130317___5173.xml"/>
             <example_data_target_record/>
             <thesaurus_info/>
         </example_data_info>
@@ -144,9 +144,8 @@
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                            <instance_generator name="Literal">
-                                <arg name="text" type="xpath">text()</arg>
-                                <arg name="language" type="constant">en</arg>
+                            <instance_generator name="coordinates_alternative">
+                                <arg name="coordinates" type="xpath">text()</arg>
                             </instance_generator>
                         </entity>
                     </target_node>

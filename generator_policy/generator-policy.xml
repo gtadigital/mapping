@@ -10,6 +10,11 @@
 <generator name="coordinates">
 	<pattern>POINT({lat} {long})</pattern>
 </generator>
+
+
+<generator name="coordinates_alternative">
+	<pattern>({coordinates})</pattern>
+</generator>
 	
 <generator name="URIwithType" prefix="sari">
 	<pattern>{type}</pattern>
