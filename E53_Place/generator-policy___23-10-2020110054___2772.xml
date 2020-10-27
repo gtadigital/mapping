@@ -18,10 +18,11 @@
 <generator name="URIwithTypeAndId" prefix="sari">
 	<pattern>{type}/{id}</pattern>
 </generator>
-	
-<generator name="URIwithTypeAndId_hashed" prefix="sari" shorten="true">
+
+<generator name="URIwithTypeAndId_hashed" prefix="sari">
 	<pattern>{type}/{id}</pattern>
 </generator>
+	
 
 <generator name="URIwith2TypesAndId" prefix="sari">
 	<pattern>{type1}/{type2}/{id}</pattern>
@@ -44,6 +45,10 @@
 </generator>
 	
 <generator name="personIdentifierUri" prefix="sari">
+	<pattern>person/{person_id}/{identifier_type}/{identifier}</pattern>
+</generator>
+
+<generator name="personIdentifierUri-hashed" prefix="sari">
 	<pattern>person/{person_id}/{identifier_type}/{identifier}</pattern>
 </generator>
 	
