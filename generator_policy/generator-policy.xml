@@ -13,7 +13,7 @@
 
 
 <generator name="coordinates_alternative">
-	<pattern>({coordinates})</pattern>
+	<pattern>{coordinates}</pattern>
 </generator>
 	
 <generator name="URIwithType" prefix="sari">
