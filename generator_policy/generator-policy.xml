@@ -32,8 +32,10 @@
 <generator name="URIwith2TypesAndId" prefix="sari">
 	<pattern>{type1}/{type2}/{id}</pattern>
 </generator>
+
+<!-- PLACE DEFINITION -->
 	
-	<generator name="placeAppellationUri" prefix="sari" shorten="true">
+<generator name="placeAppellationUri" prefix="sari" shorten="true">
 	<pattern>place/{place_id}/appellation/{appellation_id}</pattern>
 </generator>
 	
@@ -45,6 +47,8 @@
 	<pattern>place/{place_id}/{identifier_type}/{identifier}</pattern>
 </generator>
 	
+<!-- PERSON DEFINITION -->
+
 <generator name="personAppellationUri" prefix="sari" shorten="true">
 	<pattern>person/{person_id}/appellation/{appellation_id}</pattern>
 </generator>
@@ -69,10 +73,34 @@
 	<pattern>person/{person_id}/biography_information/{lang}/</pattern>
 </generator>
 	
-	
 <generator name="personBiography" prefix="sari" uuid="true">
 	<pattern>person/{person_id}/biography/{lang}/</pattern>
 </generator>
+
+<!-- BUILT WORK / OEUVRE DEFINITION -->
+
+<generator name="builtworkAppellationUri" prefix="sari" shorten="true">
+	<pattern>builtwork/{built_work_id}/appellation/{appellation_id}</pattern>
+</generator>
+	
+<generator name="builtworkIdentifierUri" prefix="sari">
+	<pattern>builtwork/{builtwork_id}/{identifier_type}/{identifier}</pattern>
+</generator>
+
+<generator name="builtworkIdentifierUri-hashed" prefix="sari">
+	<pattern>builtwork/{builtwork_id}/{identifier_type}/{identifier}</pattern>
+</generator>
+	
+<generator name="builtworkTimespanConstruction" prefix="sari">
+	<pattern>builtwork/{builtwork_id}/construction/timespan</pattern>
+</generator>
+
+<generator name="builtworkTimespanDestruction" prefix="sari">
+	<pattern>builtwork/{builtwork_id}/destruction/timespan</pattern>
+</generator>
+
+
+<!-- GROUP DEFINITION -->
 
 <generator name="groupIdentifierUri" prefix="sari">
 	<pattern>group/{group_id}/{identifier_type}/{identifier}</pattern>
