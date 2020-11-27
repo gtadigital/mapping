@@ -1,0 +1,190 @@
+<!-- Person Generator Policy file v1.1 -->
+<!-- Author: Matteo Lorenzini ETH-GTA -->
+<generator_policy>
+  <!-- Concept entity -->
+  <generator name="ConceptURI" prefix="sari" shorten="yes">
+    <pattern>{term}</pattern>
+  </generator>
+  <generator name="ConceptURI_2step" prefix="sari" shorten="yes">
+    <pattern>{term}/{term1}</pattern>
+  </generator>
+  <generator name="ConceptURI_3step" prefix="sari" shorten="yes">
+    <pattern>{term}/{term1}/{term2}</pattern>
+  </generator>
+  <generator name="ConceptAppellationURI" prefix="sari" shorten="yes">
+    <pattern>Appellation/{term}</pattern>
+  </generator>
+  
+  <!-- E21 -->
+  <generator name="PersonURI" prefix="sari" shorten="yes">
+    <pattern>Person/{term}</pattern>
+  </generator>
+  <!-- E41 -->
+  <generator name="PersonAppellationURI" prefix="sari" shorten="no">
+    <pattern>Person/Appellation/{term}</pattern>
+  </generator>
+
+    <generator name="PersonHonNameAppellationURI" prefix="sari" shorten="yes">
+    <pattern>Person/Appellation/HonorificName{term}</pattern>
+  </generator>
+
+    <generator name="PersonAlternativeAppellationURI" prefix="sari" shorten="yes">
+    <pattern>Person/Appellation/Alternative{term}</pattern>
+  </generator>
+
+      <generator name="PersonAlternativeAppellationDEURI" prefix="sari" shorten="yes">
+    <pattern>Person/Appellation/Alternative/de{term}</pattern>
+  </generator>
+
+  <generator name="PersonAlternativeAppellationENURI" prefix="sari" shorten="yes">
+    <pattern>Person/Appellation/Alternative/en{term}</pattern>
+  </generator>
+  
+  <!-- E52 -->
+
+  <generator name="TimeSpan" prefix="sari" shorten="yes">
+    <pattern>Chronology/{term}</pattern>
+  </generator>
+
+  <generator name="TimeSpanBirthStartURI" prefix="sari" shorten="yes">
+    <pattern>Birth_from/{term}</pattern>
+  </generator>
+  <generator name="TimeSpanBirthEndURI" prefix="sari" shorten="yes">
+    <pattern>Birth_to/{term}</pattern>
+  </generator>
+
+  <generator name="TimeSpanDeathStartURI" prefix="sari" shorten="yes">
+    <pattern>Death_from/{term}</pattern>
+  </generator>
+  <generator name="TimeSpanDeathEndURI" prefix="sari" shorten="yes">
+    <pattern>Death_to/{term}</pattern>
+  </generator>
+
+  <!-- E42 -->
+
+  <generator name="IdURI" prefix="sari" shorten="yes">
+    <pattern>Id/{term}</pattern>
+  </generator>
+
+  <generator name="act_nc_identifier_gnd" prefix="sari" shorten="yes">
+    <pattern>act_nc_identifier_gnd/{term}</pattern>
+  </generator>
+
+  <generator name="generic_contributor_sari_gnd_uuid" prefix="sari" shorten="yes">
+    <pattern>generic_contributor_sari_gnd_uuid/{term}</pattern>
+  </generator>
+
+  <generator name="act_nc_identifier_sikart" prefix="sari" shorten="yes">
+    <pattern>act_nc_identifier_sikart/{term}</pattern>
+  </generator>
+
+  <generator name="act_nc_identifier_ulan" prefix="sari" shorten="yes">
+    <pattern>act_nc_identifier_ulan/{term}</pattern>
+  </generator>
+
+  <generator name="generic_contributor_sari_ulan_uuid" prefix="sari" shorten="yes">
+    <pattern>generic_contributor_sari_ulan_uuid/{term}</pattern>
+  </generator>
+
+  <generator name="act_nc_identifier_wikidata" prefix="sari" shorten="yes">
+    <pattern>act_nc_identifier_wikidata/{term}</pattern>
+  </generator>
+
+  <generator name="generic_contributor_sari_wikidata_uuid" prefix="sari" shorten="yes">
+    <pattern>generic_contributor_sari_wikidata_uuid/{term}</pattern>
+  </generator>
+
+
+  <generator name="act_exist_birth_place_uuid" prefix="sari" shorten="yes">
+    <pattern>act_exist_birth_place_uuid/{term}</pattern>
+  </generator>
+
+  <generator name="act_exist_death_place" prefix="sari" shorten="yes">
+    <pattern>act_exist_death_place/{term}</pattern>
+  </generator>
+
+  <generator name="act_social_father_uuid" prefix="sari" shorten="yes">
+    <pattern>act_social_father_uuid/{term}</pattern>
+  </generator>
+
+  <generator name="act_social_mother_uuid" prefix="sari" shorten="yes">
+    <pattern>act_social_mother_uuid/{term}</pattern>
+  </generator>
+
+  <generator name="act_social_national_affiliation_uuid" prefix="sari" shorten="yes">
+    <pattern>act_social_national_affiliation_uuid/{term}</pattern>
+  </generator>  
+
+  <!-- E55 -->
+  <generator name="TypeURI" prefix="sari" shorten="yes">
+    <pattern>Type/{term}</pattern>
+  </generator>
+  
+  <generator name="Gender_de_URI" prefix="sari" shorten="yes">
+    <pattern>Type/gender_de{term}</pattern>
+  </generator>
+
+  <generator name="Gender_en_URI" prefix="sari" shorten="yes">
+    <pattern>Type/gender_en{term}</pattern>
+  </generator>
+
+  
+
+  <!-- Thing entity -->
+  <generator name="ThingURI" prefix="sari" shorten="yes">
+    <pattern>Thing/{term}</pattern>
+  </generator>
+  <generator name="ThingAppellationURI" prefix="sari" shorten="yes">
+    <pattern>Thing/Appellation/{term}</pattern>
+  </generator>
+  <generator name="OneLevelCustomURI" prefix="sari" shorten="yes">
+    <pattern>{level1}/{term}</pattern>
+  </generator>
+  <generator name="TwoLevelCustomURI" prefix="sari" shorten="yes">
+    <pattern>{level1}/{level2}/{term}</pattern>
+  </generator>
+  <generator name="OneLevelCustomURIwCount" prefix="sari" shorten="yes">
+    <pattern>{level1}/{count}/{term}</pattern>
+  </generator>
+  <generator name="TwoLevelCustomURIwCount" prefix="sari" shorten="yes">
+    <pattern>{level1}/{level2}/{count}/{term}</pattern>
+  </generator>
+  <generator name="SimpleLabel">
+    <pattern>{label}</pattern>
+  </generator>
+  <generator name="CompositeLabel">
+    <pattern>{label} {text}</pattern>
+  </generator>
+  <generator name="CompositeVerLabel">
+    <pattern>{label} Ver {text}</pattern>
+  </generator>
+  <generator name="LatLong">
+    <pattern>({lat} {long})</pattern>
+  </generator>
+  <generator name="AddressLabel">
+    <pattern>{term},{term2},{term3},{term4}</pattern>
+  </generator>
+  <generator name="GermanDateTime">
+    <custom generatorClass="gr.forth.GermanDate">
+      <set-arg name="bound" type="constant"/>
+      <set-arg name="text"/>
+    </custom>
+  </generator>
+  <generator name="URIorUUID">
+    <custom generatorClass="gr.forth.URIorUUID">
+      <set-arg name="text"/>
+    </custom>
+  </generator>
+  <generator name="ConcatMultipleTerms">
+    <custom generatorClass="gr.forth.ConcatMultipleTerms">
+      <set-arg name="prefix" type="constant"/>
+      <set-arg name="sameTermsDelim" type="constant"/>
+      <set-arg name="diffTermsDelim" type="constant"/>
+      <set-arg name="text1"/>
+      <set-arg name="text2"/>
+      <set-arg name="text3"/>
+      <set-arg name="text4"/>
+      <set-arg name="text5"/>
+    </custom>
+  </generator>
+</generator_policy>
