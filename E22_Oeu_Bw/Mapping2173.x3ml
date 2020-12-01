@@ -61,7 +61,7 @@
     <namespaces>
         <namespace prefix="sari" uri="https://resource.swissartresearch.net/"/>
     </namespaces>
-    <mappings>
+   <mappings>
     <mapping>
         <domain>
             <source_node>/root/entry</source_node>
@@ -419,7 +419,7 @@
                         <type>crm:E52_Time-Span</type>
                         <instance_generator name="UUID"/>
                     </entity>
-                    <relationship>crm:P81b_begin_of_the_end</relationship>
+                    <relationship>crm:P82b_end_of_the_end</relationship>
                 </target_relation>
             </path>
             <range>
@@ -510,7 +510,7 @@
                         <type>crm:E52_Time-Span</type>
                         <instance_generator name="UUID"/>
                     </entity>
-                    <relationship>crm:P81b_begin_of_the_end</relationship>
+                    <relationship>crm:P82b_end_of_the_end</relationship>
                 </target_relation>
             </path>
             <range>
@@ -851,6 +851,7 @@
         </link>
     </mapping>
 </mappings>
+
 
 
 
