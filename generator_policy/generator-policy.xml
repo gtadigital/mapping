@@ -83,6 +83,12 @@
 	<generator name="builtworkCreationPlace" prefix="sari">
 		<pattern>builtwork/{builtwork_id}/place</pattern>
 	</generator>
+		<generator name="builtworkProduction" prefix="sari">
+		<pattern>builtwork/{builtwork_id}/production</pattern>
+	</generator>
+	<generator name="builtworkDestruction" prefix="sari">
+		<pattern>builtwork/{builtwork_id}/destruction</pattern>
+	</generator>
 		<!-- ARCHIVAL OBJECT -->
 	<generator name="archivalobjectAppellationUri" prefix="sari" shorten="true">
 		<pattern>archivalobject/{archivalobject_id}/appellation/{appellation_id}</pattern>
