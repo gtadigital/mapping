@@ -61,7 +61,7 @@
     <namespaces>
         <namespace prefix="sari" uri="https://resource.swissartresearch.net/"/>
     </namespaces>
-   <mappings>
+  <mappings>
     <mapping>
         <domain>
             <source_node>/root/entry</source_node>
@@ -69,8 +69,9 @@
                 <entity>
                     <type>crm:E22_Man-Made_Object</type>
                     <instance_info/>
-                    <instance_generator name="UUID">
-                        <arg name="text" type="xpath">oeu_nc_uuid/text()</arg>
+                    <instance_generator name="URIwithTypeAndId">
+                        <arg name="type" type="constant">oeuvres</arg>
+                        <arg name="id" type="xpath">oeu_nc_uuid/text()</arg>
                     </instance_generator>
                 </entity>
             </target_node>
@@ -259,7 +260,9 @@
                     <relationship>crm:P108i_was_produced_by</relationship>
                     <entity variable="production">
                         <type>crm:E12_Production</type>
-                        <instance_generator name="UUID"/>
+                        <instance_generator name="builtworkProduction">
+                            <arg name="builtwork_id" type="xpath">../../oeu_nc_uuid/text()</arg>
+                        </instance_generator>
                     </entity>
                     <relationship>crm:P14_carried_out_by</relationship>
                 </target_relation>
@@ -269,8 +272,9 @@
                 <target_node>
                     <entity global_variable="actor_role">
                         <type>crm:E39_Actor</type>
-                        <instance_generator name="URIorUUID">
-                            <arg name="text" type="xpath">oeu_nc_actor_uuid/text()</arg>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="constant">person</arg>
+                            <arg name="id" type="xpath">oeu_nc_actor_uuid/text()</arg>
                         </instance_generator>
                         <label_generator name="Literal">
                             <arg name="text" type="xpath">oeu_nc_actor_type/text()</arg>
@@ -353,7 +357,9 @@
                     <relationship>crm:P108i_was_produced_by</relationship>
                     <entity variable="production">
                         <type>crm:E12_Production</type>
-                        <instance_generator name="UUID"/>
+                        <instance_generator name="builtworkProduction">
+                            <arg name="builtwork_id" type="xpath">../../oeu_nc_uuid/text()</arg>
+                        </instance_generator>
                     </entity>
                     <relationship>crm:P7_took_place_at</relationship>
                 </target_relation>
@@ -363,9 +369,10 @@
                 <target_node>
                     <entity>
                         <type>crm:E53_Place</type>
-                        <instance_generator name="builtworkCreationPlace_id">
-                            <arg name="builtwork_id" type="xpath">../../../oeu_nc_uuid/text()</arg>
+                        <instance_generator name="placeIdentifierUri">
                             <arg name="place_id" type="xpath">text()</arg>
+                            <arg name="identifier_type" type="constant">place</arg>
+                            <arg name="identifier" type="xpath">../../../oeu_nc_uuid/text()</arg>
                         </instance_generator>
                     </entity>
                 </target_node>
@@ -380,12 +387,17 @@
                     <relationship>crm:P108i_was_produced_by</relationship>
                     <entity variable="production">
                         <type>crm:E12_Production</type>
-                        <instance_generator name="UUID"/>
+                        <instance_generator name="builtworkProduction">
+                            <arg name="builtwork_id" type="xpath">/root/entry/oeu_nc_uuid/text()</arg>
+                        </instance_generator>
                     </entity>
                     <relationship>crm:P4_has_time-span</relationship>
                     <entity>
                         <type>crm:E52_Time-Span</type>
-                        <instance_generator name="UUID"/>
+                        <instance_generator name="URIwithTypeAndId_hashed">
+                            <arg name="type" type="constant">production_timespan</arg>
+                            <arg name="id" type="xpath">/root/entry/oeu_nc_uuid/text()</arg>
+                        </instance_generator>
                     </entity>
                     <relationship>crm:P82a_begin_of_the_begin</relationship>
                 </target_relation>
@@ -412,12 +424,17 @@
                     <relationship>crm:P108i_was_produced_by</relationship>
                     <entity variable="production">
                         <type>crm:E12_Production</type>
-                        <instance_generator name="UUID"/>
+                        <instance_generator name="builtworkProduction">
+                            <arg name="builtwork_id" type="xpath">/root/entry/oeu_nc_uuid/text()</arg>
+                        </instance_generator>
                     </entity>
                     <relationship>crm:P4_has_time-span</relationship>
                     <entity>
                         <type>crm:E52_Time-Span</type>
-                        <instance_generator name="UUID"/>
+                        <instance_generator name="URIwithTypeAndId_hashed">
+                            <arg name="type" type="constant">production_timespan</arg>
+                            <arg name="id" type="xpath">/root/entry/oeu_nc_uuid/text()</arg>
+                        </instance_generator>
                     </entity>
                     <relationship>crm:P82b_end_of_the_end</relationship>
                 </target_relation>
@@ -444,7 +461,9 @@
                     <relationship>crm:P13i_was_destroyed_by</relationship>
                     <entity variable="destruction">
                         <type>crm:E6_Destruction</type>
-                        <instance_generator name="UUID"/>
+                        <instance_generator name="builtworkDestruction">
+                            <arg name="builtwork_id" type="xpath">/root/entry/oeu_nc_uuid/text()</arg>
+                        </instance_generator>
                     </entity>
                     <relationship>crm:P7_took_place_at</relationship>
                 </target_relation>
@@ -454,9 +473,10 @@
                 <target_node>
                     <entity>
                         <type>crm:E53_Place</type>
-                        <instance_generator name="builtworkCreationPlace_id">
-                            <arg name="builtwork_id" type="xpath">../../../oeu_nc_uuid/text()</arg>
+                        <instance_generator name="placeIdentifierUri">
                             <arg name="place_id" type="xpath">text()</arg>
+                            <arg name="identifier_type" type="constant">place</arg>
+                            <arg name="identifier" type="xpath">/root/entry/oeu_nc_uuid/text()</arg>
                         </instance_generator>
                     </entity>
                 </target_node>
@@ -471,12 +491,17 @@
                     <relationship>crm:P13i_was_destroyed_by</relationship>
                     <entity variable="destruction">
                         <type>crm:E6_Destruction</type>
-                        <instance_generator name="UUID"/>
+                        <instance_generator name="builtworkDestruction">
+                            <arg name="builtwork_id" type="xpath">/root/entry/oeu_nc_uuid/text()</arg>
+                        </instance_generator>
                     </entity>
                     <relationship>crm:P4_has_time-span</relationship>
                     <entity>
                         <type>crm:E52_Time-Span</type>
-                        <instance_generator name="UUID"/>
+                        <instance_generator name="URIwithTypeAndId_hashed">
+                            <arg name="type" type="constant">destruction_timespan</arg>
+                            <arg name="id" type="xpath">/root/entry/oeu_nc_uuid/text()</arg>
+                        </instance_generator>
                     </entity>
                     <relationship>crm:P82a_begin_of_the_begin</relationship>
                 </target_relation>
@@ -503,12 +528,17 @@
                     <relationship>crm:P13i_was_destroyed_by</relationship>
                     <entity variable="destruction">
                         <type>crm:E6_Destruction</type>
-                        <instance_generator name="UUID"/>
+                        <instance_generator name="builtworkDestruction">
+                            <arg name="builtwork_id" type="xpath">/root/entry/oeu_nc_uuid/text()</arg>
+                        </instance_generator>
                     </entity>
                     <relationship>crm:P4_has_time-span</relationship>
                     <entity>
                         <type>crm:E52_Time-Span</type>
-                        <instance_generator name="UUID"/>
+                        <instance_generator name="URIwithTypeAndId_hashed">
+                            <arg name="type" type="constant">destruction_timespan</arg>
+                            <arg name="id" type="xpath">/root/entry/oeu_nc_uuid/text()</arg>
+                        </instance_generator>
                     </entity>
                     <relationship>crm:P82b_end_of_the_end</relationship>
                 </target_relation>
@@ -534,7 +564,9 @@
                     <relationship>crm:P13i_was_destroyed_by</relationship>
                     <entity variable="destruction">
                         <type>crm:E6_Destruction</type>
-                        <instance_generator name="UUID"/>
+                        <instance_generator name="builtworkDestruction">
+                            <arg name="builtwork_id" type="xpath">../../oeu_uuid/text()</arg>
+                        </instance_generator>
                     </entity>
                     <relationship>crm:P4_has_time-span</relationship>
                 </target_relation>
@@ -560,7 +592,9 @@
                     <relationship>crm:P108i_was_produced_by</relationship>
                     <entity variable="production">
                         <type>crm:E12_Production</type>
-                        <instance_generator name="UUID"/>
+                        <instance_generator name="builtworkProduction">
+                            <arg name="builtwork_id" type="xpath">../../oeu_uuid/text()</arg>
+                        </instance_generator>
                     </entity>
                     <relationship>crm:P4_has_time-span</relationship>
                 </target_relation>
@@ -781,7 +815,10 @@
             <target_node>
                 <entity global_variable="alternative_name">
                     <type>crm:E41_Appellation</type>
-                    <instance_generator name="UUID"/>
+                    <instance_generator name="URIwithTypeAndId">
+                        <arg name="type" type="constant">oeuvres_alternativename</arg>
+                        <arg name="id" type="xpath">/root/entry/oeu_nc_uuid/text()</arg>
+                    </instance_generator>
                 </entity>
             </target_node>
         </domain>
@@ -854,7 +891,4 @@
 
 
 
-
-
-    
 </x3ml>
