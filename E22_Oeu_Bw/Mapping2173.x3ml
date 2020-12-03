@@ -258,7 +258,7 @@
                 </source_relation>
                 <target_relation>
                     <relationship>crm:P108i_was_produced_by</relationship>
-                    <entity variable="production">
+                    <entity >
                         <type>crm:E12_Production</type>
                         <instance_generator name="builtworkProduction">
                             <arg name="builtwork_id" type="xpath">../../oeu_nc_uuid/text()</arg>
