@@ -61,7 +61,7 @@
     <namespaces>
         <namespace prefix="sari" uri="https://resource.swissartresearch.net/"/>
     </namespaces>
-    <mappings>
+  <mappings>
     <mapping>
         <domain>
             <source_node>/root/entry</source_node>
@@ -245,7 +245,7 @@
                 </source_relation>
                 <target_relation>
                     <relationship>crm:P98i_was_born</relationship>
-                    <entity variable="birth">
+                    <entity>
                         <type>crm:E67_Birth</type>
                         <instance_generator name="personBirth">
                             <arg name="person_id" type="xpath">../_uuid/text()</arg>
@@ -254,10 +254,7 @@
                     <relationship>crm:P4_has_time-span</relationship>
                     <entity>
                         <type>crm:E52_Time-Span</type>
-                        <instance_generator name="URIwithTypeAndId_hashed">
-                            <arg name="type" type="constant">birth_timespan</arg>
-                            <arg name="id" type="xpath">../_uuid/text()</arg>
-                        </instance_generator>
+                        <instance_generator name="UUID"/>
                     </entity>
                     <relationship>crm:P82a_begin_of_the_begin</relationship>
                 </target_relation>
@@ -281,7 +278,7 @@
                 </source_relation>
                 <target_relation>
                     <relationship>crm:P98i_was_born</relationship>
-                    <entity variable="birth">
+                    <entity>
                         <type>crm:E67_Birth</type>
                         <instance_generator name="personBirth">
                             <arg name="person_id" type="xpath">../_uuid/text()</arg>
@@ -290,10 +287,7 @@
                     <relationship>crm:P4_has_time-span</relationship>
                     <entity>
                         <type>crm:E52_Time-Span</type>
-                        <instance_generator name="URIwithTypeAndId_hashed">
-                            <arg name="type" type="constant">birth_timespan</arg>
-                            <arg name="id" type="xpath">../_uuid/text()</arg>
-                        </instance_generator>
+                        <instance_generator name="UUID"/>
                     </entity>
                     <relationship>crm:P82b_end_of_the_end</relationship>
                 </target_relation>
@@ -317,7 +311,7 @@
                 </source_relation>
                 <target_relation>
                     <relationship>crm:P100i_died_in</relationship>
-                    <entity variable="death">
+                    <entity>
                         <type>crm:E69_Death</type>
                         <instance_generator name="personDeath">
                             <arg name="person_id" type="xpath">../_uuid/text()</arg>
@@ -326,10 +320,7 @@
                     <relationship>crm:P4_has_time-span</relationship>
                     <entity>
                         <type>crm:E52_Time-Span</type>
-                        <instance_generator name="URIwithTypeAndId_hashed">
-                            <arg name="type" type="constant">death_timespan</arg>
-                            <arg name="id" type="xpath">../_uuid/text()</arg>
-                        </instance_generator>
+                        <instance_generator name="UUID"/>
                     </entity>
                     <relationship>crm:P82a_begin_of_the_begin</relationship>
                 </target_relation>
@@ -353,7 +344,7 @@
                 </source_relation>
                 <target_relation>
                     <relationship>crm:P100i_died_in</relationship>
-                    <entity variable="death">
+                    <entity>
                         <type>crm:E69_Death</type>
                         <instance_generator name="personDeath">
                             <arg name="person_id" type="xpath">../_uuid/text()</arg>
@@ -362,10 +353,7 @@
                     <relationship>crm:P4_has_time-span</relationship>
                     <entity>
                         <type>crm:E52_Time-Span</type>
-                        <instance_generator name="URIwithTypeAndId_hashed">
-                            <arg name="type" type="constant">death_timespan</arg>
-                            <arg name="id" type="xpath">../_uuid/text()</arg>
-                        </instance_generator>
+                        <instance_generator name="UUID"/>
                     </entity>
                     <relationship>crm:P82b_end_of_the_end</relationship>
                 </target_relation>
@@ -542,7 +530,7 @@
                 </source_relation>
                 <target_relation>
                     <relationship>crm:P98i_was_born</relationship>
-                    <entity variable="birth">
+                    <entity>
                         <type>crm:E67_Birth</type>
                         <instance_generator name="personBirth">
                             <arg name="person_id" type="xpath">../_uuid/text()</arg>
@@ -571,7 +559,7 @@
                 </source_relation>
                 <target_relation>
                     <relationship>crm:P100i_died_in</relationship>
-                    <entity variable="death">
+                    <entity>
                         <type>crm:E69_Death</type>
                         <instance_generator name="personDeath">
                             <arg name="person_id" type="xpath">../_uuid/text()</arg>
@@ -622,7 +610,7 @@
                 </source_relation>
                 <target_relation>
                     <relationship>crm:P98i_was_born</relationship>
-                    <entity variable="birth">
+                    <entity>
                         <type>crm:E67_Birth</type>
                         <instance_generator name="personBirth">
                             <arg name="person_id" type="xpath">../_uuid/text()</arg>
@@ -652,7 +640,7 @@
                 </source_relation>
                 <target_relation>
                     <relationship>crm:P98i_was_born</relationship>
-                    <entity variable="birth">
+                    <entity>
                         <type>crm:E67_Birth</type>
                         <instance_generator name="personBirth">
                             <arg name="person_id" type="xpath">../_uuid/text()</arg>
@@ -852,6 +840,4 @@
 </mappings>
 
 
-
-    
 </x3ml>

@@ -61,7 +61,7 @@
     <namespaces>
         <namespace prefix="sari" uri="https://resource.swissartresearch.net/"/>
     </namespaces>
-    <mappings>
+<mappings>
     <mapping>
         <domain>
             <source_node>/root/entry</source_node>
@@ -91,7 +91,7 @@
                     <entity>
                         <type>crm:E42_Identifier</type>
                         <instance_generator name="URIwithTypeAndId">
-                            <arg name="type" type="constant">collection</arg>
+                            <arg name="type" type="constant">identifier</arg>
                             <arg name="id" type="xpath">text()</arg>
                         </instance_generator>
                     </entity>
@@ -230,7 +230,7 @@
             <range>
                 <source_node>actor/ao_actor_creator</source_node>
                 <target_node>
-                    <entity global_variable="actor_role">
+                    <entity>
                         <type>crm:E39_Actor</type>
                         <instance_generator name="UUID"/>
                     </entity>
@@ -339,7 +339,7 @@
             <range>
                 <source_node>ao_descriptions</source_node>
                 <target_node>
-                    <entity global_variable="description">
+                    <entity>
                         <type>crm:E33_Linguistic_Object</type>
                         <instance_generator name="UUID"/>
                         <additional>
@@ -363,7 +363,7 @@
         <domain>
             <source_node>/root/entry/ao_descriptions</source_node>
             <target_node>
-                <entity global_variable="description">
+                <entity>
                     <type>crm:E33_Linguistic_Object</type>
                     <instance_generator name="UUID"/>
                 </entity>
@@ -594,7 +594,7 @@
         <domain>
             <source_node>/root/entry/actor/ao_actor_creator</source_node>
             <target_node>
-                <entity global_variable="actor_role">
+                <entity>
                     <type>crm:E39_Actor</type>
                     <instance_generator name="UUID"/>
                 </entity>
@@ -678,5 +678,6 @@
 </mappings>
 
 
-    
+
+
 </x3ml>

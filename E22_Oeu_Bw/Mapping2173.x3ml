@@ -258,7 +258,7 @@
                 </source_relation>
                 <target_relation>
                     <relationship>crm:P108i_was_produced_by</relationship>
-                    <entity >
+                    <entity>
                         <type>crm:E12_Production</type>
                         <instance_generator name="builtworkProduction">
                             <arg name="builtwork_id" type="xpath">../../oeu_nc_uuid/text()</arg>
@@ -270,7 +270,7 @@
             <range>
                 <source_node>oeu_nc_actor_relation/oeu_nc_actor</source_node>
                 <target_node>
-                    <entity global_variable="actor_role">
+                    <entity>
                         <type>crm:E39_Actor</type>
                         <instance_generator name="URIwithTypeAndId">
                             <arg name="type" type="constant">person</arg>
@@ -295,7 +295,7 @@
             <range>
                 <source_node>oeu_nc_description</source_node>
                 <target_node>
-                    <entity global_variable="description">
+                    <entity>
                         <type>crm:E33_Linguistic_Object</type>
                         <instance_generator name="UUID"/>
                         <additional>
@@ -358,7 +358,7 @@
                     <entity variable="production">
                         <type>crm:E12_Production</type>
                         <instance_generator name="builtworkProduction">
-                            <arg name="builtwork_id" type="xpath">../../oeu_nc_uuid/text()</arg>
+                            <arg name="builtwork_id" type="xpath">../../../oeu_nc_uuid/text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P7_took_place_at</relationship>
@@ -677,7 +677,7 @@
         <domain>
             <source_node>/root/entry/oeu_nc_description</source_node>
             <target_node>
-                <entity global_variable="description">
+                <entity>
                     <type>crm:E33_Linguistic_Object</type>
                     <instance_generator name="UUID"/>
                 </entity>
@@ -776,7 +776,7 @@
         <domain>
             <source_node>/root/entry/oeu_nc_actor_relation/oeu_nc_actor</source_node>
             <target_node>
-                <entity global_variable="actor_role">
+                <entity>
                     <type>crm:E39_Actor</type>
                     <instance_generator name="UUID"/>
                 </entity>
@@ -888,7 +888,4 @@
         </link>
     </mapping>
 </mappings>
-
-
-
 </x3ml>
