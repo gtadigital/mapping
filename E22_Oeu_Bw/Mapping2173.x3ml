@@ -369,10 +369,9 @@
                 <target_node>
                     <entity>
                         <type>crm:E53_Place</type>
-                        <instance_generator name="placeIdentifierUri">
-                            <arg name="place_id" type="xpath">text()</arg>
-                            <arg name="identifier_type" type="constant">place</arg>
-                            <arg name="identifier" type="xpath">../../../oeu_nc_uuid/text()</arg>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="constant">place</arg>
+                            <arg name="id" type="xpath">text()</arg>
                         </instance_generator>
                     </entity>
                 </target_node>
@@ -473,10 +472,9 @@
                 <target_node>
                     <entity>
                         <type>crm:E53_Place</type>
-                        <instance_generator name="placeIdentifierUri">
-                            <arg name="place_id" type="xpath">text()</arg>
-                            <arg name="identifier_type" type="constant">place</arg>
-                            <arg name="identifier" type="xpath">/root/entry/oeu_nc_uuid/text()</arg>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="constant">place</arg>
+                            <arg name="id" type="xpath">text()</arg>
                         </instance_generator>
                     </entity>
                 </target_node>
@@ -870,7 +868,7 @@
                         <type>crm:E52_Time-Span</type>
                         <instance_generator name="UUID"/>
                     </entity>
-                    <relationship>crm:P82a_begin_of_the_begin</relationship>
+                    <relationship>crm:P82b_end_of_the_end</relationship>
                 </target_relation>
             </path>
             <range>
@@ -888,4 +886,5 @@
         </link>
     </mapping>
 </mappings>
+
 </x3ml>
