@@ -61,7 +61,7 @@
     <namespaces>
         <namespace prefix="sari" uri="https://resource.swissartresearch.net/"/>
     </namespaces>
-  <mappings>
+<mappings>
     <mapping>
         <domain>
             <source_node>/root/entry</source_node>
@@ -155,39 +155,23 @@
         <link>
             <path>
                 <source_relation>
-                    <relation>oeu_nc_alternative_built_work_name/oeu_nc_altname_literal</relation>
+                    <relation>oeu_nc_alternative_built_work_name</relation>
                 </source_relation>
                 <target_relation>
                     <relationship>crm:P1_is_identified_by</relationship>
                 </target_relation>
             </path>
             <range>
-                <source_node>oeu_nc_alternative_built_work_name/oeu_nc_altname_literal</source_node>
+                <source_node>oeu_nc_alternative_built_work_name</source_node>
                 <target_node>
                     <entity global_variable="alternative_name">
                         <type>crm:E41_Appellation</type>
                         <instance_generator name="builtworkAppellationUri">
-                            <arg name="built_work_id" type="xpath">../../oeu_nc_uuid/text()</arg>
-                            <arg name="appellation_id" type="xpath">../oeu_nc_altname_used_uuid/text()</arg>
+                            <arg name="built_work_id" type="xpath">../oeu_nc_uuid/text()</arg>
+                            <arg name="appellation_id" type="xpath">oeu_nc_altname_used_uuid/text()</arg>
                         </instance_generator>
                         <label_generator name="Literal">
-                            <arg name="text" type="xpath">text()</arg>
-                        </label_generator>
-                        <label_generator name="Literal">
-                            <arg name="text" type="xpath">../oeu_alt_name_lan/oeu_nc_archive_alt_name_lang_de/text()</arg>
-                            <arg name="language" type="constant">de</arg>
-                        </label_generator>
-                        <label_generator name="Literal">
-                            <arg name="text" type="xpath">../oeu_alt_name_lan/oeu_nc_archive_alt_name_lang_en/text()</arg>
-                            <arg name="language" type="constant">en</arg>
-                        </label_generator>
-                        <label_generator name="Literal">
-                            <arg name="text" type="xpath">../oeu_alt_name_lan/oeu_nc_archive_alt_name_lang_it/text()</arg>
-                            <arg name="language" type="constant">it</arg>
-                        </label_generator>
-                        <label_generator name="Literal">
-                            <arg name="text" type="xpath">../oeu_alt_name_lan/oeu_nc_archive_alt_name_lang_fr/text()</arg>
-                            <arg name="language" type="constant">fr</arg>
+                            <arg name="text" type="xpath">oeu_nc_altname_literal/text()</arg>
                         </label_generator>
                         <additional>
                             <relationship>crm:P2_has_type</relationship>
@@ -279,6 +263,19 @@
                         <label_generator name="Literal">
                             <arg name="text" type="xpath">oeu_nc_actor_type/text()</arg>
                         </label_generator>
+                        <additional>
+                            <relationship>crm:P2_has_type</relationship>
+                            <entity>
+                                <type>crm:E55_Type</type>
+                                <instance_info>
+                                    <constant/>
+                                </instance_info>
+                                <instance_generator name="URIwithTypeAndId">
+                                    <arg name="type" type="constant">person</arg>
+                                    <arg name="id" type="xpath">oeu_nc_act_role_uuid/text()</arg>
+                                </instance_generator>
+                            </entity>
+                        </additional>
                     </entity>
                 </target_node>
             </range>
@@ -355,7 +352,7 @@
                 </source_relation>
                 <target_relation>
                     <relationship>crm:P108i_was_produced_by</relationship>
-                    <entity variable="production">
+                    <entity>
                         <type>crm:E12_Production</type>
                         <instance_generator name="builtworkProduction">
                             <arg name="builtwork_id" type="xpath">../../../oeu_nc_uuid/text()</arg>
@@ -384,19 +381,14 @@
                 </source_relation>
                 <target_relation>
                     <relationship>crm:P108i_was_produced_by</relationship>
-                    <entity variable="production">
+                    <entity>
                         <type>crm:E12_Production</type>
-                        <instance_generator name="builtworkProduction">
-                            <arg name="builtwork_id" type="xpath">/root/entry/oeu_nc_uuid/text()</arg>
-                        </instance_generator>
+                        <instance_generator name="UUID"/>
                     </entity>
                     <relationship>crm:P4_has_time-span</relationship>
                     <entity>
                         <type>crm:E52_Time-Span</type>
-                        <instance_generator name="URIwithTypeAndId_hashed">
-                            <arg name="type" type="constant">production_timespan</arg>
-                            <arg name="id" type="xpath">/root/entry/oeu_nc_uuid/text()</arg>
-                        </instance_generator>
+                        <instance_generator name="UUID"/>
                     </entity>
                     <relationship>crm:P82a_begin_of_the_begin</relationship>
                 </target_relation>
@@ -408,7 +400,6 @@
                         <type>http://www.w3.org/2001/XMLSchema#dateTime</type>
                         <instance_generator name="Literal">
                             <arg name="text" type="xpath">text()</arg>
-                            <arg name="language" type="constant">en</arg>
                         </instance_generator>
                     </entity>
                 </target_node>
@@ -421,19 +412,14 @@
                 </source_relation>
                 <target_relation>
                     <relationship>crm:P108i_was_produced_by</relationship>
-                    <entity variable="production">
+                    <entity>
                         <type>crm:E12_Production</type>
-                        <instance_generator name="builtworkProduction">
-                            <arg name="builtwork_id" type="xpath">/root/entry/oeu_nc_uuid/text()</arg>
-                        </instance_generator>
+                        <instance_generator name="UUID"/>
                     </entity>
                     <relationship>crm:P4_has_time-span</relationship>
                     <entity>
                         <type>crm:E52_Time-Span</type>
-                        <instance_generator name="URIwithTypeAndId_hashed">
-                            <arg name="type" type="constant">production_timespan</arg>
-                            <arg name="id" type="xpath">/root/entry/oeu_nc_uuid/text()</arg>
-                        </instance_generator>
+                        <instance_generator name="UUID"/>
                     </entity>
                     <relationship>crm:P82b_end_of_the_end</relationship>
                 </target_relation>
@@ -445,7 +431,6 @@
                         <type>http://www.w3.org/2001/XMLSchema#dateTime</type>
                         <instance_generator name="Literal">
                             <arg name="text" type="xpath">text()</arg>
-                            <arg name="language" type="constant">en</arg>
                         </instance_generator>
                     </entity>
                 </target_node>
@@ -458,7 +443,7 @@
                 </source_relation>
                 <target_relation>
                     <relationship>crm:P13i_was_destroyed_by</relationship>
-                    <entity variable="destruction">
+                    <entity>
                         <type>crm:E6_Destruction</type>
                         <instance_generator name="builtworkDestruction">
                             <arg name="builtwork_id" type="xpath">/root/entry/oeu_nc_uuid/text()</arg>
@@ -487,19 +472,14 @@
                 </source_relation>
                 <target_relation>
                     <relationship>crm:P13i_was_destroyed_by</relationship>
-                    <entity variable="destruction">
+                    <entity>
                         <type>crm:E6_Destruction</type>
-                        <instance_generator name="builtworkDestruction">
-                            <arg name="builtwork_id" type="xpath">/root/entry/oeu_nc_uuid/text()</arg>
-                        </instance_generator>
+                        <instance_generator name="UUID"/>
                     </entity>
                     <relationship>crm:P4_has_time-span</relationship>
                     <entity>
                         <type>crm:E52_Time-Span</type>
-                        <instance_generator name="URIwithTypeAndId_hashed">
-                            <arg name="type" type="constant">destruction_timespan</arg>
-                            <arg name="id" type="xpath">/root/entry/oeu_nc_uuid/text()</arg>
-                        </instance_generator>
+                        <instance_generator name="UUID"/>
                     </entity>
                     <relationship>crm:P82a_begin_of_the_begin</relationship>
                 </target_relation>
@@ -511,7 +491,6 @@
                         <type>http://www.w3.org/2001/XMLSchema#dateTime</type>
                         <instance_generator name="Literal">
                             <arg name="text" type="xpath">text()</arg>
-                            <arg name="language" type="constant">en</arg>
                         </instance_generator>
                     </entity>
                 </target_node>
@@ -524,19 +503,14 @@
                 </source_relation>
                 <target_relation>
                     <relationship>crm:P13i_was_destroyed_by</relationship>
-                    <entity variable="destruction">
+                    <entity>
                         <type>crm:E6_Destruction</type>
-                        <instance_generator name="builtworkDestruction">
-                            <arg name="builtwork_id" type="xpath">/root/entry/oeu_nc_uuid/text()</arg>
-                        </instance_generator>
+                        <instance_generator name="UUID"/>
                     </entity>
                     <relationship>crm:P4_has_time-span</relationship>
                     <entity>
                         <type>crm:E52_Time-Span</type>
-                        <instance_generator name="URIwithTypeAndId_hashed">
-                            <arg name="type" type="constant">destruction_timespan</arg>
-                            <arg name="id" type="xpath">/root/entry/oeu_nc_uuid/text()</arg>
-                        </instance_generator>
+                        <instance_generator name="UUID"/>
                     </entity>
                     <relationship>crm:P82b_end_of_the_end</relationship>
                 </target_relation>
@@ -560,10 +534,10 @@
                 </source_relation>
                 <target_relation>
                     <relationship>crm:P13i_was_destroyed_by</relationship>
-                    <entity variable="destruction">
+                    <entity>
                         <type>crm:E6_Destruction</type>
-                        <instance_generator name="builtworkDestruction">
-                            <arg name="builtwork_id" type="xpath">../../oeu_uuid/text()</arg>
+                        <instance_generator name="URIorUUID">
+                            <arg name="text" type="constant">builtwork_destruction_uncert</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P4_has_time-span</relationship>
@@ -588,11 +562,9 @@
                 </source_relation>
                 <target_relation>
                     <relationship>crm:P108i_was_produced_by</relationship>
-                    <entity variable="production">
+                    <entity>
                         <type>crm:E12_Production</type>
-                        <instance_generator name="builtworkProduction">
-                            <arg name="builtwork_id" type="xpath">../../oeu_uuid/text()</arg>
-                        </instance_generator>
+                        <instance_generator name="UUID"/>
                     </entity>
                     <relationship>crm:P4_has_time-span</relationship>
                 </target_relation>
@@ -772,51 +744,33 @@
     </mapping>
     <mapping>
         <domain>
-            <source_node>/root/entry/oeu_nc_actor_relation/oeu_nc_actor</source_node>
-            <target_node>
-                <entity>
-                    <type>crm:E39_Actor</type>
-                    <instance_generator name="UUID"/>
-                </entity>
-            </target_node>
-        </domain>
-        <link>
-            <path>
-                <source_relation>
-                    <relation>oeu_nc_act_role_uuid</relation>
-                </source_relation>
-                <target_relation>
-                    <relationship>crmpc:P01i_is_domain_of</relationship>
-                    <entity>
-                        <type>crmpc:PC14_carried_out_by</type>
-                        <instance_generator name="UUID"/>
-                    </entity>
-                    <relationship>crmpc:P14.1_in_the_role_of</relationship>
-                </target_relation>
-            </path>
-            <range>
-                <source_node>oeu_nc_act_role_uuid</source_node>
-                <target_node>
-                    <entity>
-                        <type>crmpc:E55_Type</type>
-                        <instance_generator name="URIwithType">
-                            <arg name="type" type="xpath">text()</arg>
-                        </instance_generator>
-                    </entity>
-                </target_node>
-            </range>
-        </link>
-    </mapping>
-    <mapping>
-        <domain>
             <source_node>/root/entry/oeu_nc_alternative_built_work_name</source_node>
             <target_node>
                 <entity global_variable="alternative_name">
                     <type>crm:E41_Appellation</type>
-                    <instance_generator name="URIwithTypeAndId">
-                        <arg name="type" type="constant">oeuvres_alternativename</arg>
-                        <arg name="id" type="xpath">/root/entry/oeu_nc_uuid/text()</arg>
+                    <instance_generator name="builtworkAppellationUri">
+                        <arg name="built_work_id" type="xpath">../oeu_nc_uuid/text()</arg>
+                        <arg name="appellation_id" type="xpath">oeu_nc_altname_used_uuid/text()</arg>
                     </instance_generator>
+                    <label_generator name="Literal">
+                        <arg name="text" type="xpath">oeu_nc_altname_literal/text()</arg>
+                    </label_generator>
+                    <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                            <type>crm:E55_Type</type>
+                            <instance_info>
+                                <constant/>
+                            </instance_info>
+                            <instance_generator name="URIwithTypeAndId_hashed">
+                                <arg name="type" type="constant">types</arg>
+                                <arg name="id" type="constant">Alternative Name</arg>
+                            </instance_generator>
+                            <label_generator name="Literal">
+                                <arg name="text" type="constant">Alternative Name </arg>
+                            </label_generator>
+                        </entity>
+                    </additional>
                 </entity>
             </target_node>
         </domain>
@@ -886,5 +840,4 @@
         </link>
     </mapping>
 </mappings>
-
 </x3ml>
