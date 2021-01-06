@@ -61,7 +61,7 @@
 		<namespace prefix="wikidata" uri="https://www.wikidata.org/wiki/"/>
 		<namespace prefix="sikart" uri="http://www.sikart.ch/"/>
 	</namespaces>
-	<mappings>
+<mappings>
     <mapping>
         <domain>
             <source_node>/root/entry</source_node>
@@ -158,15 +158,15 @@
                     <entity variable="identifier">
                         <type>crm:E42_Identifier</type>
                         <instance_generator name="URIorUUID">
-                            <arg name="text" type="constant">swisstopo_provider_identifier</arg>
+                            <arg name="text" type="xpath">../plIdentifier_uuid/text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P37i_was_assigned_by</relationship>
-                     <entity>
+                    <entity>
                         <type>crm:E15_Identifier_Assignment</type>
-                        <instance_generator name="URIwithTypeAndId">
-                            <arg name="type" type="constant">swisstopo_provider_identifier_assignment</arg>
-                            <arg name="id" type="xpath">../plIdentifier_uuid/text()</arg>
+                        <instance_generator name="identifierAssignment">
+                            <arg name="place_id" type="xpath">../plIdentifier_uuid/text()</arg>
+                            <arg name="identifier_value" type="xpath">text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P14_carried_out_by</relationship>
@@ -177,9 +177,9 @@
                 <target_node>
                     <entity>
                         <type>crm:E39_Actor</type>
-                        <instance_generator name="URIwithTypeAndId">
-                            <arg name="type" type="constant">actor</arg>
-                            <arg name="id" type="xpath">text()</arg>
+                        <instance_generator name="actorIdentifier">
+                            <arg name="place_id" type="xpath">../plIdentifier_uuid/text()</arg>
+                            <arg name="identifier_value" type="xpath">text()</arg>
                         </instance_generator>
                         <label_generator name="Literal">
                             <arg name="text" type="constant">SwissTopo</arg>
@@ -198,15 +198,15 @@
                     <entity variable="identifier">
                         <type>crm:E42_Identifier</type>
                         <instance_generator name="URIorUUID">
-                            <arg name="text" type="constant">swisstopoURI_identifier</arg>
+                            <arg name="text" type="xpath">../plIdentifier_uuid/text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P37i_was_assigned_by</relationship>
-                    <entity >
+                    <entity>
                         <type>crm:E15_Identifier_Assignment</type>
-                        <instance_generator name="URIwithTypeAndId">
-                            <arg name="type" type="constant">swisstopoURI__identifier_assignment</arg>
-                            <arg name="id" type="xpath">../plIdentifier_uuid/text()</arg>
+                        <instance_generator name="identifierAssignment">
+                            <arg name="place_id" type="xpath">../plIdentifier_uuid/text()</arg>
+                            <arg name="identifier_value" type="xpath">../plIdentifier_swisstopo_provider/text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P16_used_specific_object</relationship>
@@ -215,7 +215,7 @@
             <range>
                 <source_node>plIdentifier_swisstopoURI</source_node>
                 <target_node>
-                    <entity >
+                    <entity>
                         <type>crm:E73_Information_Object</type>
                         <instance_generator name="URIwithTypeAndId">
                             <arg name="type" type="constant">swisstopo_uri</arg>
@@ -235,15 +235,15 @@
                     <entity variable="identifier">
                         <type>crm:E42_Identifier</type>
                         <instance_generator name="URIorUUID">
-                            <arg name="text" type="constant">sthz_provider_identifier</arg>
+                            <arg name="text" type="xpath">../plIdentifier_uuid/text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P37i_was_assigned_by</relationship>
                     <entity>
                         <type>crm:E15_Identifier_Assignment</type>
-                        <instance_generator name="URIwithTypeAndId">
-                            <arg name="type" type="constant">sthz_provider_identifier_assignment</arg>
-                            <arg name="id" type="xpath">../plIdentifier_uuid/text()</arg>
+                        <instance_generator name="identifierAssignment">
+                            <arg name="place_id" type="xpath">../plIdentifier_uuid/text()</arg>
+                            <arg name="identifier_value" type="xpath">text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P14_carried_out_by</relationship>
@@ -254,12 +254,12 @@
                 <target_node>
                     <entity>
                         <type>crm:E39_Actor</type>
-                        <instance_generator name="URIwithTypeAndId">
-                            <arg name="type" type="constant">actor</arg>
-                            <arg name="id" type="xpath">text()</arg>
+                        <instance_generator name="actorIdentifier">
+                            <arg name="place_id" type="xpath">../plIdentifier_uuid/text()</arg>
+                            <arg name="identifier_value" type="xpath">text()</arg>
                         </instance_generator>
                         <label_generator name="Literal">
-                            <arg name="text" type="constant">sthz</arg>
+                            <arg name="text" type="constant">StadtZurich</arg>
                         </label_generator>
                     </entity>
                 </target_node>
@@ -275,15 +275,15 @@
                     <entity variable="identifier">
                         <type>crm:E42_Identifier</type>
                         <instance_generator name="URIorUUID">
-                            <arg name="text" type="constant">tgn_provider_identifier</arg>
+                            <arg name="text" type="xpath">../plIdentifier_uuid/text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P37i_was_assigned_by</relationship>
-                    <entity >
+                    <entity>
                         <type>crm:E15_Identifier_Assignment</type>
-                        <instance_generator name="URIwithTypeAndId">
-                            <arg name="type" type="constant">tgn_provider_identifier_assignment</arg>
-                            <arg name="id" type="xpath">../plIdentifier_uuid/text()</arg>
+                        <instance_generator name="identifierAssignment">
+                            <arg name="place_id" type="xpath">../plIdentifier_uuid/text()</arg>
+                            <arg name="identifier_value" type="xpath">text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P14_carried_out_by</relationship>
@@ -292,11 +292,11 @@
             <range>
                 <source_node>plIdentifier_tgn_provider</source_node>
                 <target_node>
-                    <entity >
+                    <entity>
                         <type>crm:E39_Actor</type>
-                        <instance_generator name="URIwithTypeAndId">
-                            <arg name="type" type="constant">actor</arg>
-                            <arg name="id" type="xpath">text()</arg>
+                        <instance_generator name="actorIdentifier">
+                            <arg name="place_id" type="xpath">../plIdentifier_uuid/text()</arg>
+                            <arg name="identifier_value" type="xpath">text()</arg>
                         </instance_generator>
                         <label_generator name="Literal">
                             <arg name="text" type="constant">tgn</arg>
@@ -315,15 +315,15 @@
                     <entity variable="identifier">
                         <type>crm:E42_Identifier</type>
                         <instance_generator name="URIorUUID">
-                            <arg name="text" type="constant">tgnURI_identifier</arg>
+                            <arg name="text" type="xpath">../plIdentifier_uuid/text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P37i_was_assigned_by</relationship>
                     <entity>
                         <type>crm:E15_Identifier_Assignment</type>
-                        <instance_generator name="URIwithTypeAndId">
-                            <arg name="type" type="constant">tgnURI_identifier_assignment</arg>
-                            <arg name="id" type="xpath">../plIdentifier_uuid/text()</arg>
+                        <instance_generator name="identifierAssignment">
+                            <arg name="place_id" type="xpath">../plIdentifier_uuid/text()</arg>
+                            <arg name="identifier_value" type="xpath">../plIdentifier_tgnURI/text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P16_used_specific_object</relationship>
@@ -332,7 +332,7 @@
             <range>
                 <source_node>plIdentifier_tgnURI</source_node>
                 <target_node>
-                    <entity >
+                    <entity>
                         <type>crm:E73_Information_Object</type>
                         <instance_generator name="URIwithTypeAndId">
                             <arg name="type" type="constant">tgnURI</arg>
@@ -352,15 +352,15 @@
                     <entity variable="identifier">
                         <type>crm:E42_Identifier</type>
                         <instance_generator name="URIorUUID">
-                            <arg name="text" type="constant">wikidata_provider_identifier</arg>
+                            <arg name="text" type="xpath">../plIdentifier_uuid/text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P37i_was_assigned_by</relationship>
-                    <entity >
+                    <entity>
                         <type>crm:E15_Identifier_Assignment</type>
-                        <instance_generator name="URIwithTypeAndId">
-                            <arg name="type" type="constant">wikidata_provider_identifier_assignment</arg>
-                            <arg name="id" type="xpath">../plIdentifier_uuid/text()</arg>
+                        <instance_generator name="identifierAssignment">
+                            <arg name="place_id" type="xpath">../plIdentifier_uuid/text()</arg>
+                            <arg name="identifier_value" type="xpath">text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P14_carried_out_by</relationship>
@@ -369,11 +369,11 @@
             <range>
                 <source_node>plIdentifier_wikidata_provider</source_node>
                 <target_node>
-                    <entity >
+                    <entity>
                         <type>crm:E39_Actor</type>
-                        <instance_generator name="URIwithTypeAndId">
-                            <arg name="type" type="constant">actor</arg>
-                            <arg name="id" type="xpath">text()</arg>
+                        <instance_generator name="actorIdentifier">
+                            <arg name="place_id" type="xpath">../plIdentifier_uuid/text()</arg>
+                            <arg name="identifier_value" type="xpath">text()</arg>
                         </instance_generator>
                         <label_generator name="Literal">
                             <arg name="text" type="constant">wikidata</arg>
@@ -392,15 +392,15 @@
                     <entity variable="identifier">
                         <type>crm:E42_Identifier</type>
                         <instance_generator name="URIorUUID">
-                            <arg name="text" type="constant">wikidataURI_identifier</arg>
+                            <arg name="text" type="xpath">../plIdentifier_uuid/text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P37i_was_assigned_by</relationship>
-                    <entity >
+                    <entity>
                         <type>crm:E15_Identifier_Assignment</type>
-                        <instance_generator name="URIwithTypeAndId">
-                            <arg name="type" type="constant">wikidataURI_identifier_assignment</arg>
-                            <arg name="id" type="xpath">../plIdentifier_uuid/text()</arg>
+                        <instance_generator name="identifierAssignment">
+                            <arg name="place_id" type="xpath">../plIdentifier_uuid/text()</arg>
+                            <arg name="identifier_value" type="xpath">../plIdentifier_wikidata_provider/text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P16_used_specific_object</relationship>
@@ -429,15 +429,15 @@
                     <entity variable="identifier">
                         <type>crm:E42_Identifier</type>
                         <instance_generator name="URIorUUID">
-                            <arg name="text" type="constant">geonames_provider_identifier</arg>
+                            <arg name="text" type="xpath">../plIdentifier_uuid/text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P37i_was_assigned_by</relationship>
-                    <entity >
+                    <entity>
                         <type>crm:E15_Identifier_Assignment</type>
-                        <instance_generator name="URIwithTypeAndId">
-                            <arg name="type" type="constant">geonames_provider_identifier_assignment</arg>
-                            <arg name="id" type="xpath">../plIdentifier_uuid/text()</arg>
+                        <instance_generator name="identifierAssignment">
+                            <arg name="place_id" type="xpath">../plIdentifier_uuid/text()</arg>
+                            <arg name="identifier_value" type="xpath">text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P14_carried_out_by</relationship>
@@ -446,11 +446,11 @@
             <range>
                 <source_node>plIdentifier_geonames_provider</source_node>
                 <target_node>
-                    <entity >
+                    <entity>
                         <type>crm:E39_Actor</type>
-                        <instance_generator name="URIwithTypeAndId">
-                            <arg name="type" type="constant">actor</arg>
-                            <arg name="id" type="xpath">text()</arg>
+                        <instance_generator name="actorIdentifier">
+                            <arg name="place_id" type="xpath">../plIdentifier_uuid/text()</arg>
+                            <arg name="identifier_value" type="xpath">text()</arg>
                         </instance_generator>
                         <label_generator name="Literal">
                             <arg name="text" type="constant">geonames</arg>
@@ -469,15 +469,15 @@
                     <entity variable="identifier">
                         <type>crm:E42_Identifier</type>
                         <instance_generator name="URIorUUID">
-                            <arg name="text" type="constant">geonamesURI_identifier</arg>
+                            <arg name="text" type="xpath">../plIdentifier_uuid/text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P37i_was_assigned_by</relationship>
-                   <entity>
+                    <entity>
                         <type>crm:E15_Identifier_Assignment</type>
-                        <instance_generator name="URIwithTypeAndId">
-                            <arg name="type" type="constant">geonamesURI_identifier_assignment</arg>
-                            <arg name="id" type="xpath">../plIdentifier_uuid/text()</arg>
+                        <instance_generator name="identifierAssignment">
+                            <arg name="place_id" type="xpath">../plIdentifier_uuid/text()</arg>
+                            <arg name="identifier_value" type="xpath">../plIdentifier_geonames_provider/text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P16_used_specific_object</relationship>
@@ -486,7 +486,7 @@
             <range>
                 <source_node>plIdentifier_geonamesURI</source_node>
                 <target_node>
-                    <entity >
+                    <entity>
                         <type>crm:E73_Information_Object</type>
                         <instance_generator name="URIwithTypeAndId">
                             <arg name="type" type="constant">geonamesURI</arg>
@@ -506,15 +506,15 @@
                     <entity variable="identifier">
                         <type>crm:E42_Identifier</type>
                         <instance_generator name="URIorUUID">
-                            <arg name="text" type="constant">gnd_provider_identifier</arg>
+                            <arg name="text" type="xpath">../plIdentifier_uuid/text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P37i_was_assigned_by</relationship>
-                 <entity >
+                    <entity>
                         <type>crm:E15_Identifier_Assignment</type>
-                        <instance_generator name="URIwithTypeAndId">
-                            <arg name="type" type="constant">gnd_provider_identifier_assignment</arg>
-                            <arg name="id" type="xpath">../plIdentifier_uuid/text()</arg>
+                        <instance_generator name="identifierAssignment">
+                            <arg name="place_id" type="xpath">../plIdentifier_uuid/text()</arg>
+                            <arg name="identifier_value" type="xpath">text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P14_carried_out_by</relationship>
@@ -525,9 +525,9 @@
                 <target_node>
                     <entity>
                         <type>crm:E39_Actor</type>
-                        <instance_generator name="URIwithTypeAndId">
-                            <arg name="type" type="constant">actor</arg>
-                            <arg name="id" type="xpath">text()</arg>
+                        <instance_generator name="actorIdentifier">
+                            <arg name="place_id" type="xpath">../plIdentifier_uuid/text()</arg>
+                            <arg name="identifier_value" type="xpath">text()</arg>
                         </instance_generator>
                         <label_generator name="Literal">
                             <arg name="text" type="constant">gnd</arg>
@@ -546,15 +546,15 @@
                     <entity variable="identifier">
                         <type>crm:E42_Identifier</type>
                         <instance_generator name="URIorUUID">
-                            <arg name="text" type="constant">gndURI_identifier</arg>
+                            <arg name="text" type="xpath">../plIdentifier_uuid/text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P37i_was_assigned_by</relationship>
-                    <entity >
+                    <entity>
                         <type>crm:E15_Identifier_Assignment</type>
-                        <instance_generator name="URIwithTypeAndId">
-                            <arg name="type" type="constant">gndURI_identifier_assignment</arg>
-                            <arg name="id" type="xpath">../plIdentifier_uuid/text()</arg>
+                        <instance_generator name="identifierAssignment">
+                            <arg name="place_id" type="xpath">../plIdentifier_uuid/text()</arg>
+                            <arg name="identifier_value" type="xpath">../plIdentifier_gnd_provider/text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P16_used_specific_object</relationship>
@@ -563,7 +563,7 @@
             <range>
                 <source_node>plIdentifier_gndURI</source_node>
                 <target_node>
-                    <entity >
+                    <entity>
                         <type>crm:E73_Information_Object</type>
                         <instance_generator name="URIwithTypeAndId">
                             <arg name="type" type="constant">gndURI</arg>
@@ -583,15 +583,15 @@
                     <entity variable="identifier">
                         <type>crm:E42_Identifier</type>
                         <instance_generator name="URIorUUID">
-                            <arg name="text" type="constant">dbpedia_provider_identifier</arg>
+                            <arg name="text" type="xpath">../plIdentifier_uuid/text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P37i_was_assigned_by</relationship>
-                    <entity >
+                    <entity>
                         <type>crm:E15_Identifier_Assignment</type>
-                        <instance_generator name="URIwithTypeAndId">
-                            <arg name="type" type="constant">dbpedia_provider_identifier_assignment</arg>
-                            <arg name="id" type="xpath">../plIdentifier_uuid/text()</arg>
+                        <instance_generator name="identifierAssignment">
+                            <arg name="place_id" type="xpath">../plIdentifier_uuid/text()</arg>
+                            <arg name="identifier_value" type="xpath">text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P14_carried_out_by</relationship>
@@ -600,11 +600,11 @@
             <range>
                 <source_node>plIdentifier_dbpedia_provider</source_node>
                 <target_node>
-                    <entity >
+                    <entity>
                         <type>crm:E39_Actor</type>
-                        <instance_generator name="URIwithTypeAndId">
-                            <arg name="type" type="constant">actor</arg>
-                            <arg name="id" type="xpath">text()</arg>
+                        <instance_generator name="actorIdentifier">
+                            <arg name="place_id" type="xpath">../plIdentifier_uuid/text()</arg>
+                            <arg name="identifier_value" type="xpath">text()</arg>
                         </instance_generator>
                         <label_generator name="Literal">
                             <arg name="text" type="constant">dbpedia</arg>
@@ -623,15 +623,15 @@
                     <entity variable="identifier">
                         <type>crm:E42_Identifier</type>
                         <instance_generator name="URIorUUID">
-                            <arg name="text" type="constant">dbpediaURI_identifier</arg>
+                            <arg name="text" type="xpath">../plIdentifier_uuid/text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P37i_was_assigned_by</relationship>
-                     <entity >
+                    <entity>
                         <type>crm:E15_Identifier_Assignment</type>
-                        <instance_generator name="URIwithTypeAndId">
-                            <arg name="type" type="constant">dbpediaURI_identifier_assignment</arg>
-                            <arg name="id" type="xpath">../plIdentifier_uuid/text()</arg>
+                        <instance_generator name="identifierAssignment">
+                            <arg name="place_id" type="xpath">../plIdentifier_uuid/text()</arg>
+                            <arg name="identifier_value" type="xpath">../plIdentifier_dbpedia_provider/text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P16_used_specific_object</relationship>
@@ -640,7 +640,7 @@
             <range>
                 <source_node>plIdentifier_dbpediaURI</source_node>
                 <target_node>
-                    <entity >
+                    <entity>
                         <type>crm:E73_Information_Object</type>
                         <instance_generator name="URIwithTypeAndId">
                             <arg name="type" type="constant">dbpediaURI</arg>
@@ -660,15 +660,15 @@
                     <entity variable="identifier">
                         <type>crm:E42_Identifier</type>
                         <instance_generator name="URIorUUID">
-                            <arg name="text" type="constant">viaf_provider_identifier</arg>
+                            <arg name="text" type="xpath">../plIdentifier_uuid/text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P37i_was_assigned_by</relationship>
                     <entity>
                         <type>crm:E15_Identifier_Assignment</type>
-                        <instance_generator name="URIwithTypeAndId">
-                            <arg name="type" type="constant">viaf_provider_identifier_assignment</arg>
-                            <arg name="id" type="xpath">../plIdentifier_uuid/text()</arg>
+                        <instance_generator name="identifierAssignment">
+                            <arg name="place_id" type="xpath">../plIdentifier_uuid/text()</arg>
+                            <arg name="identifier_value" type="xpath">text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P14_carried_out_by</relationship>
@@ -677,11 +677,11 @@
             <range>
                 <source_node>plIdentifier_viaf_provider</source_node>
                 <target_node>
-                    <entity >
+                    <entity>
                         <type>crm:E39_Actor</type>
-                        <instance_generator name="URIwithTypeAndId">
-                            <arg name="type" type="constant">actor</arg>
-                            <arg name="id" type="xpath">text()</arg>
+                        <instance_generator name="actorIdentifier">
+                            <arg name="place_id" type="xpath">../plIdentifier_uuid/text()</arg>
+                            <arg name="identifier_value" type="xpath">text()</arg>
                         </instance_generator>
                         <label_generator name="Literal">
                             <arg name="text" type="constant">viaf</arg>
@@ -700,15 +700,15 @@
                     <entity variable="identifier">
                         <type>crm:E42_Identifier</type>
                         <instance_generator name="URIorUUID">
-                            <arg name="text" type="constant">viafURI_identifier</arg>
+                            <arg name="text" type="xpath">../plIdentifier_uuid/text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P37i_was_assigned_by</relationship>
-                    <entity >
+                    <entity>
                         <type>crm:E15_Identifier_Assignment</type>
-                        <instance_generator name="URIwithTypeAndId">
-                            <arg name="type" type="constant">viafURI_identifier_assignment</arg>
-                            <arg name="id" type="xpath">../plIdentifier_uuid/text()</arg>
+                        <instance_generator name="identifierAssignment">
+                            <arg name="place_id" type="xpath">../plIdentifier_uuid/text()</arg>
+                            <arg name="identifier_value" type="xpath">../plIdentifier_viaf_provider/text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P16_used_specific_object</relationship>
@@ -717,7 +717,7 @@
             <range>
                 <source_node>plIdentifier_viafURI</source_node>
                 <target_node>
-                    <entity >
+                    <entity>
                         <type>crm:E73_Information_Object</type>
                         <instance_generator name="URIwithTypeAndId">
                             <arg name="type" type="constant">viafURI</arg>
@@ -927,6 +927,4 @@
         </link>
     </mapping>
 </mappings>
-
-
 </x3ml>
