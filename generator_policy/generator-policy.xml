@@ -33,6 +33,12 @@
 	<generator name="placeIdentifierUri-hashed" prefix="sari">
 		<pattern>place/{place_id}/{identifier_type}/{identifier}</pattern>
 	</generator>
+	<generator name="actorIdentifier" prefix="sari">
+		<pattern>place/{place_id}/identifier/{identifier_value}</pattern>
+	</generator>
+	<generator name="identifierAssignment" prefix="sari">
+		<pattern>place/{place_id}/identifier_assignment/{identifier_value}</pattern>
+	</generator>
 	<!-- PERSON DEFINITION -->
 	<generator name="personAppellationUri" prefix="sari" shorten="true">
 		<pattern>person/{person_id}/appellation/{appellation_id}</pattern>
