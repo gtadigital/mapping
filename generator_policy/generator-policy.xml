@@ -23,6 +23,9 @@
 	<generator name="URIwith2TypesAndId" prefix="sari">
 		<pattern>{type1}/{type2}/{id}</pattern>
 	</generator>
+	<generator name="timeSpan" prefix="sari">
+		<pattern>event/timespan/{hash_time_span_value}</pattern>
+	</generator>
 	<!-- PLACE DEFINITION -->
 	<generator name="placeAppellationUri" prefix="sari" shorten="true">
 		<pattern>place/{place_id}/appellation/{appellation_id}</pattern>
