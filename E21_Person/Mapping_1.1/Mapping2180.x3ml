@@ -61,7 +61,7 @@
     <namespaces>
         <namespace prefix="sari" uri="https://resource.swissartresearch.net/"/>
     </namespaces>
-  <mappings>
+ <mappings>
     <mapping>
         <domain>
             <source_node>/root/entry</source_node>
@@ -254,7 +254,9 @@
                     <relationship>crm:P4_has_time-span</relationship>
                     <entity>
                         <type>crm:E52_Time-Span</type>
-                        <instance_generator name="UUID"/>
+                        <instance_generator name="timeSpan">
+                            <arg name="hash_time_span_value" type="xpath">text()</arg>
+                        </instance_generator>
                     </entity>
                     <relationship>crm:P82a_begin_of_the_begin</relationship>
                 </target_relation>
@@ -287,7 +289,9 @@
                     <relationship>crm:P4_has_time-span</relationship>
                     <entity>
                         <type>crm:E52_Time-Span</type>
-                        <instance_generator name="UUID"/>
+                        <instance_generator name="timeSpan">
+                            <arg name="hash_time_span_value" type="xpath">text()</arg>
+                        </instance_generator>
                     </entity>
                     <relationship>crm:P82b_end_of_the_end</relationship>
                 </target_relation>
@@ -320,7 +324,9 @@
                     <relationship>crm:P4_has_time-span</relationship>
                     <entity>
                         <type>crm:E52_Time-Span</type>
-                        <instance_generator name="UUID"/>
+                        <instance_generator name="timeSpan">
+                            <arg name="hash_time_span_value" type="xpath">text()</arg>
+                        </instance_generator>
                     </entity>
                     <relationship>crm:P82a_begin_of_the_begin</relationship>
                 </target_relation>
@@ -353,7 +359,9 @@
                     <relationship>crm:P4_has_time-span</relationship>
                     <entity>
                         <type>crm:E52_Time-Span</type>
-                        <instance_generator name="UUID"/>
+                        <instance_generator name="timeSpan">
+                            <arg name="hash_time_span_value" type="xpath">text()</arg>
+                        </instance_generator>
                     </entity>
                     <relationship>crm:P82b_end_of_the_end</relationship>
                 </target_relation>
@@ -838,6 +846,4 @@
         </link>
     </mapping>
 </mappings>
-
-
 </x3ml>
