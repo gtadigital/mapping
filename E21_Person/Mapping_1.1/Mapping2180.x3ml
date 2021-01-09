@@ -247,12 +247,15 @@
                     <relation>act_exist_birth_timespan_from</relation>
                 </source_relation>
                 <target_relation>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
                     <relationship>crm:P98i_was_born</relationship>
                     <entity>
                         <type>crm:E67_Birth</type>
                         <instance_generator name="personBirth">
                             <arg name="person_id" type="xpath">_uuid/text()</arg>
-                            <arg type="constant" name="text">birth_person</arg>
+                            <arg name="text" type="constant">birth_person</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P4_has_time-span</relationship>
@@ -260,7 +263,7 @@
                         <type>crm:E52_Time-Span</type>
                         <instance_generator name="timeSpan">
                             <arg name="hash_time_span_value" type="xpath">text()</arg>
-                            <arg type="constant" name="text">birth_time_span_from</arg>
+                            <arg name="text" type="constant">birth_time_span_from</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P82a_begin_of_the_begin</relationship>
@@ -284,12 +287,15 @@
                     <relation>act_exist_birth_timespan_to</relation>
                 </source_relation>
                 <target_relation>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
                     <relationship>crm:P98i_was_born</relationship>
                     <entity>
                         <type>crm:E67_Birth</type>
                         <instance_generator name="personBirth">
                             <arg name="person_id" type="xpath">_uuid/text()</arg>
-                            <arg type="constant" name="text">birth_person</arg>
+                            <arg name="text" type="constant">birth_person</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P4_has_time-span</relationship>
@@ -297,7 +303,7 @@
                         <type>crm:E52_Time-Span</type>
                         <instance_generator name="timeSpan">
                             <arg name="hash_time_span_value" type="xpath">text()</arg>
-                            <arg type="constant" name="text">birth_time_span_to</arg>
+                            <arg name="text" type="constant">birth_time_span_to</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P82b_end_of_the_end</relationship>
@@ -321,6 +327,9 @@
                     <relation>act_exist_death_timespan_from</relation>
                 </source_relation>
                 <target_relation>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
                     <relationship>crm:P100i_died_in</relationship>
                     <entity>
                         <type>crm:E69_Death</type>
@@ -356,6 +365,9 @@
                     <relation>act_exist_death_timespan_to</relation>
                 </source_relation>
                 <target_relation>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
                     <relationship>crm:P100i_died_in</relationship>
                     <entity>
                         <type>crm:E69_Death</type>
@@ -544,12 +556,15 @@
                     <relation>act_exist_birth_place_uuid</relation>
                 </source_relation>
                 <target_relation>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
                     <relationship>crm:P98i_was_born</relationship>
                     <entity>
                         <type>crm:E67_Birth</type>
                         <instance_generator name="personBirth">
                             <arg name="person_id" type="xpath">../_uuid/text()</arg>
-                            <arg type="constant" name="text">birth_person</arg>
+                            <arg name="text" type="constant">birth_person</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P7_took_place_at</relationship>
@@ -574,6 +589,9 @@
                     <relation>act_exist_death_place</relation>
                 </source_relation>
                 <target_relation>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
                     <relationship>crm:P100i_died_in</relationship>
                     <entity>
                         <type>crm:E69_Death</type>
@@ -625,6 +643,9 @@
                     <relation>act_social_father_uuid</relation>
                 </source_relation>
                 <target_relation>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
                     <relationship>crm:P98i_was_born</relationship>
                     <entity>
                         <type>crm:E67_Birth</type>
@@ -656,6 +677,9 @@
                     <relation>act_social_mother_uuid</relation>
                 </source_relation>
                 <target_relation>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
                     <relationship>crm:P98i_was_born</relationship>
                     <entity>
                         <type>crm:E67_Birth</type>
@@ -857,6 +881,4 @@
         </link>
     </mapping>
 </mappings>
-
-
 </x3ml>
