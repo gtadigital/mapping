@@ -61,7 +61,7 @@
     <namespaces>
         <namespace prefix="sari" uri="https://resource.swissartresearch.net/"/>
     </namespaces>
- <mappings>
+<mappings>
     <mapping>
         <domain>
             <source_node>/root/entry</source_node>
@@ -178,7 +178,10 @@
                     <relationship>crm:P1_is_identified_by</relationship>
                     <entity>
                         <type>crm:E41_Appellation</type>
-                        <instance_generator name="UUID"/>
+                        <instance_generator name="personAppellationUri">
+                            <arg name="person_id" type="xpath">../_uuid/text()</arg>
+                            <arg name="appellation_id" type="xpath">text()</arg>
+                        </instance_generator>
                     </entity>
                     <relationship>crm:P106_is_composed_of</relationship>
                 </target_relation>
@@ -248,7 +251,8 @@
                     <entity>
                         <type>crm:E67_Birth</type>
                         <instance_generator name="personBirth">
-                            <arg name="person_id" type="xpath">../_uuid/text()</arg>
+                            <arg name="person_id" type="xpath">_uuid/text()</arg>
+                            <arg type="constant" name="text">birth_person</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P4_has_time-span</relationship>
@@ -256,6 +260,7 @@
                         <type>crm:E52_Time-Span</type>
                         <instance_generator name="timeSpan">
                             <arg name="hash_time_span_value" type="xpath">text()</arg>
+                            <arg type="constant" name="text">birth_time_span_from</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P82a_begin_of_the_begin</relationship>
@@ -283,7 +288,8 @@
                     <entity>
                         <type>crm:E67_Birth</type>
                         <instance_generator name="personBirth">
-                            <arg name="person_id" type="xpath">../_uuid/text()</arg>
+                            <arg name="person_id" type="xpath">_uuid/text()</arg>
+                            <arg type="constant" name="text">birth_person</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P4_has_time-span</relationship>
@@ -291,6 +297,7 @@
                         <type>crm:E52_Time-Span</type>
                         <instance_generator name="timeSpan">
                             <arg name="hash_time_span_value" type="xpath">text()</arg>
+                            <arg type="constant" name="text">birth_time_span_to</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P82b_end_of_the_end</relationship>
@@ -318,14 +325,14 @@
                     <entity>
                         <type>crm:E69_Death</type>
                         <instance_generator name="personDeath">
-                            <arg name="person_id" type="xpath">../_uuid/text()</arg>
+                            <arg name="person_id" type="xpath">_uuid/text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P4_has_time-span</relationship>
                     <entity>
                         <type>crm:E52_Time-Span</type>
-                        <instance_generator name="timeSpan">
-                            <arg name="hash_time_span_value" type="xpath">text()</arg>
+                        <instance_generator name="URIwithType">
+                            <arg name="type" type="xpath">text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P82a_begin_of_the_begin</relationship>
@@ -353,14 +360,14 @@
                     <entity>
                         <type>crm:E69_Death</type>
                         <instance_generator name="personDeath">
-                            <arg name="person_id" type="xpath">../_uuid/text()</arg>
+                            <arg name="person_id" type="xpath">_uuid/text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P4_has_time-span</relationship>
                     <entity>
                         <type>crm:E52_Time-Span</type>
-                        <instance_generator name="timeSpan">
-                            <arg name="hash_time_span_value" type="xpath">text()</arg>
+                        <instance_generator name="URIwithType">
+                            <arg name="type" type="xpath">text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P82b_end_of_the_end</relationship>
@@ -542,6 +549,7 @@
                         <type>crm:E67_Birth</type>
                         <instance_generator name="personBirth">
                             <arg name="person_id" type="xpath">../_uuid/text()</arg>
+                            <arg type="constant" name="text">birth_person</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P7_took_place_at</relationship>
@@ -622,6 +630,7 @@
                         <type>crm:E67_Birth</type>
                         <instance_generator name="personBirth">
                             <arg name="person_id" type="xpath">../_uuid/text()</arg>
+                            <arg name="text" type="constant">birth_person</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P97_from_father</relationship>
@@ -685,8 +694,9 @@
                 <target_node>
                     <entity>
                         <type>crm:E41_Appellation</type>
-                        <instance_generator name="URIorUUID">
-                            <arg name="text" type="constant">alternate_name</arg>
+                        <instance_generator name="personAppellationUri">
+                            <arg name="person_id" type="xpath">../_uuid/text()</arg>
+                            <arg name="appellation_id" type="xpath">text()</arg>
                         </instance_generator>
                     </entity>
                 </target_node>
@@ -722,8 +732,9 @@
             <target_node>
                 <entity>
                     <type>crm:E41_Appellation</type>
-                    <instance_generator name="URIorUUID">
-                        <arg name="text" type="constant">alternate_name</arg>
+                    <instance_generator name="personAppellationUri">
+                        <arg name="person_id" type="xpath">../_uuid/text()</arg>
+                        <arg name="appellation_id" type="xpath">text()</arg>
                     </instance_generator>
                     <label_generator name="Literal">
                         <arg name="text" type="xpath">act_nc_altname_literal/text()</arg>
@@ -846,4 +857,6 @@
         </link>
     </mapping>
 </mappings>
+
+
 </x3ml>
