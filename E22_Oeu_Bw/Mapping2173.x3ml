@@ -245,7 +245,7 @@
                     <entity>
                         <type>crm:E12_Production</type>
                         <instance_generator name="builtworkProduction">
-                            <arg name="builtwork_id" type="xpath">../../oeu_nc_uuid/text()</arg>
+                            <arg name="builtwork_id" type="xpath">/root/entry/oeu_nc_uuid/text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P14_carried_out_by</relationship>
@@ -351,11 +351,14 @@
                     <relation>oeu_nc_construction/oeu_nc_construction_place/oeu_nc_construction_place_uuid</relation>
                 </source_relation>
                 <target_relation>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
                     <relationship>crm:P108i_was_produced_by</relationship>
                     <entity>
                         <type>crm:E12_Production</type>
                         <instance_generator name="builtworkProduction">
-                            <arg name="builtwork_id" type="xpath">../../../oeu_nc_uuid/text()</arg>
+                            <arg name="builtwork_id" type="xpath">/root/entry/oeu_nc_uuid/text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P7_took_place_at</relationship>
@@ -380,15 +383,23 @@
                     <relation>oeu_nc_construction/construction_time_span/oeu_nc_construction_time_span_from</relation>
                 </source_relation>
                 <target_relation>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
                     <relationship>crm:P108i_was_produced_by</relationship>
                     <entity>
                         <type>crm:E12_Production</type>
-                        <instance_generator name="UUID"/>
+                        <instance_generator name="builtworkProduction">
+                            <arg name="builtwork_id" type="xpath">/root/entry/oeu_nc_uuid/text()</arg>
+                        </instance_generator>
                     </entity>
                     <relationship>crm:P4_has_time-span</relationship>
                     <entity>
                         <type>crm:E52_Time-Span</type>
-                        <instance_generator name="UUID"/>
+                        <instance_generator name="timeSpan">
+                            <arg name="hash_time_span_value" type="xpath">text()</arg>
+                            <arg type="constant" name="text">construction_time_span_from</arg>
+                        </instance_generator>
                     </entity>
                     <relationship>crm:P82a_begin_of_the_begin</relationship>
                 </target_relation>
@@ -411,15 +422,23 @@
                     <relation>oeu_nc_construction/construction_time_span/oeu_nc_construction_time_span_to</relation>
                 </source_relation>
                 <target_relation>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
                     <relationship>crm:P108i_was_produced_by</relationship>
                     <entity>
                         <type>crm:E12_Production</type>
-                        <instance_generator name="UUID"/>
+                        <instance_generator name="builtworkProduction">
+                            <arg name="builtwork_id" type="xpath">/root/entry/oeu_nc_uuid/text()</arg>
+                        </instance_generator>
                     </entity>
                     <relationship>crm:P4_has_time-span</relationship>
                     <entity>
                         <type>crm:E52_Time-Span</type>
-                        <instance_generator name="UUID"/>
+                        <instance_generator name="timeSpan">
+                            <arg name="hash_time_span_value" type="xpath">text()</arg>
+                            <arg type="constant" name="text">construction_time_span_to</arg>
+                        </instance_generator>
                     </entity>
                     <relationship>crm:P82b_end_of_the_end</relationship>
                 </target_relation>
@@ -442,6 +461,9 @@
                     <relation>oeu_nc_destruction/oeu_nc_destruction_place/oeu_nc_destruction_place_uuid</relation>
                 </source_relation>
                 <target_relation>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
                     <relationship>crm:P13i_was_destroyed_by</relationship>
                     <entity>
                         <type>crm:E6_Destruction</type>
@@ -471,15 +493,23 @@
                     <relation>oeu_nc_destruction/destruction_time_span/oeu_nc_destruction_time_span_from</relation>
                 </source_relation>
                 <target_relation>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
                     <relationship>crm:P13i_was_destroyed_by</relationship>
                     <entity>
                         <type>crm:E6_Destruction</type>
-                        <instance_generator name="UUID"/>
+                        <instance_generator name="builtworkDestruction">
+                            <arg name="builtwork_id" type="xpath">/root/entry/oeu_nc_uuid/text()</arg>
+                        </instance_generator>
                     </entity>
                     <relationship>crm:P4_has_time-span</relationship>
                     <entity>
                         <type>crm:E52_Time-Span</type>
-                        <instance_generator name="UUID"/>
+                        <instance_generator name="timeSpan">
+                            <arg name="hash_time_span_value" type="xpath">text()</arg>
+                            <arg type="constant" name="text">destruction_time_span_from</arg>
+                        </instance_generator>
                     </entity>
                     <relationship>crm:P82a_begin_of_the_begin</relationship>
                 </target_relation>
@@ -502,15 +532,23 @@
                     <relation>oeu_nc_destruction/destruction_time_span/oeu_nc_destruction_time_span_to</relation>
                 </source_relation>
                 <target_relation>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
                     <relationship>crm:P13i_was_destroyed_by</relationship>
                     <entity>
                         <type>crm:E6_Destruction</type>
-                        <instance_generator name="UUID"/>
+                        <instance_generator name="builtworkDestruction">
+                            <arg name="builtwork_id" type="xpath">/root/entry/oeu_nc_uuid/text()</arg>
+                        </instance_generator>
                     </entity>
                     <relationship>crm:P4_has_time-span</relationship>
                     <entity>
                         <type>crm:E52_Time-Span</type>
-                        <instance_generator name="UUID"/>
+                        <instance_generator name="timeSpan">
+                            <arg name="hash_time_span_value" type="xpath">text()</arg>
+                            <arg name="text" type="constant">construction_time_span_to</arg>
+                        </instance_generator>
                     </entity>
                     <relationship>crm:P82b_end_of_the_end</relationship>
                 </target_relation>
@@ -533,11 +571,14 @@
                     <relation>oeu_nc_destruction/destruction_uncertainity/oeu_nc_destruction_time_span_uncertainity</relation>
                 </source_relation>
                 <target_relation>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
                     <relationship>crm:P13i_was_destroyed_by</relationship>
                     <entity>
                         <type>crm:E6_Destruction</type>
-                        <instance_generator name="URIorUUID">
-                            <arg name="text" type="constant">builtwork_destruction_uncert</arg>
+                        <instance_generator name="builtworkTimespanDestruction">
+                            <arg name="builtwork_id" type="xpath">/root/entry/oeu_nc_uuid/text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P4_has_time-span</relationship>
@@ -550,6 +591,7 @@
                         <type>crm:E52_Time-Span</type>
                         <instance_generator name="Literal">
                             <arg name="text" type="xpath">text()</arg>
+                            <arg type="constant" name="text">destruction_time_span_uncert</arg>
                         </instance_generator>
                     </entity>
                 </target_node>
@@ -561,10 +603,15 @@
                     <relation>oeu_nc_construction/construction_uncertainity/oeu_nc_construction_time_span_uncertainity</relation>
                 </source_relation>
                 <target_relation>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
                     <relationship>crm:P108i_was_produced_by</relationship>
                     <entity>
                         <type>crm:E12_Production</type>
-                        <instance_generator name="UUID"/>
+                        <instance_generator name="builtworkProduction">
+                            <arg name="builtwork_id" type="xpath">/root/entry/oeu_nc_uuid/text()</arg>
+                        </instance_generator>
                     </entity>
                     <relationship>crm:P4_has_time-span</relationship>
                 </target_relation>
@@ -576,6 +623,7 @@
                         <type>crm:E52_Time-Span</type>
                         <instance_generator name="Literal">
                             <arg name="text" type="xpath">text()</arg>
+                            <arg type="constant" name="text">construction_time_span_uncert</arg>
                         </instance_generator>
                     </entity>
                 </target_node>
