@@ -67,11 +67,11 @@
             <source_node>/root/entry</source_node>
             <target_node>
                 <entity>
-                    <type>crm:E22_Man-Made_Object</type>
+                    <type>crm:E78_Collection</type>
                     <instance_info/>
                     <instance_generator name="URIwithTypeAndId">
-                        <arg name="type" type="constant">oeuvres</arg>
-                        <arg name="id" type="xpath">oeu_nc_uuid/text()</arg>
+                        <arg name="type" type="constant">collection</arg>
+                        <arg name="id" type="xpath">ao_system_object_id/text()</arg>
                     </instance_generator>
                 </entity>
             </target_node>
@@ -79,27 +79,118 @@
         <link>
             <path>
                 <source_relation>
-                    <relation>oeu_nc_preferred_built_work_name</relation>
+                    <relation>ao_system_object_id</relation>
                 </source_relation>
                 <target_relation>
                     <relationship>crm:P1_is_identified_by</relationship>
                 </target_relation>
             </path>
             <range>
-                <source_node>oeu_nc_preferred_built_work_name</source_node>
+                <source_node>ao_system_object_id</source_node>
                 <target_node>
                     <entity>
-                        <type>crm:E41_Appellation</type>
-                        <instance_generator name="builtworkAppellationUri">
-                            <arg name="built_work_id" type="xpath">../oeu_nc_uuid/text()</arg>
-                            <arg name="appellation_id" type="constant">appellation</arg>
+                        <type>crm:E42_Identifier</type>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="constant">identifier</arg>
+                            <arg name="id" type="xpath">text()</arg>
+                        </instance_generator>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>ao_tag_name</relation>
+                </source_relation>
+                <target_relation>
+                    <relationship>crm:P2_has_type</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>ao_tag_name</source_node>
+                <target_node>
+                    <entity>
+                        <type>crm:E55_Type</type>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="constant">typology</arg>
+                            <arg name="id" type="xpath">../ao_system_object_id/text()</arg>
                         </instance_generator>
                         <label_generator name="Literal">
-                            <arg name="text" type="xpath">oeu_nc_name_de/text()</arg>
+                            <arg name="text" type="xpath">ao_tag_de/text()</arg>
                             <arg name="language" type="constant">de</arg>
                         </label_generator>
                         <label_generator name="Literal">
-                            <arg name="text" type="xpath">oeu_nc_name_en/text()</arg>
+                            <arg name="text" type="xpath">ao_nc_tag_en/text()</arg>
+                            <arg name="language" type="constant">en</arg>
+                        </label_generator>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>ao_preferred_identifier</relation>
+                </source_relation>
+                <target_relation>
+                    <relationship>crm:P1_is_identified_by</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>ao_preferred_identifier</source_node>
+                <target_node>
+                    <entity>
+                        <type>crm:E42_Identifier</type>
+                        <instance_generator name="archivalobjectIdentifierUri">
+                            <arg name="archivalobject_id" type="xpath">../ao_system_object_id/text()</arg>
+                            <arg name="identifier_type" type="constant">uuid</arg>
+                            <arg name="identifier" type="xpath">text()</arg>
+                        </instance_generator>
+                        <label_generator name="Literal">
+                            <arg name="text" type="xpath">text()</arg>
+                            <arg name="language" type="constant">de</arg>
+                        </label_generator>
+                        <additional>
+                            <relationship>crm:P2_has_type</relationship>
+                            <entity>
+                                <type>crm:E55_Type</type>
+                                <instance_info>
+                                    <constant/>
+                                </instance_info>
+                                <instance_generator name="URIwithType">
+                                    <arg name="type" type="constant">preferred identifier</arg>
+                                </instance_generator>
+                            </entity>
+                        </additional>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>ao_file_name</relation>
+                </source_relation>
+                <target_relation>
+                    <relationship>crm:P1_is_identified_by</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>ao_file_name</source_node>
+                <target_node>
+                    <entity>
+                        <type>crm:E41_Appellation</type>
+                        <instance_generator name="archivalobjectAppellationUri">
+                            <arg name="archivalobject_id" type="xpath">../ao_system_object_id/text()</arg>
+                            <arg name="appellation_id" type="constant">appellation</arg>
+                        </instance_generator>
+                        <label_generator name="Literal">
+                            <arg name="text" type="xpath">ao_title_de/text()</arg>
+                            <arg name="language" type="constant">de</arg>
+                        </label_generator>
+                        <label_generator name="Literal">
+                            <arg name="text" type="xpath">ao_title_en/text()</arg>
                             <arg name="language" type="constant">en</arg>
                         </label_generator>
                         <additional>
@@ -114,7 +205,7 @@
                                     <arg name="id" type="constant">Preferred Name</arg>
                                 </instance_generator>
                                 <label_generator name="Literal">
-                                    <arg name="text" type="constant">Preferred Name </arg>
+                                    <arg name="text" type="constant">Preferred Name</arg>
                                 </label_generator>
                             </entity>
                         </additional>
@@ -125,143 +216,31 @@
         <link>
             <path>
                 <source_relation>
-                    <relation>oeu_tag_name</relation>
-                </source_relation>
-                <target_relation>
-                    <relationship>crm:P2_has_type</relationship>
-                </target_relation>
-            </path>
-            <range>
-                <source_node>oeu_tag_name</source_node>
-                <target_node>
-                    <entity>
-                        <type>crm:E55_Type</type>
-                        <instance_generator name="URIwithTypeAndId">
-                            <arg name="type" type="constant">typology</arg>
-                            <arg name="id" type="xpath">../oeu_nc_uuid/text()</arg>
-                        </instance_generator>
-                        <label_generator name="Literal">
-                            <arg name="text" type="xpath">oeu_nc_tag_de/text()</arg>
-                            <arg name="language" type="constant">de</arg>
-                        </label_generator>
-                        <label_generator name="Literal">
-                            <arg name="text" type="xpath">oeu_nc_tag_en/text()</arg>
-                            <arg name="language" type="constant">en</arg>
-                        </label_generator>
-                    </entity>
-                </target_node>
-            </range>
-        </link>
-        <link>
-            <path>
-                <source_relation>
-                    <relation>oeu_nc_alternative_built_work_name</relation>
-                </source_relation>
-                <target_relation>
-                    <relationship>crm:P1_is_identified_by</relationship>
-                </target_relation>
-            </path>
-            <range>
-                <source_node>oeu_nc_alternative_built_work_name</source_node>
-                <target_node>
-                    <entity global_variable="alternative_name">
-                        <type>crm:E41_Appellation</type>
-                        <instance_generator name="builtworkAppellationUri">
-                            <arg name="built_work_id" type="xpath">../oeu_nc_uuid/text()</arg>
-                            <arg name="appellation_id" type="xpath">oeu_nc_altname_used_uuid/text()</arg>
-                        </instance_generator>
-                        <label_generator name="Literal">
-                            <arg name="text" type="xpath">oeu_nc_altname_literal/text()</arg>
-                        </label_generator>
-                        <additional>
-                            <relationship>crm:P2_has_type</relationship>
-                            <entity>
-                                <type>crm:E55_Type</type>
-                                <instance_info>
-                                    <constant/>
-                                </instance_info>
-                                <instance_generator name="URIwithTypeAndId_hashed">
-                                    <arg name="type" type="constant">types</arg>
-                                    <arg name="id" type="constant">Alternative Name</arg>
-                                </instance_generator>
-                                <label_generator name="Literal">
-                                    <arg name="text" type="constant">Alternative Name </arg>
-                                </label_generator>
-                            </entity>
-                        </additional>
-                    </entity>
-                </target_node>
-            </range>
-        </link>
-        <link>
-            <path>
-                <source_relation>
-                    <relation>oeu__oeu_nc_identifier/oeu_nc_identifier_literal</relation>
-                </source_relation>
-                <target_relation>
-                    <relationship>crm:P1_is_identified_by</relationship>
-                </target_relation>
-            </path>
-            <range>
-                <source_node>oeu__oeu_nc_identifier/oeu_nc_identifier_literal</source_node>
-                <target_node>
-                    <entity>
-                        <type>crm:E42_Identifier</type>
-                        <instance_generator name="builtworkIdentifierUri">
-                            <arg name="builtwork_id" type="xpath">../../oeu_nc_uuid/text()</arg>
-                            <arg name="identifier_type" type="xpath">../oeu_generic_identifier_type/oeu_nc_generic_identifier_type_uuid/text()</arg>
-                            <arg name="identifier" type="xpath">text()</arg>
-                        </instance_generator>
-                        <label_generator name="Literal">
-                            <arg name="text" type="xpath">text()</arg>
-                        </label_generator>
-                        <additional>
-                            <relationship>crm:P2_has_type</relationship>
-                            <entity>
-                                <type>crm:E55_Type</type>
-                                <instance_info>
-                                    <constant/>
-                                </instance_info>
-                                <instance_generator name="URIwithTypeAndId">
-                                    <arg name="type" type="constant">identifier type</arg>
-                                    <arg name="id" type="xpath">../oeu_nc_identifier_usedby_uuid/text()</arg>
-                                </instance_generator>
-                                <label_generator name="Literal">
-                                    <arg name="text" type="xpath">../oeu_generic_identifier_type_name/oeu_nc_generic_identifier_type_name/text()</arg>
-                                </label_generator>
-                            </entity>
-                        </additional>
-                    </entity>
-                </target_node>
-            </range>
-        </link>
-        <link>
-            <path>
-                <source_relation>
-                    <relation>oeu_nc_actor_relation/oeu_nc_actor</relation>
+                    <relation>actor/ao_actor_creator/ao_actor_type</relation>
                 </source_relation>
                 <target_relation>
                     <relationship>crm:P108i_was_produced_by</relationship>
                     <entity>
                         <type>crm:E12_Production</type>
-                        <instance_generator name="builtworkProduction">
-                            <arg name="builtwork_id" type="xpath">/root/entry/oeu_nc_uuid/text()</arg>
+                        <instance_generator name="archivalobjectProduction">
+                            <arg name="archivalobject_id" type="xpath">/root/entry/ao_system_object_id/text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P14_carried_out_by</relationship>
                 </target_relation>
             </path>
             <range>
-                <source_node>oeu_nc_actor_relation/oeu_nc_actor</source_node>
+                <source_node>actor/ao_actor_creator/ao_actor_type</source_node>
                 <target_node>
                     <entity>
                         <type>crm:E39_Actor</type>
                         <instance_generator name="URIwithTypeAndId">
                             <arg name="type" type="constant">person</arg>
-                            <arg name="id" type="xpath">oeu_nc_actor_uuid/text()</arg>
+                            <arg name="id" type="xpath">ao_actor_creator_type_uuid/text()</arg>
                         </instance_generator>
                         <label_generator name="Literal">
-                            <arg name="text" type="xpath">oeu_nc_actor_type/text()</arg>
+                            <arg name="text" type="xpath">ao_actor_creator_type/text()</arg>
+                            <arg name="language" type="constant">en</arg>
                         </label_generator>
                         <additional>
                             <relationship>crm:P2_has_type</relationship>
@@ -271,8 +250,8 @@
                                     <constant/>
                                 </instance_info>
                                 <instance_generator name="URIwithTypeAndId">
-                                    <arg name="type" type="constant">person</arg>
-                                    <arg name="id" type="xpath">oeu_nc_act_role_uuid/text()</arg>
+                                    <arg name="type" type="constant">Actor Creator</arg>
+                                    <arg name="id" type="constant">Actor Creator</arg>
                                 </instance_generator>
                             </entity>
                         </additional>
@@ -283,14 +262,126 @@
         <link>
             <path>
                 <source_relation>
-                    <relation>oeu_nc_description</relation>
+                    <relation>ao_production_list/ao_production/ao_production_place_uuid</relation>
+                </source_relation>
+                <target_relation>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
+                    <relationship>crm:P108i_was_produced_by</relationship>
+                    <entity>
+                        <type>crm:E12_Production</type>
+                        <instance_generator name="archivalobjectProduction">
+                            <arg name="archivalobject_id" type="xpath">/root/entry/ao_system_object_id/text()</arg>
+                        </instance_generator>
+                    </entity>
+                    <relationship>crm:P7_took_place_at</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>ao_production_list/ao_production/ao_production_place_uuid</source_node>
+                <target_node>
+                    <entity>
+                        <type>crm:E53_Place</type>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="constant">place</arg>
+                            <arg name="id" type="xpath">text()</arg>
+                        </instance_generator>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>ao_production_list/ao_production_time_span/ao_production_time_span_from</relation>
+                </source_relation>
+                <target_relation>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
+                    <relationship>crm:P108i_was_produced_by</relationship>
+                    <entity>
+                        <type>crm:E12_Production</type>
+                        <instance_generator name="archivalobjectProduction">
+                            <arg name="archivalobject_id" type="xpath">/root/entry/ao_system_object_id/text()</arg>
+                        </instance_generator>
+                    </entity>
+                    <relationship>crm:P4_has_time-span</relationship>
+                    <entity>
+                        <type>crm:E52_Time-Span</type>
+                        <instance_generator name="timeSpan">
+                            <arg name="hash_time_span_value" type="xpath">text()</arg>
+                            <arg type="constant" name="text">production_time_span_from</arg>
+                        </instance_generator>
+                    </entity>
+                    <relationship>crm:P82a_begin_of_the_begin</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>ao_production_list/ao_production_time_span/ao_production_time_span_from</source_node>
+                <target_node>
+                    <entity>
+                        <type>http://www.w3.org/2001/XMLSchema#dateTime</type>
+                        <instance_generator name="Literal">
+                            <arg name="text" type="xpath">text()</arg>
+                            <arg name="language" type="constant">en</arg>
+                        </instance_generator>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>ao_production_list/ao_production_time_span/ao_production_time_span_to</relation>
+                </source_relation>
+                <target_relation>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
+                    <relationship>crm:P108i_was_produced_by</relationship>
+                    <entity>
+                        <type>crm:E12_Production</type>
+                        <instance_generator name="archivalobjectProduction">
+                            <arg name="archivalobject_id" type="xpath">/root/entry/ao_system_object_id/text()</arg>
+                        </instance_generator>
+                    </entity>
+                    <relationship>crm:P4_has_time-span</relationship>
+                    <entity>
+                        <type>crm:E52_Time-Span</type>
+                        <instance_generator name="timeSpan">
+                            <arg name="hash_time_span_value" type="xpath">text()</arg>
+                            <arg type="constant" name="text">production_time_span_to</arg>
+                        </instance_generator>
+                    </entity>
+                    <relationship>crm:P82b_end_of_the_end</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>ao_production_list/ao_production_time_span/ao_production_time_span_to</source_node>
+                <target_node>
+                    <entity>
+                        <type>http://www.w3.org/2001/XMLSchema#dateTime</type>
+                        <instance_generator name="Literal">
+                            <arg name="text" type="xpath">text()</arg>
+                            <arg name="language" type="constant">en</arg>
+                        </instance_generator>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>ao_descriptions</relation>
                 </source_relation>
                 <target_relation>
                     <relationship>crm:P129i_is_subject_of</relationship>
                 </target_relation>
             </path>
             <range>
-                <source_node>oeu_nc_description</source_node>
+                <source_node>ao_descriptions</source_node>
                 <target_node>
                     <entity>
                         <type>crm:E33_Linguistic_Object</type>
@@ -314,21 +405,35 @@
         <link>
             <path>
                 <source_relation>
-                    <relation>oeu_nc_bibliographic_item/citation</relation>
+                    <relation>actor/ao_actor_creator/ao_actor_role</relation>
                 </source_relation>
                 <target_relation>
-                    <relationship>crm:P129i_is_subject_of</relationship>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
+                    <relationship>crm:P108i_was_produced_by</relationship>
+                    <entity>
+                        <type>crm:E12_Production</type>
+                        <instance_generator name="archivalobjectProduction">
+                            <arg name="archivalobject_id" type="xpath">/root/entry/ao_system_object_id/text()</arg>
+                        </instance_generator>
+                    </entity>
+                    <relationship>crm:P14_carried_out_by</relationship>
                 </target_relation>
             </path>
             <range>
-                <source_node>oeu_nc_bibliographic_item/citation</source_node>
+                <source_node>actor/ao_actor_creator/ao_actor_role</source_node>
                 <target_node>
                     <entity>
-                        <type>crm:E33_Linguistic_Object</type>
-                        <instance_generator name="builtworkCitationUUID">
-                            <arg name="builtwork_id" type="xpath">../../oeu_nc_uuid/text()</arg>
-                            <arg name="identifier" type="xpath">oeu_nc_bibliographic_item_uuid/text()</arg>
+                        <type>crm:E39_Actor</type>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="constant">actor_role</arg>
+                            <arg name="id" type="xpath">ao_actor_creator_role_uuid/text()</arg>
                         </instance_generator>
+                        <label_generator name="Literal">
+                            <arg name="text" type="xpath">ao_actor_creator_role_uuid/text()</arg>
+                            <arg name="language" type="constant">de</arg>
+                        </label_generator>
                         <additional>
                             <relationship>crm:P2_has_type</relationship>
                             <entity>
@@ -336,8 +441,9 @@
                                 <instance_info>
                                     <constant/>
                                 </instance_info>
-                                <instance_generator name="URIwithType">
-                                    <arg name="type" type="constant">citation</arg>
+                                <instance_generator name="URIwithTypeAndId">
+                                    <arg name="type" type="constant">Actor Role</arg>
+                                    <arg name="id" type="constant">Actor Role</arg>
                                 </instance_generator>
                             </entity>
                         </additional>
@@ -345,355 +451,10 @@
                 </target_node>
             </range>
         </link>
-        <link>
-            <path>
-                <source_relation>
-                    <relation>oeu_nc_construction/oeu_nc_construction_place/oeu_nc_construction_place_uuid</relation>
-                </source_relation>
-                <target_relation>
-                    <if>
-                        <exists>text()</exists>
-                    </if>
-                    <relationship>crm:P108i_was_produced_by</relationship>
-                    <entity>
-                        <type>crm:E12_Production</type>
-                        <instance_generator name="builtworkProduction">
-                            <arg name="builtwork_id" type="xpath">/root/entry/oeu_nc_uuid/text()</arg>
-                        </instance_generator>
-                    </entity>
-                    <relationship>crm:P7_took_place_at</relationship>
-                </target_relation>
-            </path>
-            <range>
-                <source_node>oeu_nc_construction/oeu_nc_construction_place/oeu_nc_construction_place_uuid</source_node>
-                <target_node>
-                    <entity>
-                        <type>crm:E53_Place</type>
-                        <instance_generator name="URIwithTypeAndId">
-                            <arg name="type" type="constant">place</arg>
-                            <arg name="id" type="xpath">text()</arg>
-                        </instance_generator>
-                    </entity>
-                </target_node>
-            </range>
-        </link>
-        <link>
-            <path>
-                <source_relation>
-                    <relation>oeu_nc_construction/construction_time_span/oeu_nc_construction_time_span_from</relation>
-                </source_relation>
-                <target_relation>
-                    <if>
-                        <exists>text()</exists>
-                    </if>
-                    <relationship>crm:P108i_was_produced_by</relationship>
-                    <entity>
-                        <type>crm:E12_Production</type>
-                        <instance_generator name="builtworkProduction">
-                            <arg name="builtwork_id" type="xpath">/root/entry/oeu_nc_uuid/text()</arg>
-                        </instance_generator>
-                    </entity>
-                    <relationship>crm:P4_has_time-span</relationship>
-                    <entity>
-                        <type>crm:E52_Time-Span</type>
-                        <instance_generator name="timeSpan">
-                            <arg name="hash_time_span_value" type="xpath">text()</arg>
-                            <arg type="constant" name="text">construction_time_span_from</arg>
-                        </instance_generator>
-                    </entity>
-                    <relationship>crm:P82a_begin_of_the_begin</relationship>
-                </target_relation>
-            </path>
-            <range>
-                <source_node>oeu_nc_construction/construction_time_span/oeu_nc_construction_time_span_from</source_node>
-                <target_node>
-                    <entity>
-                        <type>http://www.w3.org/2001/XMLSchema#dateTime</type>
-                        <instance_generator name="Literal">
-                            <arg name="text" type="xpath">text()</arg>
-                        </instance_generator>
-                    </entity>
-                </target_node>
-            </range>
-        </link>
-        <link>
-            <path>
-                <source_relation>
-                    <relation>oeu_nc_construction/construction_time_span/oeu_nc_construction_time_span_to</relation>
-                </source_relation>
-                <target_relation>
-                    <if>
-                        <exists>text()</exists>
-                    </if>
-                    <relationship>crm:P108i_was_produced_by</relationship>
-                    <entity>
-                        <type>crm:E12_Production</type>
-                        <instance_generator name="builtworkProduction">
-                            <arg name="builtwork_id" type="xpath">/root/entry/oeu_nc_uuid/text()</arg>
-                        </instance_generator>
-                    </entity>
-                    <relationship>crm:P4_has_time-span</relationship>
-                    <entity>
-                        <type>crm:E52_Time-Span</type>
-                        <instance_generator name="timeSpan">
-                            <arg name="hash_time_span_value" type="xpath">text()</arg>
-                            <arg type="constant" name="text">construction_time_span_to</arg>
-                        </instance_generator>
-                    </entity>
-                    <relationship>crm:P82b_end_of_the_end</relationship>
-                </target_relation>
-            </path>
-            <range>
-                <source_node>oeu_nc_construction/construction_time_span/oeu_nc_construction_time_span_to</source_node>
-                <target_node>
-                    <entity>
-                        <type>http://www.w3.org/2001/XMLSchema#dateTime</type>
-                        <instance_generator name="Literal">
-                            <arg name="text" type="xpath">text()</arg>
-                        </instance_generator>
-                    </entity>
-                </target_node>
-            </range>
-        </link>
-        <link>
-            <path>
-                <source_relation>
-                    <relation>oeu_nc_destruction/oeu_nc_destruction_place/oeu_nc_destruction_place_uuid</relation>
-                </source_relation>
-                <target_relation>
-                    <if>
-                        <exists>text()</exists>
-                    </if>
-                    <relationship>crm:P13i_was_destroyed_by</relationship>
-                    <entity>
-                        <type>crm:E6_Destruction</type>
-                        <instance_generator name="builtworkDestruction">
-                            <arg name="builtwork_id" type="xpath">/root/entry/oeu_nc_uuid/text()</arg>
-                        </instance_generator>
-                    </entity>
-                    <relationship>crm:P7_took_place_at</relationship>
-                </target_relation>
-            </path>
-            <range>
-                <source_node>oeu_nc_destruction/oeu_nc_destruction_place/oeu_nc_destruction_place_uuid</source_node>
-                <target_node>
-                    <entity>
-                        <type>crm:E53_Place</type>
-                        <instance_generator name="URIwithTypeAndId">
-                            <arg name="type" type="constant">place</arg>
-                            <arg name="id" type="xpath">text()</arg>
-                        </instance_generator>
-                    </entity>
-                </target_node>
-            </range>
-        </link>
-        <link>
-            <path>
-                <source_relation>
-                    <relation>oeu_nc_destruction/destruction_time_span/oeu_nc_destruction_time_span_from</relation>
-                </source_relation>
-                <target_relation>
-                    <if>
-                        <exists>text()</exists>
-                    </if>
-                    <relationship>crm:P13i_was_destroyed_by</relationship>
-                    <entity>
-                        <type>crm:E6_Destruction</type>
-                        <instance_generator name="builtworkDestruction">
-                            <arg name="builtwork_id" type="xpath">/root/entry/oeu_nc_uuid/text()</arg>
-                        </instance_generator>
-                    </entity>
-                    <relationship>crm:P4_has_time-span</relationship>
-                    <entity>
-                        <type>crm:E52_Time-Span</type>
-                        <instance_generator name="timeSpan">
-                            <arg name="hash_time_span_value" type="xpath">text()</arg>
-                            <arg type="constant" name="text">destruction_time_span_from</arg>
-                        </instance_generator>
-                    </entity>
-                    <relationship>crm:P82a_begin_of_the_begin</relationship>
-                </target_relation>
-            </path>
-            <range>
-                <source_node>oeu_nc_destruction/destruction_time_span/oeu_nc_destruction_time_span_from</source_node>
-                <target_node>
-                    <entity>
-                        <type>http://www.w3.org/2001/XMLSchema#dateTime</type>
-                        <instance_generator name="Literal">
-                            <arg name="text" type="xpath">text()</arg>
-                        </instance_generator>
-                    </entity>
-                </target_node>
-            </range>
-        </link>
-        <link>
-            <path>
-                <source_relation>
-                    <relation>oeu_nc_destruction/destruction_time_span/oeu_nc_destruction_time_span_to</relation>
-                </source_relation>
-                <target_relation>
-                    <if>
-                        <exists>text()</exists>
-                    </if>
-                    <relationship>crm:P13i_was_destroyed_by</relationship>
-                    <entity>
-                        <type>crm:E6_Destruction</type>
-                        <instance_generator name="builtworkDestruction">
-                            <arg name="builtwork_id" type="xpath">/root/entry/oeu_nc_uuid/text()</arg>
-                        </instance_generator>
-                    </entity>
-                    <relationship>crm:P4_has_time-span</relationship>
-                    <entity>
-                        <type>crm:E52_Time-Span</type>
-                        <instance_generator name="timeSpan">
-                            <arg name="hash_time_span_value" type="xpath">text()</arg>
-                            <arg name="text" type="constant">construction_time_span_to</arg>
-                        </instance_generator>
-                    </entity>
-                    <relationship>crm:P82b_end_of_the_end</relationship>
-                </target_relation>
-            </path>
-            <range>
-                <source_node>oeu_nc_destruction/destruction_time_span/oeu_nc_destruction_time_span_to</source_node>
-                <target_node>
-                    <entity>
-                        <type>http://www.w3.org/2001/XMLSchema#dateTime</type>
-                        <instance_generator name="Literal">
-                            <arg name="text" type="xpath">text()</arg>
-                        </instance_generator>
-                    </entity>
-                </target_node>
-            </range>
-        </link>
-        <link>
-            <path>
-                <source_relation>
-                    <relation>oeu_nc_destruction/destruction_uncertainity/oeu_nc_destruction_time_span_uncertainity</relation>
-                </source_relation>
-                <target_relation>
-                    <if>
-                        <exists>text()</exists>
-                    </if>
-                    <relationship>crm:P13i_was_destroyed_by</relationship>
-                    <entity>
-                        <type>crm:E6_Destruction</type>
-                        <instance_generator name="builtworkTimespanDestruction">
-                            <arg name="builtwork_id" type="xpath">/root/entry/oeu_nc_uuid/text()</arg>
-                        </instance_generator>
-                    </entity>
-                    <relationship>crm:P4_has_time-span</relationship>
-                </target_relation>
-            </path>
-            <range>
-                <source_node>oeu_nc_destruction/destruction_uncertainity/oeu_nc_destruction_time_span_uncertainity</source_node>
-                <target_node>
-                    <entity>
-                        <type>crm:E52_Time-Span</type>
-                        <instance_generator name="Literal">
-                            <arg name="text" type="xpath">text()</arg>
-                            <arg type="constant" name="text">destruction_time_span_uncert</arg>
-                        </instance_generator>
-                    </entity>
-                </target_node>
-            </range>
-        </link>
-        <link>
-            <path>
-                <source_relation>
-                    <relation>oeu_nc_construction/construction_uncertainity/oeu_nc_construction_time_span_uncertainity</relation>
-                </source_relation>
-                <target_relation>
-                    <if>
-                        <exists>text()</exists>
-                    </if>
-                    <relationship>crm:P108i_was_produced_by</relationship>
-                    <entity>
-                        <type>crm:E12_Production</type>
-                        <instance_generator name="builtworkProduction">
-                            <arg name="builtwork_id" type="xpath">/root/entry/oeu_nc_uuid/text()</arg>
-                        </instance_generator>
-                    </entity>
-                    <relationship>crm:P4_has_time-span</relationship>
-                </target_relation>
-            </path>
-            <range>
-                <source_node>oeu_nc_construction/construction_uncertainity/oeu_nc_construction_time_span_uncertainity</source_node>
-                <target_node>
-                    <entity>
-                        <type>crm:E52_Time-Span</type>
-                        <instance_generator name="Literal">
-                            <arg name="text" type="xpath">text()</arg>
-                            <arg type="constant" name="text">construction_time_span_uncert</arg>
-                        </instance_generator>
-                    </entity>
-                </target_node>
-            </range>
-        </link>
     </mapping>
     <mapping>
         <domain>
-            <source_node>/root/entry/oeu_nc_bibliographic_item/citation</source_node>
-            <target_node>
-                <entity>
-                    <type>crm:E33_Linguistic_Object</type>
-                    <instance_generator name="builtworkCitationUUID">
-                        <arg name="builtwork_id" type="xpath">../../oeu_nc_uuid/text()</arg>
-                        <arg name="identifier" type="xpath">oeu_nc_bibliographic_item_uuid/text()</arg>
-                    </instance_generator>
-                </entity>
-            </target_node>
-        </domain>
-        <link>
-            <path>
-                <source_relation>
-                    <relation>oeu_nc_citation_page</relation>
-                </source_relation>
-                <target_relation>
-                    <relationship>crm:P3_has_note</relationship>
-                </target_relation>
-            </path>
-            <range>
-                <source_node>oeu_nc_citation_page</source_node>
-                <target_node>
-                    <entity>
-                        <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                        <instance_generator name="Literal">
-                            <arg name="text" type="xpath">text()</arg>
-                            <arg name="language" type="constant">en</arg>
-                        </instance_generator>
-                    </entity>
-                </target_node>
-            </range>
-        </link>
-        <link>
-            <path>
-                <source_relation>
-                    <relation>citation/oeu_nc_bibliographic_item_uuid</relation>
-                </source_relation>
-                <target_relation>
-                    <relationship>crm:P1_is_identified_by</relationship>
-                </target_relation>
-            </path>
-            <range>
-                <source_node>oeu_nc_bibliographic_item_uuid</source_node>
-                <target_node>
-                    <entity>
-                        <type>crm:E42_Identifier</type>
-                        <instance_generator name="builtworkCitationUUID">
-                            <arg name="builtwork_id" type="xpath">../../../oeu_nc_uuid/text()</arg>
-                            <arg name="identifier" type="xpath">text()</arg>
-                        </instance_generator>
-                        <label_generator name="Literal">
-                            <arg name="text" type="xpath">text()</arg>
-                        </label_generator>
-                    </entity>
-                </target_node>
-            </range>
-        </link>
-    </mapping>
-    <mapping>
-        <domain>
-            <source_node>/root/entry/oeu_nc_description</source_node>
+            <source_node>/root/entry/ao_descriptions</source_node>
             <target_node>
                 <entity>
                     <type>crm:E33_Linguistic_Object</type>
@@ -704,14 +465,14 @@
         <link>
             <path>
                 <source_relation>
-                    <relation>oeu_nc_description_scientific/oeu_nc_description_scientific_de</relation>
+                    <relation>ao_descr_scholar_descriptions_de</relation>
                 </source_relation>
                 <target_relation>
                     <relationship>crm:P3_has_note</relationship>
                 </target_relation>
             </path>
             <range>
-                <source_node>oeu_nc_description_scientific/oeu_nc_description_scientific_de</source_node>
+                <source_node>ao_descr_scholar_descriptions_de</source_node>
                 <target_node>
                     <entity>
                         <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
@@ -726,14 +487,14 @@
         <link>
             <path>
                 <source_relation>
-                    <relation>oeu_nc_description_scientific/oeu_nc_description_scientific_en</relation>
+                    <relation>ao_scholar_descriptions_en</relation>
                 </source_relation>
                 <target_relation>
                     <relationship>crm:P3_has_note</relationship>
                 </target_relation>
             </path>
             <range>
-                <source_node>oeu_nc_description_scientific/oeu_nc_description_scientific_en</source_node>
+                <source_node>ao_scholar_descriptions_en</source_node>
                 <target_node>
                     <entity>
                         <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
@@ -748,14 +509,14 @@
         <link>
             <path>
                 <source_relation>
-                    <relation>oeu_nc_description/oeu_nc_description_de</relation>
+                    <relation>ao_ao_descr_notes_de</relation>
                 </source_relation>
                 <target_relation>
                     <relationship>crm:P3_has_note</relationship>
                 </target_relation>
             </path>
             <range>
-                <source_node>oeu_nc_description/oeu_nc_description_de</source_node>
+                <source_node>ao_ao_descr_notes_de</source_node>
                 <target_node>
                     <entity>
                         <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
@@ -770,14 +531,14 @@
         <link>
             <path>
                 <source_relation>
-                    <relation>oeu_nc_description/oeu_nc_description_en</relation>
+                    <relation>ao_descr_holding_de</relation>
                 </source_relation>
                 <target_relation>
                     <relationship>crm:P3_has_note</relationship>
                 </target_relation>
             </path>
             <range>
-                <source_node>oeu_nc_description/oeu_nc_description_en</source_node>
+                <source_node>ao_descr_holding_de</source_node>
                 <target_node>
                     <entity>
                         <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
@@ -789,63 +550,20 @@
                 </target_node>
             </range>
         </link>
-    </mapping>
-    <mapping>
-        <domain>
-            <source_node>/root/entry/oeu_nc_alternative_built_work_name</source_node>
-            <target_node>
-                <entity global_variable="alternative_name">
-                    <type>crm:E41_Appellation</type>
-                    <instance_generator name="builtworkAppellationUri">
-                        <arg name="built_work_id" type="xpath">../oeu_nc_uuid/text()</arg>
-                        <arg name="appellation_id" type="xpath">oeu_nc_altname_used_uuid/text()</arg>
-                    </instance_generator>
-                    <label_generator name="Literal">
-                        <arg name="text" type="xpath">oeu_nc_altname_literal/text()</arg>
-                    </label_generator>
-                    <additional>
-                        <relationship>crm:P2_has_type</relationship>
-                        <entity>
-                            <type>crm:E55_Type</type>
-                            <instance_info>
-                                <constant/>
-                            </instance_info>
-                            <instance_generator name="URIwithTypeAndId_hashed">
-                                <arg name="type" type="constant">types</arg>
-                                <arg name="id" type="constant">Alternative Name</arg>
-                            </instance_generator>
-                            <label_generator name="Literal">
-                                <arg name="text" type="constant">Alternative Name </arg>
-                            </label_generator>
-                        </entity>
-                    </additional>
-                </entity>
-            </target_node>
-        </domain>
         <link>
             <path>
                 <source_relation>
-                    <relation>oeu_nc_name_used_timespan_from</relation>
+                    <relation>ao_descr_holding_en</relation>
                 </source_relation>
                 <target_relation>
-                    <relationship>frbr:R64i_was_name_used_by</relationship>
-                    <entity>
-                        <type>frbr:F52_Name_Use_Activity</type>
-                        <instance_generator name="UUID"/>
-                    </entity>
-                    <relationship>crm:P4_has_time-span</relationship>
-                    <entity>
-                        <type>crm:E52_Time-Span</type>
-                        <instance_generator name="UUID"/>
-                    </entity>
-                    <relationship>crm:P82a_begin_of_the_begin</relationship>
+                    <relationship>crm:P3_has_note</relationship>
                 </target_relation>
             </path>
             <range>
-                <source_node>oeu_nc_name_used_timespan_from</source_node>
+                <source_node>ao_descr_holding_en</source_node>
                 <target_node>
                     <entity>
-                        <type>http://www.w3.org/2001/XMLSchema#dateTime</type>
+                        <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
                         <instance_generator name="Literal">
                             <arg name="text" type="xpath">text()</arg>
                             <arg name="language" type="constant">en</arg>
@@ -857,27 +575,105 @@
         <link>
             <path>
                 <source_relation>
-                    <relation>oeu_nc_name_used_timespan_to</relation>
+                    <relation>ao_descr_archivierung</relation>
                 </source_relation>
                 <target_relation>
-                    <relationship>frbr:R64i_was_name_used_by</relationship>
-                    <entity>
-                        <type>frbr:F52_Name_Use_Activity</type>
-                        <instance_generator name="UUID"/>
-                    </entity>
-                    <relationship>crm:P4_has_time-span</relationship>
-                    <entity>
-                        <type>crm:E52_Time-Span</type>
-                        <instance_generator name="UUID"/>
-                    </entity>
-                    <relationship>crm:P82b_end_of_the_end</relationship>
+                    <relationship>crm:P3_has_note</relationship>
                 </target_relation>
             </path>
             <range>
-                <source_node>oeu_nc_name_used_timespan_to</source_node>
+                <source_node>ao_descr_archivierung</source_node>
                 <target_node>
                     <entity>
-                        <type>http://www.w3.org/2001/XMLSchema#dateTime</type>
+                        <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
+                        <instance_generator name="Literal">
+                            <arg name="text" type="xpath">text()</arg>
+                            <arg name="language" type="constant">en</arg>
+                        </instance_generator>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>ao_ao_descr_notes_en</relation>
+                </source_relation>
+                <target_relation>
+                    <relationship>crm:P3_has_note</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>ao_ao_descr_notes_en</source_node>
+                <target_node>
+                    <entity>
+                        <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
+                        <instance_generator name="Literal">
+                            <arg name="text" type="xpath">text()</arg>
+                            <arg name="language" type="constant">en</arg>
+                        </instance_generator>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>ao_descr_actor_display_legacy</relation>
+                </source_relation>
+                <target_relation>
+                    <relationship>crm:P3_has_note</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>ao_descr_actor_display_legacy</source_node>
+                <target_node>
+                    <entity>
+                        <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
+                        <instance_generator name="Literal">
+                            <arg name="text" type="xpath">text()</arg>
+                            <arg name="language" type="constant">en</arg>
+                        </instance_generator>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>ao_descr_place_display_de</relation>
+                </source_relation>
+                <target_relation>
+                    <relationship>crm:P3_has_note</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>ao_descr_place_display_de</source_node>
+                <target_node>
+                    <entity>
+                        <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
+                        <instance_generator name="Literal">
+                            <arg name="text" type="xpath">text()</arg>
+                            <arg name="language" type="constant">en</arg>
+                        </instance_generator>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>ao_descr_chrono_display_de</relation>
+                </source_relation>
+                <target_relation>
+                    <relationship>crm:P3_has_note</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>ao_descr_chrono_display_de</source_node>
+                <target_node>
+                    <entity>
+                        <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
                         <instance_generator name="Literal">
                             <arg name="text" type="xpath">text()</arg>
                             <arg name="language" type="constant">en</arg>
