@@ -259,7 +259,7 @@
                 </target_node>
             </range>
         </link>
-     <link>
+        <link>
             <path>
                 <source_relation>
                     <relation>ao_production_list/ao_production/ao_production_place_uuid</relation>
@@ -291,7 +291,7 @@
                 </target_node>
             </range>
         </link>
-       <link>
+        <link>
             <path>
                 <source_relation>
                     <relation>ao_production_list/ao_production_time_span/ao_production_time_span_from</relation>
@@ -410,7 +410,7 @@
                     <entity>
                         <type>crm:E12_Production</type>
                         <instance_generator name="archivalobjectProduction">
-                            <arg name="archivalobject_id" type="xpath">/root/entry/ao_system_object_id/text()</arg>
+                            <arg name="archivalobject_id" type="xpath">../../../ao_system_object_id/text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P14_carried_out_by</relationship>
@@ -485,6 +485,154 @@
                                 <instance_generator name="URIwithType">
                                     <arg name="type" type="constant">alternative_identifier</arg>
                                 </instance_generator>
+                            </entity>
+                        </additional>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>ao_cover_places/ao_cover_place/ao_cover_places_uuid</relation>
+                </source_relation>
+                <target_relation>
+                    <relationship>crm:P128_carries</relationship>
+                    <entity>
+                        <type>crm:E33_Linguistic_Object</type>
+                        <instance_generator name="UUID"/>
+                    </entity>
+                    <relationship>crm:P129_is_about</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>ao_cover_places/ao_cover_place/ao_cover_places_uuid</source_node>
+                <target_node>
+                    <entity>
+                        <type>crm:E53_Place</type>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="xpath">../../../ao_system_object_id/text()</arg>
+                            <arg name="id" type="xpath">text()</arg>
+                        </instance_generator>
+                        <additional>
+                            <relationship>crm:P2_has_type</relationship>
+                            <entity>
+                                <type>crm:E55_Type</type>
+                                <instance_info>
+                                    <constant/>
+                                </instance_info>
+                                <instance_generator name="URIwithTypeAndId">
+                                    <arg name="type" type="xpath">text()</arg>
+                                    <arg name="id" type="xpath">../../../ao_system_object_id/text()</arg>
+                                </instance_generator>
+                                <label_generator name="Literal">
+                                    <arg name="text" type="xpath">../../ao_cover_place_role/ao_cover_place_type_de/text()</arg>
+                                    <arg name="language" type="constant">de</arg>
+                                </label_generator>
+                                <label_generator name="Literal">
+                                    <arg name="text" type="xpath">../../ao_cover_place_role/ao_cover_place_type_en/text()</arg>
+                                    <arg name="language" type="constant">en</arg>
+                                </label_generator>
+                            </entity>
+                        </additional>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>ao_cover_actors/ao_cover_actors_type/ao_cover_actor_uuid</relation>
+                </source_relation>
+                <target_relation>
+                    <relationship>crm:P128_carries</relationship>
+                    <entity>
+                        <type>crm:E33_Linguistic_Object</type>
+                        <instance_generator name="UUID"/>
+                    </entity>
+                    <relationship>crm:P129_is_about</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>ao_cover_actors/ao_cover_actors_type/ao_cover_actor_uuid</source_node>
+                <target_node>
+                    <entity>
+                        <type>crm:E39_Actor</type>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="xpath">../../../ao_system_object_id/text()</arg>
+                            <arg name="id" type="xpath">text()</arg>
+                        </instance_generator>
+                        <label_generator name="Literal">
+                            <arg name="text" type="xpath">../ao_cover_actor_type/text()</arg>
+                            <arg name="language" type="constant">en</arg>
+                        </label_generator>
+                        <additional>
+                            <relationship>crm:P2_has_type</relationship>
+                            <entity>
+                                <type>crm:E55_Type</type>
+                                <instance_info>
+                                    <constant/>
+                                </instance_info>
+                                <instance_generator name="URIwithTypeAndId">
+                                    <arg name="type" type="xpath">text()</arg>
+                                    <arg name="id" type="xpath">../../../ao_system_object_id/text()</arg>
+                                </instance_generator>
+                                <label_generator name="Literal">
+                                    <arg name="text" type="xpath">../../ao_cover_actor_role/ao_cover_actor_type_de/text()</arg>
+                                    <arg name="language" type="constant">de</arg>
+                                </label_generator>
+                                <label_generator name="Literal">
+                                    <arg name="text" type="xpath">../../ao_cover_actor_role/ao_cover_actor_type_en/text()</arg>
+                                    <arg name="language" type="constant">en</arg>
+                                </label_generator>
+                            </entity>
+                        </additional>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>ao_cover_oeuvres/ao_cover_actors_type/ao_cover_oeuvres_uuid</relation>
+                </source_relation>
+                <target_relation>
+                    <relationship>crm:P128_carries</relationship>
+                    <entity>
+                        <type>crm:E33_Linguistic_Object</type>
+                        <instance_generator name="UUID"/>
+                    </entity>
+                    <relationship>crm:P2_has_type</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>ao_cover_oeuvres/ao_cover_actors_type/ao_cover_oeuvres_uuid</source_node>
+                <target_node>
+                    <entity>
+                        <type>crm:E55_Type</type>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="xpath">../../../ao_system_object_id/text()</arg>
+                            <arg name="id" type="xpath">text()</arg>
+                        </instance_generator>
+                        <additional>
+                            <relationship>crm:P2_has_type</relationship>
+                            <entity>
+                                <type>crm:E55_Type</type>
+                                <instance_info>
+                                    <constant/>
+                                </instance_info>
+                                <instance_generator name="URIwithTypeAndId">
+                                    <arg name="type" type="xpath">text()</arg>
+                                    <arg name="id" type="xpath">../../../ao_system_object_id/text()</arg>
+                                </instance_generator>
+                                <label_generator name="Literal">
+                                    <arg name="text" type="xpath">../../ao_cover_oeuvres_role/ao_cover_oeuvres_type_de/text()</arg>
+                                    <arg name="language" type="constant">de</arg>
+                                </label_generator>
+                                <label_generator name="Literal">
+                                    <arg name="text" type="xpath">../../ao_cover_oeuvres_role/ao_cover_oeuvres_type_en/text()</arg>
+                                    <arg name="language" type="constant">en</arg>
+                                </label_generator>
                             </entity>
                         </additional>
                     </entity>
