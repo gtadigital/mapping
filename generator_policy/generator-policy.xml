@@ -68,6 +68,9 @@
 	<generator name="builtworkAppellationUri" prefix="sari" shorten="true">
 		<pattern>builtwork/{built_work_id}/appellation/{appellation_id}</pattern>
 	</generator>
+	<generator name="builtworkAlternativeAppellationUri" prefix="sari" shorten="true">
+		<pattern>builtwork/{built_work_id}/alternative_appellation/{appellation_id}</pattern>
+	</generator>
 	<generator name="builtworkIdentifierUri" prefix="sari">
 		<pattern>builtwork/{builtwork_id}/{identifier_type}/{identifier}</pattern>
 	</generator>
