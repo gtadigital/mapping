@@ -70,7 +70,7 @@
                     <type>crm:E22_Man-Made_Object</type>
                     <instance_info/>
                     <instance_generator name="URIwithTypeAndId">
-                        <arg name="type" type="constant">oeuvres</arg>
+                        <arg name="type" type="constant">builtwork</arg>
                         <arg name="id" type="xpath">oeu_nc_uuid/text()</arg>
                     </instance_generator>
                 </entity>
@@ -164,11 +164,11 @@
             <range>
                 <source_node>oeu_nc_alternative_built_work_name</source_node>
                 <target_node>
-                    <entity global_variable="alternative_name">
+                    <entity>
                         <type>crm:E41_Appellation</type>
                         <instance_generator name="builtworkAppellationUri">
                             <arg name="built_work_id" type="xpath">../oeu_nc_uuid/text()</arg>
-                            <arg name="appellation_id" type="xpath">oeu_nc_altname_literal/text()</arg>
+                            <arg name="appellation_id" type="constant">alternative_appellation</arg>
                         </instance_generator>
                         <label_generator name="Literal">
                             <arg name="text" type="xpath">oeu_nc_altname_literal/text()</arg>
@@ -800,11 +800,11 @@
         <domain>
             <source_node>/root/entry/oeu_nc_alternative_built_work_name</source_node>
             <target_node>
-                <entity global_variable="alternative_name">
+                <entity>
                     <type>crm:E41_Appellation</type>
                     <instance_generator name="builtworkAppellationUri">
                         <arg name="built_work_id" type="xpath">../oeu_nc_uuid/text()</arg>
-                        <arg name="appellation_id" type="xpath">oeu_nc_altname_literal/text()</arg>
+                        <arg name="appellation_id" type="constant">alternative_appellation</arg>
                     </instance_generator>
                     <label_generator name="Literal">
                         <arg name="text" type="xpath">oeu_nc_altname_literal/text()</arg>
