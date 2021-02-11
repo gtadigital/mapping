@@ -87,6 +87,9 @@
             <range>
                 <source_node>act_person_gender_de</source_node>
                 <target_node>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
                     <entity>
                         <type>crm:E55_Type</type>
                         <instance_generator name="URIwithTypeAndId">
@@ -97,6 +100,22 @@
                             <arg name="text" type="xpath">text()</arg>
                             <arg name="language" type="constant">de</arg>
                         </label_generator>
+                        <additional>
+                            <relationship>crm:P2_has_type</relationship>
+                            <entity>
+                                <type>crm:E55_Type</type>
+                                <instance_info>
+                                    <constant/>
+                                </instance_info>
+                                <instance_generator name="URIwithTypeAndId_hashed">
+                                    <arg name="type" type="constant">types</arg>
+                                    <arg name="id" type="constant">gender</arg>
+                                </instance_generator>
+                                <label_generator name="Literal">
+                                    <arg name="text" type="constant">gender</arg>
+                                </label_generator>
+                            </entity>
+                        </additional>
                     </entity>
                 </target_node>
             </range>
@@ -113,6 +132,9 @@
             <range>
                 <source_node>act_person_gender_en</source_node>
                 <target_node>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
                     <entity>
                         <type>crm:E55_Type</type>
                         <instance_generator name="URIwithTypeAndId">
@@ -123,6 +145,22 @@
                             <arg name="text" type="xpath">text()</arg>
                             <arg name="language" type="constant">en</arg>
                         </label_generator>
+                        <additional>
+                            <relationship>crm:P2_has_type</relationship>
+                            <entity>
+                                <type>crm:E55_Type</type>
+                                <instance_info>
+                                    <constant/>
+                                </instance_info>
+                                <instance_generator name="URIwithTypeAndId_hashed">
+                                    <arg name="type" type="constant">types</arg>
+                                    <arg name="id" type="constant">gender</arg>
+                                </instance_generator>
+                                <label_generator name="Literal">
+                                    <arg name="text" type="constant">gender</arg>
+                                </label_generator>
+                            </entity>
+                        </additional>
                     </entity>
                 </target_node>
             </range>
@@ -254,7 +292,7 @@
                     <entity>
                         <type>crm:E67_Birth</type>
                         <instance_generator name="personBirth">
-                            <arg name="person_id" type="xpath">_uuid/text()</arg>
+                            <arg name="person_id" type="xpath">../_uuid/text()</arg>
                             <arg name="text" type="constant">birth_person</arg>
                         </instance_generator>
                     </entity>
@@ -294,7 +332,7 @@
                     <entity>
                         <type>crm:E67_Birth</type>
                         <instance_generator name="personBirth">
-                            <arg name="person_id" type="xpath">_uuid/text()</arg>
+                            <arg name="person_id" type="xpath">../_uuid/text()</arg>
                             <arg name="text" type="constant">birth_person</arg>
                         </instance_generator>
                     </entity>
@@ -334,7 +372,7 @@
                     <entity>
                         <type>crm:E69_Death</type>
                         <instance_generator name="personDeath">
-                            <arg name="person_id" type="xpath">_uuid/text()</arg>
+                            <arg name="person_id" type="xpath">../_uuid/text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P4_has_time-span</relationship>
@@ -372,7 +410,7 @@
                     <entity>
                         <type>crm:E69_Death</type>
                         <instance_generator name="personDeath">
-                            <arg name="person_id" type="xpath">_uuid/text()</arg>
+                            <arg name="person_id" type="xpath">../_uuid/text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P4_has_time-span</relationship>
@@ -719,9 +757,25 @@
                     <entity>
                         <type>crm:E41_Appellation</type>
                         <instance_generator name="personAppellationUri">
-                            <arg name="person_id" type="xpath">../_uuid/text()</arg>
-                            <arg name="appellation_id" type="xpath">text()</arg>
+                            <arg name="person_id" type="xpath">../../_uuid/text()</arg>
+                            <arg name="appellation_id" type="xpath">act_nc_altname_literal/text()</arg>
                         </instance_generator>
+                        <additional>
+                            <relationship>crm:P2_has_type</relationship>
+                            <entity>
+                                <type>crm:E55_Type</type>
+                                <instance_info>
+                                    <constant/>
+                                </instance_info>
+                                <instance_generator name="URIwithTypeAndId_hashed">
+                                    <arg name="type" type="constant">types</arg>
+                                    <arg name="id" type="constant">Alternative Name</arg>
+                                </instance_generator>
+                                <label_generator name="Literal">
+                                    <arg name="text" type="xpath">Alternative Name</arg>
+                                </label_generator>
+                            </entity>
+                        </additional>
                     </entity>
                 </target_node>
             </range>
@@ -757,8 +811,8 @@
                 <entity>
                     <type>crm:E41_Appellation</type>
                     <instance_generator name="personAppellationUri">
-                        <arg name="person_id" type="xpath">../_uuid/text()</arg>
-                        <arg name="appellation_id" type="xpath">text()</arg>
+                        <arg name="person_id" type="xpath">../../_uuid/text()</arg>
+                        <arg name="appellation_id" type="xpath">act_nc_altname_literal/text()</arg>
                     </instance_generator>
                     <label_generator name="Literal">
                         <arg name="text" type="xpath">act_nc_altname_literal/text()</arg>
