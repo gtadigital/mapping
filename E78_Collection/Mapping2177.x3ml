@@ -161,6 +161,9 @@
                                 <instance_generator name="URIwithType">
                                     <arg name="type" type="constant">preferred identifier</arg>
                                 </instance_generator>
+                                <label_generator name="Literal">
+                                    <arg name="text" type="constant">preferred identifier</arg>
+                                </label_generator>
                             </entity>
                         </additional>
                     </entity>
@@ -223,7 +226,7 @@
                     <entity>
                         <type>crm:E12_Production</type>
                         <instance_generator name="archivalobjectProduction">
-                            <arg name="archivalobject_id" type="xpath">/root/entry/ao_system_object_id/text()</arg>
+                            <arg name="archivalobject_id" type="xpath">../../../ao_system_object_id/text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P14_carried_out_by</relationship>
@@ -250,9 +253,12 @@
                                     <constant/>
                                 </instance_info>
                                 <instance_generator name="URIwithTypeAndId">
-                                    <arg name="type" type="constant">Actor Creator</arg>
-                                    <arg name="id" type="xpath">ao_actor_creator_type_uuid/text()</arg>
+                                    <arg name="type" type="constant">actor creator</arg>
+                                    <arg name="id" type="constant">actor creator</arg>
                                 </instance_generator>
+                                <label_generator name="Literal">
+                                    <arg name="text" type="constant">actor creator</arg>
+                                </label_generator>
                             </entity>
                         </additional>
                     </entity>
@@ -426,7 +432,7 @@
                             <arg name="id" type="xpath">ao_actor_creator_role_uuid/text()</arg>
                         </instance_generator>
                         <label_generator name="Literal">
-                            <arg name="text" type="xpath">ao_actor_creator_role_uuid/text()</arg>
+                            <arg name="text" type="xpath">ao_actor_creator_role_name/text()</arg>
                             <arg name="language" type="constant">de</arg>
                         </label_generator>
                         <additional>
@@ -437,9 +443,12 @@
                                     <constant/>
                                 </instance_info>
                                 <instance_generator name="URIwithTypeAndId">
-                                    <arg name="type" type="constant">Actor Role</arg>
-                                    <arg name="id" type="xpath">ao_actor_creator_role_uuid/text()</arg>
+                                    <arg name="type" type="constant">actor role</arg>
+                                    <arg name="id" type="constant">actor role</arg>
                                 </instance_generator>
+                                <label_generator name="Literal">
+                                    <arg name="text" type="constant">actor role</arg>
+                                </label_generator>
                             </entity>
                         </additional>
                     </entity>
@@ -482,9 +491,13 @@
                                 <instance_info>
                                     <constant/>
                                 </instance_info>
-                                <instance_generator name="URIwithType">
-                                    <arg name="type" type="constant">alternative_identifier</arg>
+                                <instance_generator name="URIwithTypeAndId_hashed">
+                                    <arg name="type" type="constant">alternative identifier</arg>
+                                    <arg name="id" type="constant">alternative identifier</arg>
                                 </instance_generator>
+                                <label_generator name="Literal">
+                                    <arg name="text" type="constant">alternative identifier</arg>
+                                </label_generator>
                             </entity>
                         </additional>
                     </entity>
@@ -511,30 +524,17 @@
                     <entity>
                         <type>crm:E53_Place</type>
                         <instance_generator name="URIwithTypeAndId">
-                            <arg name="type" type="xpath">../../../ao_system_object_id/text()</arg>
+                            <arg name="type" type="constant">place</arg>
                             <arg name="id" type="xpath">text()</arg>
                         </instance_generator>
-                        <additional>
-                            <relationship>crm:P2_has_type</relationship>
-                            <entity>
-                                <type>crm:E55_Type</type>
-                                <instance_info>
-                                    <constant/>
-                                </instance_info>
-                                <instance_generator name="URIwithTypeAndId">
-                                    <arg name="type" type="xpath">text()</arg>
-                                    <arg name="id" type="xpath">../../../ao_system_object_id/text()</arg>
-                                </instance_generator>
-                                <label_generator name="Literal">
-                                    <arg name="text" type="xpath">../../ao_cover_place_role/ao_cover_place_type_de/text()</arg>
-                                    <arg name="language" type="constant">de</arg>
-                                </label_generator>
-                                <label_generator name="Literal">
-                                    <arg name="text" type="xpath">../../ao_cover_place_role/ao_cover_place_type_en/text()</arg>
-                                    <arg name="language" type="constant">en</arg>
-                                </label_generator>
-                            </entity>
-                        </additional>
+                        <label_generator name="Literal">
+                            <arg name="text" type="xpath">../../ao_cover_place_role/ao_cover_place_type_de/text()</arg>
+                            <arg name="language" type="constant">de</arg>
+                        </label_generator>
+                        <label_generator name="Literal">
+                            <arg name="text" type="xpath">../../ao_cover_place_role/ao_cover_place_type_en/text()</arg>
+                            <arg name="language" type="constant">en</arg>
+                        </label_generator>
                     </entity>
                 </target_node>
             </range>
@@ -639,6 +639,264 @@
                 </target_node>
             </range>
         </link>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>ao_document_type_list/ao_document_type/ao_document_type_appellation_de</relation>
+                </source_relation>
+                <target_relation>
+                    <relationship>crm:P2_has_type</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>ao_document_type_list/ao_document_type/ao_document_type_appellation_de</source_node>
+                <target_node>
+                    <entity>
+                        <type>crm:E55_Type</type>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="xpath">../../../ao_system_object_id/text()</arg>
+                            <arg name="id" type="xpath">../ao_document_type_uuid/text()</arg>
+                        </instance_generator>
+                        <label_generator name="Literal">
+                            <arg name="text" type="xpath">text()</arg>
+                            <arg name="language" type="constant">de</arg>
+                        </label_generator>
+                        <additional>
+                            <relationship>crm:P2_has_type</relationship>
+                            <entity>
+                                <type>crm:E55_Type</type>
+                                <instance_info>
+                                    <constant/>
+                                </instance_info>
+                                <instance_generator name="URIwithTypeAndId_hashed">
+                                    <arg name="type" type="constant">types</arg>
+                                    <arg name="id" type="constant">item type</arg>
+                                </instance_generator>
+                                <label_generator name="Literal">
+                                    <arg name="text" type="constant">item type</arg>
+                                </label_generator>
+                            </entity>
+                        </additional>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>ao_correspondance_from/ao_correspondance_from_place/ao_correspondance_place_from</relation>
+                </source_relation>
+                <target_relation>
+                    <relationship>crm:P53_has_former_or_current_location</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>ao_correspondance_from/ao_correspondance_from_place/ao_correspondance_place_from</source_node>
+                <target_node>
+                    <entity>
+                        <type>crm:E53_Place</type>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="constant">place</arg>
+                            <arg name="id" type="xpath">text()</arg>
+                        </instance_generator>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>ao_correspondance_from/ao_correspondance_from_time_span/ao_correspondance_time_span_from_earliest</relation>
+                </source_relation>
+                <target_relation>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
+                    <relationship>crm:P53_has_former_or_current_location</relationship>
+                    <entity>
+                        <type>crm:E53_Place</type>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="constant">place</arg>
+                            <arg name="id" type="xpath">../../ao_correspondance_from_place/ao_correspondance_place_from/text()</arg>
+                        </instance_generator>
+                    </entity>
+                    <relationship>crm:P27i_was_origin_of</relationship>
+                    <entity>
+                        <type>crm:E9_Move</type>
+                        <instance_generator name="UUID"/>
+                    </entity>
+                    <relationship>crm:P4_has_time-span</relationship>
+                    <entity>
+                        <type>crm:E52_Time-Span</type>
+                        <instance_generator name="UUID"/>
+                    </entity>
+                    <relationship>crm:P82a_begin_of_the_begin</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>ao_correspondance_from/ao_correspondance_from_time_span/ao_correspondance_time_span_from_earliest</source_node>
+                <target_node>
+                    <entity>
+                        <type>http://www.w3.org/2001/XMLSchema#dateTime</type>
+                        <instance_generator name="Literal">
+                            <arg name="text" type="xpath">text()</arg>
+                            <arg name="language" type="constant">en</arg>
+                        </instance_generator>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>ao_correspondance_from/ao_correspondance_from_time_span/ao_correspondance_time_span_from_latest</relation>
+                </source_relation>
+                <target_relation>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
+                    <relationship>crm:P53_has_former_or_current_location</relationship>
+                    <entity>
+                        <type>crm:E53_Place</type>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="constant">place</arg>
+                            <arg name="id" type="xpath">ao_correspondance_place_from</arg>
+                        </instance_generator>
+                    </entity>
+                    <relationship>crm:P27i_was_origin_of</relationship>
+                    <entity>
+                        <type>crm:E9_Move</type>
+                        <instance_generator name="UUID"/>
+                    </entity>
+                    <relationship>crm:P4_has_time-span</relationship>
+                    <entity>
+                        <type>crm:E52_Time-Span</type>
+                        <instance_generator name="UUID"/>
+                    </entity>
+                    <relationship>crm:P82b_end_of_the_end</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>ao_correspondance_from/ao_correspondance_from_time_span/ao_correspondance_time_span_from_latest</source_node>
+                <target_node>
+                    <entity>
+                        <type>http://www.w3.org/2001/XMLSchema#dateTime</type>
+                        <instance_generator name="Literal">
+                            <arg name="text" type="xpath">text()</arg>
+                            <arg name="language" type="constant">en</arg>
+                        </instance_generator>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>ao_correspondance_to/ao_correspondance_to_place/ao_correspondance_place_to</relation>
+                </source_relation>
+                <target_relation>
+                    <relationship>crm:P53_has_former_or_current_location</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>ao_correspondance_to/ao_correspondance_to_place/ao_correspondance_place_to</source_node>
+                <target_node>
+                    <entity>
+                        <type>crm:E53_Place</type>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="constant">place</arg>
+                            <arg name="id" type="xpath">text()</arg>
+                        </instance_generator>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>ao_correspondance_to/ao_correspondance_to_time_span/ao_correspondance_time_span_to_earliest</relation>
+                </source_relation>
+                <target_relation>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
+                    <relationship>crm:P53_has_former_or_current_location</relationship>
+                    <entity>
+                        <type>crm:E53_Place</type>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="constant">place</arg>
+                            <arg name="id" type="xpath">../../ao_correspondance_to_place/ao_correspondance_place_to/text()</arg>
+                        </instance_generator>
+                    </entity>
+                    <relationship>crm:P26i_was_destination_of</relationship>
+                    <entity>
+                        <type>crm:E9_Move</type>
+                        <instance_generator name="UUID"/>
+                    </entity>
+                    <relationship>crm:P4_has_time-span</relationship>
+                    <entity>
+                        <type>crm:E52_Time-Span</type>
+                        <instance_generator name="UUID"/>
+                    </entity>
+                    <relationship>crm:P82a_begin_of_the_begin</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>ao_correspondance_to/ao_correspondance_to_time_span/ao_correspondance_time_span_to_earliest</source_node>
+                <target_node>
+                    <entity>
+                        <type>http://www.w3.org/2001/XMLSchema#dateTime</type>
+                        <instance_generator name="Literal">
+                            <arg name="text" type="xpath">text()</arg>
+                            <arg name="language" type="constant">en</arg>
+                        </instance_generator>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>ao_correspondance_to/ao_correspondance_to_time_span/ao_correspondance_time_span_to_latest</relation>
+                </source_relation>
+                <target_relation>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
+                    <relationship>crm:P53_has_former_or_current_location</relationship>
+                    <entity>
+                        <type>crm:E53_Place</type>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="constant">place</arg>
+                            <arg name="id" type="xpath">../../ao_correspondance_to_place/ao_correspondance_place_to/text()</arg>
+                        </instance_generator>
+                    </entity>
+                    <relationship>crm:P26i_was_destination_of</relationship>
+                    <entity>
+                        <type>crm:E9_Move</type>
+                        <instance_generator name="UUID"/>
+                    </entity>
+                    <relationship>crm:P4_has_time-span</relationship>
+                    <entity>
+                        <type>crm:E52_Time-Span</type>
+                        <instance_generator name="UUID"/>
+                    </entity>
+                    <relationship>crm:P82b_end_of_the_end</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>ao_correspondance_to/ao_correspondance_to_time_span/ao_correspondance_time_span_to_latest</source_node>
+                <target_node>
+                    <entity>
+                        <type>http://www.w3.org/2001/XMLSchema#dateTime</type>
+                        <instance_generator name="Literal">
+                            <arg name="text" type="xpath">text()</arg>
+                            <arg name="language" type="constant">en</arg>
+                        </instance_generator>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
     </mapping>
     <mapping>
         <domain>
@@ -668,9 +926,13 @@
                             <instance_info>
                                 <constant/>
                             </instance_info>
-                            <instance_generator name="URIwithType">
-                                <arg name="type" type="constant">alternative_identifier</arg>
+                            <instance_generator name="URIwithTypeAndId_hashed">
+                                <arg name="type" type="constant">alternative identifier</arg>
+                                <arg name="id" type="constant">alternative identifier</arg>
                             </instance_generator>
+                            <label_generator name="Literal">
+                                <arg name="text" type="constant">alternative identifier</arg>
+                            </label_generator>
                         </entity>
                     </additional>
                 </entity>
