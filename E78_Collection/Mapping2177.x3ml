@@ -372,7 +372,7 @@
                     <entity>
                         <type>crm:E52_Time-Span</type>
                         <instance_generator name="URIwithTypeAndId">
-                            <arg name="type" type="constant">time_span_production_from</arg>
+                            <arg name="type" type="constant">time_span_production</arg>
                             <arg name="id" type="xpath">../../../ao_system_object_id/text()</arg>
                         </instance_generator>
                     </entity>
@@ -411,7 +411,7 @@
                     <entity>
                         <type>crm:E52_Time-Span</type>
                         <instance_generator name="URIwithTypeAndId">
-                            <arg name="type" type="constant">time_span_production_to</arg>
+                            <arg name="type" type="constant">time_span_production</arg>
                             <arg name="id" type="xpath">../../../ao_system_object_id/text()</arg>
                         </instance_generator>
                     </entity>
@@ -482,7 +482,7 @@
                     <entity>
                         <type>crm:E52_Time-Span</type>
                         <instance_generator name="URIwithTypeAndId">
-                            <arg name="type" type="constant">time_span_destruction_from</arg>
+                            <arg name="type" type="constant">time_span_destruction</arg>
                             <arg name="id" type="xpath">../../../ao_system_object_id/text()</arg>
                         </instance_generator>
                     </entity>
@@ -521,7 +521,7 @@
                     <entity>
                         <type>crm:E52_Time-Span</type>
                         <instance_generator name="URIwithTypeAndId">
-                            <arg name="type" type="constant">time_span_destruction_to</arg>
+                            <arg name="type" type="constant">time_span_destruction</arg>
                             <arg name="id" type="xpath">../../../ao_system_object_id/text()</arg>
                         </instance_generator>
                     </entity>
