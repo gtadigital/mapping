@@ -133,7 +133,7 @@
 		<pattern>archivalobject/{archivalobject_id}/production</pattern>
 	</generator>
 	<generator name="archivalobjectDestruction" prefix="sari">
-		<pattern>archivalobject/{archivalobject_id}/production</pattern>
+		<pattern>archivalobject/{archivalobject_id}/destruction</pattern>
 	</generator>
 	<!-- GROUP DEFINITION -->
 	<generator name="groupIdentifierUri" prefix="sari">

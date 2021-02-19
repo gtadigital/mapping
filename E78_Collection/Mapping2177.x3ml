@@ -345,7 +345,7 @@
                     <entity>
                         <type>crm:E53_Place</type>
                         <instance_generator name="URIwithTypeAndId">
-                            <arg name="type" type="constant">place</arg>
+                            <arg name="type" type="constant">place_production</arg>
                             <arg name="id" type="xpath">text()</arg>
                         </instance_generator>
                     </entity>
@@ -372,7 +372,7 @@
                     <entity>
                         <type>crm:E52_Time-Span</type>
                         <instance_generator name="URIwithTypeAndId">
-                            <arg name="type" type="constant">time_span</arg>
+                            <arg name="type" type="constant">time_span_production_from</arg>
                             <arg name="id" type="xpath">../../../ao_system_object_id/text()</arg>
                         </instance_generator>
                     </entity>
@@ -391,7 +391,7 @@
                 </target_node>
             </range>
         </link>
-		<link>
+        <link>
             <path>
                 <source_relation>
                     <relation>ao_production_list/ao_production_time_span/ao_production_time_span_to</relation>
@@ -411,7 +411,7 @@
                     <entity>
                         <type>crm:E52_Time-Span</type>
                         <instance_generator name="URIwithTypeAndId">
-                            <arg name="type" type="constant">time_span</arg>
+                            <arg name="type" type="constant">time_span_production_to</arg>
                             <arg name="id" type="xpath">../../../ao_system_object_id/text()</arg>
                         </instance_generator>
                     </entity>
@@ -430,8 +430,7 @@
                 </target_node>
             </range>
         </link>
-	
-	 <link>
+        <link>
             <path>
                 <source_relation>
                     <relation>ao_destruction/ao_destruction_place/ao_destruction_place_uuid</relation>
@@ -456,7 +455,7 @@
                     <entity>
                         <type>crm:E53_Place</type>
                         <instance_generator name="URIwithTypeAndId">
-                            <arg name="type" type="constant">place</arg>
+                            <arg name="type" type="constant">place_destruction</arg>
                             <arg name="id" type="xpath">text()</arg>
                         </instance_generator>
                     </entity>
@@ -483,11 +482,11 @@
                     <entity>
                         <type>crm:E52_Time-Span</type>
                         <instance_generator name="URIwithTypeAndId">
-                            <arg name="type" type="constant">time_span</arg>
+                            <arg name="type" type="constant">time_span_destruction_from</arg>
                             <arg name="id" type="xpath">../../../ao_system_object_id/text()</arg>
                         </instance_generator>
                     </entity>
-                    <relationship>crm:P82b_end_of_the_end</relationship>
+                    <relationship>crm:P82a_begin_of_the_begin</relationship>
                 </target_relation>
             </path>
             <range>
@@ -502,7 +501,7 @@
                 </target_node>
             </range>
         </link>
-       <link>
+        <link>
             <path>
                 <source_relation>
                     <relation>ao_destruction/ao_destruction_time_span/ao_destruction_time_span_to</relation>
@@ -522,7 +521,7 @@
                     <entity>
                         <type>crm:E52_Time-Span</type>
                         <instance_generator name="URIwithTypeAndId">
-                            <arg name="type" type="constant">time_span</arg>
+                            <arg name="type" type="constant">time_span_destruction_to</arg>
                             <arg name="id" type="xpath">../../../ao_system_object_id/text()</arg>
                         </instance_generator>
                     </entity>
@@ -1188,7 +1187,7 @@
                 </target_node>
             </range>
         </link>
-		     <link>
+        <link>
             <path>
                 <source_relation>
                     <relation>ao_current_owner_list/ao_current_owner</relation>
