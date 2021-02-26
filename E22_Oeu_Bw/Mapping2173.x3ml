@@ -286,9 +286,7 @@
                 </target_node>
             </range>
         </link>
-		
-		
-		  <link>
+        <link>
             <path>
                 <source_relation>
                     <relation>oeu_nc_actor_relation/oeu_nc_actor</relation>
@@ -339,9 +337,6 @@
                 </target_node>
             </range>
         </link>
-		
-		
-		
         <link>
             <path>
                 <source_relation>
@@ -459,7 +454,7 @@
                     <entity>
                         <type>crm:E52_Time-Span</type>
                         <instance_generator name="URIwithTypeAndId">
-                            <arg name="type" type="constant">construction_time_span_from</arg>
+                            <arg name="type" type="constant">time-span-costruction</arg>
                             <arg name="id" type="xpath">../../../oeu_nc_uuid/text()</arg>
                         </instance_generator>
                     </entity>
@@ -498,7 +493,7 @@
                     <entity>
                         <type>crm:E52_Time-Span</type>
                         <instance_generator name="URIwithTypeAndId">
-                            <arg name="type" type="constant">construction_time_span_to</arg>
+                            <arg name="type" type="constant">time-span-costruction</arg>
                             <arg name="id" type="xpath">../../../oeu_nc_uuid/text()</arg>
                         </instance_generator>
                     </entity>
@@ -569,7 +564,7 @@
                     <entity>
                         <type>crm:E52_Time-Span</type>
                         <instance_generator name="URIwithTypeAndId">
-                            <arg name="type" type="constant">destruction_time_span_from</arg>
+                            <arg name="type" type="constant">time-span-destruction</arg>
                             <arg name="id" type="xpath">../../../oeu_nc_uuid/text()</arg>
                         </instance_generator>
                     </entity>
@@ -608,7 +603,7 @@
                     <entity>
                         <type>crm:E52_Time-Span</type>
                         <instance_generator name="URIwithTypeAndId">
-                            <arg name="type" type="constant">destruction_time_span_to</arg>
+                            <arg name="type" type="constant">time-span-destruction</arg>
                             <arg name="id" type="xpath">../../../oeu_nc_uuid/text()</arg>
                         </instance_generator>
                     </entity>
