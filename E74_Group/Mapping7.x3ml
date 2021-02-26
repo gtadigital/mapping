@@ -1230,6 +1230,9 @@
                     <relation>act_occupations</relation>
                 </source_relation>
                 <target_relation>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
                     <relationship>crm:P14i_performed</relationship>
                     <entity>
                         <type>frbr:F51_Pursuit</type>
@@ -1244,8 +1247,8 @@
                     <entity>
                         <type>crm:E55_Type</type>
                         <instance_generator name="URIwithTypeAndId">
-                            <arg name="type" type="constant"/>
-                            <arg name="id" type="xpath">text()</arg>
+                            <arg name="type" type="constant">occupation</arg>
+                            <arg name="id" type="xpath">act_activity_occupation_uuid/text()</arg>
                         </instance_generator>
                         <label_generator name="Literal">
                             <arg name="text" type="xpath">act_activity_occupation_de/text()</arg>
