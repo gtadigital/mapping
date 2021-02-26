@@ -61,1247 +61,143 @@
     <namespaces>
         <namespace prefix="sari" uri="https://resource.swissartresearch.net/"/>
     </namespaces>
-    <mappings>
-        <mapping>
-            <domain>
-                <source_node>/root/entry</source_node>
+<mappings>
+    <mapping>
+        <domain>
+            <source_node>/root/entry</source_node>
+            <target_node>
+                <entity>
+                    <type>crm:E74_Group</type>
+                    <instance_generator name="URIwithTypeAndId">
+                        <arg name="type" type="constant">group</arg>
+                        <arg name="id" type="xpath">_uuid/text()</arg>
+                    </instance_generator>
+                </entity>
+            </target_node>
+        </domain>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>_uuid</relation>
+                </source_relation>
+                <target_relation>
+                    <relationship>crm:P1_is_identified_by</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>_uuid</source_node>
                 <target_node>
                     <entity>
-                        <type>crm:E74_Group</type>
+                        <type>crm:E42_Identifier</type>
                         <instance_generator name="URIwithTypeAndId">
-                            <arg name="type" type="constant">group</arg>
-                            <arg name="id" type="xpath">_uuid/text()</arg>
+                            <arg name="type" type="constant">type</arg>
+                            <arg name="id" type="xpath">../_uuid/text()</arg>
                         </instance_generator>
+                        <label_generator name="Literal">
+                            <arg name="text" type="xpath">text()</arg>
+                            <arg name="language" type="constant">de</arg>
+                        </label_generator>
                     </entity>
                 </target_node>
-            </domain>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>_uuid</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P1_is_identified_by</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>_uuid</source_node>
-                    <target_node>
-                        <entity>
-                            <type>crm:E42_Identifier</type>
-                            <instance_generator name="URIwithTypeAndId">
-                                <arg name="type" type="constant">type</arg>
-                                <arg name="id" type="xpath">../_uuid/text()</arg>
-                            </instance_generator>
-                            <label_generator name="Literal">
-                                <arg name="text" type="xpath">text()</arg>
-                                <arg name="language" type="constant">de</arg>
-                            </label_generator>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>act_system_object_id</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P1_is_identified_by</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>act_system_object_id</source_node>
-                    <target_node>
-                        <if>
-                            <exists>text()</exists>
-                        </if>
-                        <entity>
-                            <type>crm:E42_Identifier</type>
-                            <instance_generator name="URIwithTypeAndId">
-                                <arg name="type" type="constant">type</arg>
-                                <arg name="id" type="xpath">../_uuid/text()</arg>
-                            </instance_generator>
-                            <label_generator name="Literal">
-                                <arg name="text" type="xpath">text()</arg>
-                            </label_generator>
-                            <additional>
-                                <relationship>crm:P2_has_type</relationship>
-                                <entity>
-                                    <type>crm:E55_Type</type>
-                                    <instance_info>
-                                        <constant/>
-                                    </instance_info>
-                                    <instance_generator name="URIwithTypeAndId_hashed">
-                                        <arg name="type" type="constant">system_object_id</arg>
-                                        <arg name="id" type="constant">system_object_id</arg>
-                                    </instance_generator>
-                                    <label_generator name="Literal">
-                                        <arg name="text" type="constant">system_object_id</arg>
-                                    </label_generator>
-                                </entity>
-                            </additional>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>act_nc_name</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P1_is_identified_by</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>act_nc_name</source_node>
-                    <target_node>
-                        <entity>
-                            <type>crm:E41_Appellation</type>
-                            <instance_generator name="personAppellationUri">
-                                <arg name="person_id" type="xpath">../_uuid/text()</arg>
-                                <arg name="appellation_id" type="xpath">text()</arg>
-                            </instance_generator>
-                            <label_generator name="Literal">
-                                <arg name="text" type="xpath">text()</arg>
-                                <arg name="language" type="xpath">../act_nc_name_lang_akronym/text()</arg>
-                            </label_generator>
-                            <additional>
-                                <relationship>crm:P2_has_type</relationship>
-                                <entity>
-                                    <type>crm:E55_Type</type>
-                                    <instance_info>
-                                        <constant/>
-                                    </instance_info>
-                                    <instance_generator name="URIwithTypeAndId_hashed">
-                                        <arg name="type" type="constant">types</arg>
-                                        <arg name="id" type="constant">Preferred Name</arg>
-                                    </instance_generator>
-                                    <label_generator name="Literal">
-                                        <arg name="text" type="constant">Preferred Name </arg>
-                                    </label_generator>
-                                </entity>
-                            </additional>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>act_short_bio</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P67i_is_referred_to_by</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>act_short_bio</source_node>
-                    <target_node>
-                        <entity>
-                            <type>crm:E73_Information_Object</type>
-                            <instance_generator name="personBiography">
-                                <arg name="person_id" type="xpath">../_uuid/text()</arg>
-                                <arg name="lang" type="xpath">act_doc_biographical_note_akronym/text()</arg>
-                            </instance_generator>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>gnd_identifiers/act_nc_identifier_gnd_1</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P1_is_identified_by</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>gnd_identifiers/act_nc_identifier_gnd_1</source_node>
-                    <target_node>
-                        <if>
-                            <exists>text()</exists>
-                        </if>
-                        <entity>
-                            <type>crm:E42_Identifier</type>
-                            <instance_generator name="URIwithTypeAndId">
-                                <arg name="type" type="constant">identifier</arg>
-                                <arg name="id" type="xpath">text()</arg>
-                            </instance_generator>
-                            <label_generator name="Literal">
-                                <arg name="text" type="xpath">text()</arg>
-                            </label_generator>
-                            <additional>
-                                <relationship>crm:P2_has_type</relationship>
-                                <entity>
-                                    <type>crm:E55_Type</type>
-                                    <instance_info>
-                                        <constant/>
-                                    </instance_info>
-                                    <instance_generator name="URIwithTypeAndId">
-                                        <arg name="type" type="constant">gnd</arg>
-                                        <arg name="id" type="constant">gnd</arg>
-                                    </instance_generator>
-                                    <label_generator name="Literal">
-                                        <arg name="text" type="xpath">gnd</arg>
-                                    </label_generator>
-                                </entity>
-                            </additional>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>gnd_identifiers/act_nc_identifier_gnd_2</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P1_is_identified_by</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>gnd_identifiers/act_nc_identifier_gnd_2</source_node>
-                    <target_node>
-                        <if>
-                            <exists>text()</exists>
-                        </if>
-                        <entity>
-                            <type>crm:E42_Identifier</type>
-                            <instance_generator name="URIwithTypeAndId">
-                                <arg name="type" type="constant">identifier</arg>
-                                <arg name="id" type="xpath">text()</arg>
-                            </instance_generator>
-                            <label_generator name="Literal">
-                                <arg name="text" type="xpath">text()</arg>
-                            </label_generator>
-                            <additional>
-                                <relationship>crm:P2_has_type</relationship>
-                                <entity>
-                                    <type>crm:E55_Type</type>
-                                    <instance_info>
-                                        <constant/>
-                                    </instance_info>
-                                    <instance_generator name="UUID"/>
-                                </entity>
-                            </additional>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>wikidata_identifiers/act_nc_identifier_wikidata_1</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P1_is_identified_by</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>wikidata_identifiers/act_nc_identifier_wikidata_1</source_node>
-                    <target_node>
-                        <if>
-                            <exists>text()</exists>
-                        </if>
-                        <entity>
-                            <type>crm:E42_Identifier</type>
-                            <instance_generator name="URIwithWikidataId">
-                                <arg name="id" type="xpath">text()</arg>
-                            </instance_generator>
-                            <additional>
-                                <relationship>crm:P2_has_type</relationship>
-                                <entity>
-                                    <type>crm:E55_Type</type>
-                                    <instance_info>
-                                        <constant/>
-                                    </instance_info>
-                                    <instance_generator name="UUID"/>
-                                </entity>
-                            </additional>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>wikidata_identifiers/act_nc_identifier_wikidata_2</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P1_is_identified_by</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>wikidata_identifiers/act_nc_identifier_wikidata_2</source_node>
-                    <target_node>
-                        <if>
-                            <exists>text()</exists>
-                        </if>
-                        <entity>
-                            <type>crm:E42_Identifier</type>
-                            <instance_generator name="URIwithWikidataId">
-                                <arg name="id" type="xpath">text()</arg>
-                            </instance_generator>
-                            <additional>
-                                <relationship>crm:P2_has_type</relationship>
-                                <entity>
-                                    <type>crm:E55_Type</type>
-                                    <instance_info>
-                                        <constant/>
-                                    </instance_info>
-                                    <instance_generator name="UUID"/>
-                                </entity>
-                            </additional>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>act_nc_identifier_akl</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P1_is_identified_by</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>act_nc_identifier_akl</source_node>
-                    <target_node>
-                        <if>
-                            <exists>text()</exists>
-                        </if>
-                        <entity>
-                            <type>crm:E42_Identifier</type>
-                            <instance_generator name="URIorUUID">
-                                <arg name="text" type="xpath">text()</arg>
-                            </instance_generator>
-                            <additional>
-                                <relationship>crm:P2_has_type</relationship>
-                                <entity>
-                                    <type>crm:E55_Type</type>
-                                    <instance_info>
-                                        <constant/>
-                                    </instance_info>
-                                    <instance_generator name="UUID"/>
-                                </entity>
-                            </additional>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>act_nc_identifier_ulan</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P1_is_identified_by</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>act_nc_identifier_ulan</source_node>
-                    <target_node>
-                        <if>
-                            <exists>text()</exists>
-                        </if>
-                        <entity>
-                            <type>crm:E42_Identifier</type>
-                            <instance_generator name="URIorUUID">
-                                <arg name="text" type="xpath">text()</arg>
-                            </instance_generator>
-                            <additional>
-                                <relationship>crm:P2_has_type</relationship>
-                                <entity>
-                                    <type>crm:E55_Type</type>
-                                    <instance_info>
-                                        <constant/>
-                                    </instance_info>
-                                    <instance_generator name="UUID"/>
-                                </entity>
-                            </additional>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>hls_identifier/act_nc_nc_identifier_hls_1</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P1_is_identified_by</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>hls_identifier/act_nc_nc_identifier_hls_1</source_node>
-                    <target_node>
-                        <if>
-                            <exists>text()</exists>
-                        </if>
-                        <entity>
-                            <type>crm:E42_Identifier</type>
-                            <instance_generator name="URIorUUID">
-                                <arg name="text" type="xpath">text()</arg>
-                            </instance_generator>
-                            <additional>
-                                <relationship>crm:P2_has_type</relationship>
-                                <entity>
-                                    <type>crm:E55_Type</type>
-                                    <instance_info>
-                                        <constant/>
-                                    </instance_info>
-                                    <instance_generator name="UUID"/>
-                                </entity>
-                            </additional>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>hls_identifier/act_nc_nc_identifier_hls_2</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P1_is_identified_by</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>hls_identifier/act_nc_nc_identifier_hls_2</source_node>
-                    <target_node>
-                        <if>
-                            <exists>text()</exists>
-                        </if>
-                        <entity>
-                            <type>crm:E42_Identifier</type>
-                            <instance_generator name="URIorUUID">
-                                <arg name="text" type="xpath">text()</arg>
-                            </instance_generator>
-                            <additional>
-                                <relationship>crm:P2_has_type</relationship>
-                                <entity>
-                                    <type>crm:E55_Type</type>
-                                    <instance_info>
-                                        <constant/>
-                                    </instance_info>
-                                    <instance_generator name="UUID"/>
-                                </entity>
-                            </additional>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>sikart_identifier/act_nc_identifier_sikart_1</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P1_is_identified_by</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>sikart_identifier/act_nc_identifier_sikart_1</source_node>
-                    <target_node>
-                        <if>
-                            <exists>text()</exists>
-                        </if>
-                        <entity>
-                            <type>crm:E42_Identifier</type>
-                            <instance_generator name="URIorUUID">
-                                <arg name="text" type="xpath">text()</arg>
-                            </instance_generator>
-                            <additional>
-                                <relationship>crm:P2_has_type</relationship>
-                                <entity>
-                                    <type>crm:E55_Type</type>
-                                    <instance_info>
-                                        <constant/>
-                                    </instance_info>
-                                    <instance_generator name="UUID"/>
-                                </entity>
-                            </additional>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>sikart_identifier/act_nc_identifier_sikart_2</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P1_is_identified_by</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>sikart_identifier/act_nc_identifier_sikart_2</source_node>
-                    <target_node>
-                        <if>
-                            <exists>text()</exists>
-                        </if>
-                        <entity>
-                            <type>crm:E42_Identifier</type>
-                            <instance_generator name="URIorUUID">
-                                <arg name="text" type="xpath">text()</arg>
-                            </instance_generator>
-                            <additional>
-                                <relationship>crm:P2_has_type</relationship>
-                                <entity>
-                                    <type>crm:E55_Type</type>
-                                    <instance_info>
-                                        <constant/>
-                                    </instance_info>
-                                    <instance_generator name="UUID"/>
-                                </entity>
-                            </additional>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>archinform_identifier/act_nc_identifier_archinform_1</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P1_is_identified_by</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>archinform_identifier/act_nc_identifier_archinform_1</source_node>
-                    <target_node>
-                        <if>
-                            <exists>text()</exists>
-                        </if>
-                        <entity>
-                            <type>crm:E42_Identifier</type>
-                            <instance_generator name="URIorUUID">
-                                <arg name="text" type="xpath">text()</arg>
-                            </instance_generator>
-                            <additional>
-                                <relationship>crm:P2_has_type</relationship>
-                                <entity>
-                                    <type>crm:E55_Type</type>
-                                    <instance_info>
-                                        <constant/>
-                                    </instance_info>
-                                    <instance_generator name="UUID"/>
-                                </entity>
-                            </additional>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>archinform_identifier/act_nc_identifier_archinform_2</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P1_is_identified_by</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>archinform_identifier/act_nc_identifier_archinform_2</source_node>
-                    <target_node>
-                        <if>
-                            <exists>text()</exists>
-                        </if>
-                        <entity>
-                            <type>crm:E42_Identifier</type>
-                            <instance_generator name="URIorUUID">
-                                <arg name="text" type="xpath">text()</arg>
-                            </instance_generator>
-                            <additional>
-                                <relationship>crm:P2_has_type</relationship>
-                                <entity>
-                                    <type>crm:E55_Type</type>
-                                    <instance_info>
-                                        <constant/>
-                                    </instance_info>
-                                    <instance_generator name="UUID"/>
-                                </entity>
-                            </additional>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>alat_identifier/act_nc_identifier_alat_1</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P1_is_identified_by</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>alat_identifier/act_nc_identifier_alat_1</source_node>
-                    <target_node>
-                        <if>
-                            <exists>text()</exists>
-                        </if>
-                        <entity>
-                            <type>crm:E42_Identifier</type>
-                            <instance_generator name="URIorUUID">
-                                <arg name="text" type="xpath">text()</arg>
-                            </instance_generator>
-                            <additional>
-                                <relationship>crm:P2_has_type</relationship>
-                                <entity>
-                                    <type>crm:E55_Type</type>
-                                    <instance_info>
-                                        <constant/>
-                                    </instance_info>
-                                    <instance_generator name="UUID"/>
-                                </entity>
-                            </additional>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>alat_identifier/act_nc_identifier_alat_2</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P1_is_identified_by</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>alat_identifier/act_nc_identifier_alat_2</source_node>
-                    <target_node>
-                        <if>
-                            <exists>text()</exists>
-                        </if>
-                        <entity>
-                            <type>crm:E42_Identifier</type>
-                            <instance_generator name="URIorUUID">
-                                <arg name="text" type="xpath">text()</arg>
-                            </instance_generator>
-                            <additional>
-                                <relationship>crm:P2_has_type</relationship>
-                                <entity>
-                                    <type>crm:E55_Type</type>
-                                    <instance_info>
-                                        <constant/>
-                                    </instance_info>
-                                    <instance_generator name="UUID"/>
-                                </entity>
-                            </additional>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>fotoch_identifier/act_nc_identifier_fotoch_1</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P1_is_identified_by</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>fotoch_identifier/act_nc_identifier_fotoch_1</source_node>
-                    <target_node>
-                        <if>
-                            <exists>text()</exists>
-                        </if>
-                        <entity>
-                            <type>crm:E42_Identifier</type>
-                            <instance_generator name="URIorUUID">
-                                <arg name="text" type="xpath">text()</arg>
-                            </instance_generator>
-                            <additional>
-                                <relationship>crm:P2_has_type</relationship>
-                                <entity>
-                                    <type>crm:E55_Type</type>
-                                    <instance_info>
-                                        <constant/>
-                                    </instance_info>
-                                    <instance_generator name="UUID"/>
-                                </entity>
-                            </additional>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>fotoch_identifier/act_nc_identifier_fotoch_2</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P1_is_identified_by</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>fotoch_identifier/act_nc_identifier_fotoch_2</source_node>
-                    <target_node>
-                        <if>
-                            <exists>text()</exists>
-                        </if>
-                        <entity>
-                            <type>crm:E42_Identifier</type>
-                            <instance_generator name="URIorUUID">
-                                <arg name="text" type="xpath">text()</arg>
-                            </instance_generator>
-                            <additional>
-                                <relationship>crm:P2_has_type</relationship>
-                                <entity>
-                                    <type>crm:E55_Type</type>
-                                    <instance_info>
-                                        <constant/>
-                                    </instance_info>
-                                    <instance_generator name="UUID"/>
-                                </entity>
-                            </additional>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>act_social_national_affiliation/act_social_national_affiliation_uuid</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P107i_is_current_or_former_member_of</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>act_social_national_affiliation/act_social_national_affiliation_uuid</source_node>
-                    <target_node>
-                        <entity>
-                            <type>crm:E40_Legal_Body</type>
-                            <instance_generator name="URIwithTypeAndId">
-                                <arg name="type" type="constant">national_affiliation</arg>
-                                <arg name="id" type="xpath">text()</arg>
-                            </instance_generator>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>act_altName/act_alt_nameLiteral</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P1_is_identified_by</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>act_altName/act_alt_nameLiteral</source_node>
-                    <target_node>
-                        <entity>
-                            <type>crm:E41_Appellation</type>
-                            <instance_generator name="personAppellationUri">
-                                <arg name="person_id" type="xpath">../../_uuid/text()</arg>
-                                <arg name="appellation_id" type="xpath">act_nc_altname_literal/text()</arg>
-                            </instance_generator>
-                            <additional>
-                                <relationship>crm:P2_has_type</relationship>
-                                <entity>
-                                    <type>crm:E55_Type</type>
-                                    <instance_info>
-                                        <constant/>
-                                    </instance_info>
-                                    <instance_generator name="URIwithTypeAndId_hashed">
-                                        <arg name="type" type="constant">types</arg>
-                                        <arg name="id" type="constant">Alternative Name</arg>
-                                    </instance_generator>
-                                    <label_generator name="Literal">
-                                        <arg name="text" type="constant">Alternative Name</arg>
-                                    </label_generator>
-                                </entity>
-                            </additional>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>grp_loc_places/grp_location_place</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P74_has_current_or_former_residence</relationship>
-                        <entity>
-                            <type>crm:E53_Place</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                        <relationship>crm:P168_place_is_defined_by</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>grp_loc_places/grp_location_place</source_node>
-                    <target_node>
-                        <entity>
-                            <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                            <instance_generator name="Literal">
-                                <arg name="text" type="xpath">text()</arg>
-                                <arg name="language" type="constant">en</arg>
-                            </instance_generator>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>grp_formation_place</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P95i_was_formed_by</relationship>
-                        <entity variable="formation">
-                            <type>crm:E66_Formation</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                        <relationship>crm:P7_took_place_at</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>grp_formation_place</source_node>
-                    <target_node>
-                        <entity>
-                            <type>crm:E53_Place</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>grp_formation_timespan_from</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P95i_was_formed_by</relationship>
-                        <entity variable="formation">
-                            <type>crm:E66_Formation</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                        <relationship>crm:P4_has_time-span</relationship>
-                        <entity>
-                            <type>crm:E52_Time-Span</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                        <relationship>crm:P82a_begin_of_the_begin</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>grp_formation_timespan_from</source_node>
-                    <target_node>
-                        <entity>
-                            <type>http://www.w3.org/2001/XMLSchema#dateTime</type>
-                            <instance_generator name="Literal">
-                                <arg name="text" type="xpath">text()</arg>
-                                <arg name="language" type="constant">en</arg>
-                            </instance_generator>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>grp_formation_timespan_to</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P95i_was_formed_by</relationship>
-                        <entity variable="formation">
-                            <type>crm:E66_Formation</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                        <relationship>crm:P4_has_time-span</relationship>
-                        <entity>
-                            <type>crm:E52_Time-Span</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                        <relationship>crm:P82_at_some_time_within</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>grp_formation_timespan_to</source_node>
-                    <target_node>
-                        <entity>
-                            <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                            <instance_generator name="Literal">
-                                <arg name="text" type="xpath">text()</arg>
-                                <arg name="language" type="constant">en</arg>
-                            </instance_generator>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>grp_dissolution_place</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P99i_was_dissolved_by</relationship>
-                        <entity variable="dissolution">
-                            <type>crm:E68_Dissolution</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                        <relationship>crm:P7_took_place_at</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>grp_dissolution_place</source_node>
-                    <target_node>
-                        <entity>
-                            <type>crm:E53_Place</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>grp_dissolution_time_span_from</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P99i_was_dissolved_by</relationship>
-                        <entity variable="dissolution">
-                            <type>crm:E68_Dissolution</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                        <relationship>crm:P4_has_time-span</relationship>
-                        <entity>
-                            <type>crm:E52_Time-Span</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                        <relationship>crm:P82a_begin_of_the_begin</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>grp_dissolution_time_span_from</source_node>
-                    <target_node>
-                        <entity>
-                            <type>http://www.w3.org/2001/XMLSchema#dateTime</type>
-                            <instance_generator name="Literal">
-                                <arg name="text" type="xpath">text()</arg>
-                                <arg name="language" type="constant">en</arg>
-                            </instance_generator>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>grp_dissolution_time_span_to</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P99i_was_dissolved_by</relationship>
-                        <entity variable="dissolution">
-                            <type>crm:E68_Dissolution</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                        <relationship>crm:P4_has_time-span</relationship>
-                        <entity>
-                            <type>crm:E52_Time-Span</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                        <relationship>crm:P82b_end_of_the_end</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>grp_dissolution_time_span_to</source_node>
-                    <target_node>
-                        <entity>
-                            <type>http://www.w3.org/2001/XMLSchema#dateTime</type>
-                            <instance_generator name="Literal">
-                                <arg name="text" type="xpath">text()</arg>
-                                <arg name="language" type="constant">en</arg>
-                            </instance_generator>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>actor_activity_floruit/act_activity_floruit_place</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P14i_performed</relationship>
-                        <entity variable="floruit">
-                            <type>frbr:F51_Pursuit</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                        <relationship>crm:P7_took_place_at</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>actor_activity_floruit/act_activity_floruit_place</source_node>
-                    <target_node>
-                        <entity>
-                            <type>crm:E53_Place</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>actor_activity_floruit/act_activity_floruit_time-span_from</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P14i_performed</relationship>
-                        <entity variable="floruit">
-                            <type>frbr:F51_Pursuit</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                        <relationship>crm:P4_has_time-span</relationship>
-                        <entity>
-                            <type>crm:E52_Time-Span</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                        <relationship>crm:P82a_begin_of_the_begin</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>actor_activity_floruit/act_activity_floruit_time-span_from</source_node>
-                    <target_node>
-                        <entity>
-                            <type>http://www.w3.org/2001/XMLSchema#dateTime</type>
-                            <instance_generator name="Literal">
-                                <arg name="text" type="xpath">text()</arg>
-                                <arg name="language" type="constant">en</arg>
-                            </instance_generator>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>actor_activity_floruit/act_activity_floruit_time-span_to</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P14i_performed</relationship>
-                        <entity variable="floruit">
-                            <type>frbr:F51_Pursuit</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                        <relationship>crm:P4_has_time-span</relationship>
-                        <entity>
-                            <type>crm:E52_Time-Span</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                        <relationship>crm:P82b_end_of_the_end</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>actor_activity_floruit/act_activity_floruit_time-span_to</source_node>
-                    <target_node>
-                        <entity>
-                            <type>http://www.w3.org/2001/XMLSchema#dateTime</type>
-                            <instance_generator name="Literal">
-                                <arg name="text" type="xpath">text()</arg>
-                                <arg name="language" type="constant">en</arg>
-                            </instance_generator>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>act_social_national_affiliation/act_social_national_affiliation_uuid</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P107_has_current_or_former_member</relationship>
-                        <entity>
-                            <type>crm:E74_Group</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                        <relationship>crm:P107i_is_current_or_former_member_of</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>act_social_national_affiliation/act_social_national_affiliation_uuid</source_node>
-                    <target_node>
-                        <entity>
-                            <type>crm:E74_Group</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>act_occupations</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P14i_performed</relationship>
-                        <entity>
-                            <type>frbr:F51_Pursuit</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                        <relationship>frbr:R59_had_typical_subject</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>act_occupations</source_node>
-                    <target_node>
-                        <entity>
-                            <type>crm:E55_Type</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-        </mapping>
-        <mapping>
-            <domain>
-                <source_node>/root/entry/act_altName/act_alt_nameLiteral</source_node>
+            </range>
+        </link>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>act_system_object_id</relation>
+                </source_relation>
+                <target_relation>
+                    <relationship>crm:P1_is_identified_by</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>act_system_object_id</source_node>
+                <target_node>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
+                    <entity>
+                        <type>crm:E42_Identifier</type>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="constant">type</arg>
+                            <arg name="id" type="xpath">../_uuid/text()</arg>
+                        </instance_generator>
+                        <label_generator name="Literal">
+                            <arg name="text" type="xpath">text()</arg>
+                        </label_generator>
+                        <additional>
+                            <relationship>crm:P2_has_type</relationship>
+                            <entity>
+                                <type>crm:E55_Type</type>
+                                <instance_info>
+                                    <constant/>
+                                </instance_info>
+                                <instance_generator name="URIwithTypeAndId_hashed">
+                                    <arg name="type" type="constant">system_object_id</arg>
+                                    <arg name="id" type="constant">system_object_id</arg>
+                                </instance_generator>
+                                <label_generator name="Literal">
+                                    <arg name="text" type="constant">system_object_id</arg>
+                                </label_generator>
+                            </entity>
+                        </additional>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>act_nc_name</relation>
+                </source_relation>
+                <target_relation>
+                    <relationship>crm:P1_is_identified_by</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>act_nc_name</source_node>
                 <target_node>
                     <entity>
                         <type>crm:E41_Appellation</type>
                         <instance_generator name="personAppellationUri">
-                            <arg name="person_id" type="xpath">../../_uuid/text()</arg>
-                            <arg name="appellation_id" type="xpath">act_nc_altname_literal/text()</arg>
+                            <arg name="person_id" type="xpath">../_uuid/text()</arg>
+                            <arg name="appellation_id" type="xpath">text()</arg>
                         </instance_generator>
                         <label_generator name="Literal">
-                            <arg name="text" type="xpath">act_nc_altname_literal/text()</arg>
-                            <arg name="language" type="xpath">act_nc_altname_lang_akronym/text()</arg>
+                            <arg name="text" type="xpath">text()</arg>
+                            <arg name="language" type="xpath">../act_nc_name_lang_akronym/text()</arg>
                         </label_generator>
+                        <additional>
+                            <relationship>crm:P2_has_type</relationship>
+                            <entity>
+                                <type>crm:E55_Type</type>
+                                <instance_info>
+                                    <constant/>
+                                </instance_info>
+                                <instance_generator name="URIwithTypeAndId_hashed">
+                                    <arg name="type" type="constant">types</arg>
+                                    <arg name="id" type="constant">Preferred Name</arg>
+                                </instance_generator>
+                                <label_generator name="Literal">
+                                    <arg name="text" type="constant">Preferred Name </arg>
+                                </label_generator>
+                            </entity>
+                        </additional>
                     </entity>
                 </target_node>
-            </domain>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>act_nc_altname_type_de</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P2_has_type</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>act_nc_altname_type_de</source_node>
-                    <target_node>
-                        <entity>
-                            <type>crm:E55_Type</type>
-                            <instance_generator name="URIwithType">
-                                <arg name="type" type="xpath">text()</arg>
-                            </instance_generator>
-                            <label_generator name="Literal">
-                                <arg name="text" type="xpath">text()</arg>
-                                <arg name="language" type="constant">de</arg>
-                            </label_generator>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>act_nc_altname_type_en</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P2_has_type</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>act_nc_altname_type_en</source_node>
-                    <target_node>
-                        <entity>
-                            <type>crm:E55_Type</type>
-                            <instance_generator name="URIwithType">
-                                <arg name="type" type="xpath">text()</arg>
-                            </instance_generator>
-                            <label_generator name="Literal">
-                                <arg name="text" type="xpath">text()</arg>
-                                <arg name="language" type="constant">en</arg>
-                            </label_generator>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>act_nc_altname_timespan_from</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>frbr:R64i_was_name_used_by</relationship>
-                        <entity>
-                            <type>frbr:F52_Name_Use_Activity</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                        <relationship>crm:P4_has_time-span</relationship>
-                        <entity>
-                            <type>crm:E52_Time-Span</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                        <relationship>crm:P82a_begin_of_the_begin</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>act_nc_altname_timespan_from</source_node>
-                    <target_node>
-                        <entity>
-                            <type>http://www.w3.org/2001/XMLSchema#dateTime</type>
-                            <instance_generator name="Literal">
-                                <arg name="text" type="xpath">text()</arg>
-                                <arg name="language" type="constant">en</arg>
-                            </instance_generator>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>act_nc_altname_timespan_to</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>frbr:R64i_was_name_used_by</relationship>
-                        <entity>
-                            <type>frbr:F52_Name_Use_Activity</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                        <relationship>crm:P4_has_time-span</relationship>
-                        <entity>
-                            <type>crm:E52_Time-Span</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                        <relationship>crm:P82b_end_of_the_end</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>act_nc_altname_timespan_to</source_node>
-                    <target_node>
-                        <entity>
-                            <type>http://www.w3.org/2001/XMLSchema#dateTime</type>
-                            <instance_generator name="Literal">
-                                <arg name="text" type="xpath">text()</arg>
-                                <arg name="language" type="constant">en</arg>
-                            </instance_generator>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-        </mapping>
-        <mapping>
-            <domain>
-                <source_node>/root/entry/act_short_bio</source_node>
+            </range>
+        </link>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>act_short_bio</relation>
+                </source_relation>
+                <target_relation>
+                    <relationship>crm:P67i_is_referred_to_by</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>act_short_bio</source_node>
                 <target_node>
                     <entity>
                         <type>crm:E73_Information_Object</type>
@@ -1311,57 +207,1253 @@
                         </instance_generator>
                     </entity>
                 </target_node>
-            </domain>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>act_doc_biographical_note_literal</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P3_has_note</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>act_doc_biographical_note_literal</source_node>
-                    <target_node>
-                        <entity>
-                            <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                            <instance_generator name="Literal">
-                                <arg name="text" type="xpath">text()</arg>
-                                <arg name="language" type="xpath">../act_doc_biographical_note_akronym/text()</arg>
-                            </instance_generator>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>act_doc_biographical_note_source_uuid</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P129i_is_subject_of</relationship>
-                        <entity>
-                            <type>crm:E33_Linguistic_Object</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                        <relationship>crm:P106i_forms_part_of</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>act_doc_biographical_note_source_uuid</source_node>
-                    <target_node>
-                        <entity>
-                            <type>crm:E33_Linguistic_Object</type>
-                            <instance_generator name="URIwithTypeAndId">
-                                <arg name="type" type="constant">biographical_note_source</arg>
-                                <arg name="id" type="xpath">text()</arg>
-                            </instance_generator>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-        </mapping>
-    </mappings>
-    
+            </range>
+        </link>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>gnd_identifiers/act_nc_identifier_gnd_1</relation>
+                </source_relation>
+                <target_relation>
+                    <relationship>crm:P1_is_identified_by</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>gnd_identifiers/act_nc_identifier_gnd_1</source_node>
+                <target_node>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
+                    <entity variable="gnd">
+                        <type>crm:E42_Identifier</type>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="constant">identifier</arg>
+                            <arg name="id" type="xpath">text()</arg>
+                        </instance_generator>
+                        <label_generator name="Literal">
+                            <arg name="text" type="xpath">text()</arg>
+                        </label_generator>
+                        <additional>
+                            <relationship>crm:P2_has_type</relationship>
+                            <entity>
+                                <type>crm:E55_Type</type>
+                                <instance_info>
+                                    <constant/>
+                                </instance_info>
+                                <instance_generator name="URIwithTypeAndId">
+                                    <arg name="type" type="constant">gnd</arg>
+                                    <arg name="id" type="constant">gnd</arg>
+                                </instance_generator>
+                                <label_generator name="Literal">
+                                    <arg name="text" type="constant">gnd</arg>
+                                </label_generator>
+                            </entity>
+                        </additional>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>gnd_identifiers/act_nc_identifier_gnd_2</relation>
+                </source_relation>
+                <target_relation>
+                    <relationship>crm:P1_is_identified_by</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>gnd_identifiers/act_nc_identifier_gnd_2</source_node>
+                <target_node>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
+                    <entity variable="gnd">
+                        <type>crm:E42_Identifier</type>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="constant">identifier</arg>
+                            <arg name="id" type="xpath">text()</arg>
+                        </instance_generator>
+                        <label_generator name="Literal">
+                            <arg name="text" type="xpath">text()</arg>
+                        </label_generator>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>wikidata_identifiers/act_nc_identifier_wikidata_1</relation>
+                </source_relation>
+                <target_relation>
+                    <relationship>crm:P1_is_identified_by</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>wikidata_identifiers/act_nc_identifier_wikidata_1</source_node>
+                <target_node>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
+                    <entity variable="wikidata">
+                        <type>crm:E42_Identifier</type>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="constant">identifier</arg>
+                            <arg name="id" type="xpath">text()</arg>
+                        </instance_generator>
+                        <label_generator name="Literal">
+                            <arg name="text" type="xpath">text()</arg>
+                        </label_generator>
+                        <additional>
+                            <relationship>crm:P2_has_type</relationship>
+                            <entity>
+                                <type>crm:E55_Type</type>
+                                <instance_info>
+                                    <constant/>
+                                </instance_info>
+                                <instance_generator name="URIwithTypeAndId">
+                                    <arg name="type" type="constant">wikidata</arg>
+                                    <arg name="id" type="constant">wikidata</arg>
+                                </instance_generator>
+                                <label_generator name="Literal">
+                                    <arg name="text" type="constant">wikidata</arg>
+                                </label_generator>
+                            </entity>
+                        </additional>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>wikidata_identifiers/act_nc_identifier_wikidata_2</relation>
+                </source_relation>
+                <target_relation>
+                    <relationship>crm:P1_is_identified_by</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>wikidata_identifiers/act_nc_identifier_wikidata_2</source_node>
+                <target_node>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
+                    <entity variable="wikidata">
+                        <type>crm:E42_Identifier</type>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="constant">identifier</arg>
+                            <arg name="id" type="xpath">text()</arg>
+                        </instance_generator>
+                        <label_generator name="Literal">
+                            <arg name="text" type="xpath">text()</arg>
+                        </label_generator>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>act_nc_identifier_akl</relation>
+                </source_relation>
+                <target_relation>
+                    <relationship>crm:P1_is_identified_by</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>act_nc_identifier_akl</source_node>
+                <target_node>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
+                    <entity>
+                        <type>crm:E42_Identifier</type>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="constant">identifier</arg>
+                            <arg name="id" type="xpath">text()</arg>
+                        </instance_generator>
+                        <label_generator name="Literal">
+                            <arg name="text" type="xpath">text()</arg>
+                        </label_generator>
+                        <additional>
+                            <relationship>crm:P2_has_type</relationship>
+                            <entity>
+                                <type>crm:E55_Type</type>
+                                <instance_info>
+                                    <constant/>
+                                </instance_info>
+                                <instance_generator name="URIwithTypeAndId">
+                                    <arg name="type" type="constant">akl</arg>
+                                    <arg name="id" type="constant">akl</arg>
+                                </instance_generator>
+                                <label_generator name="Literal">
+                                    <arg name="text" type="constant">akl</arg>
+                                </label_generator>
+                            </entity>
+                        </additional>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>act_nc_identifier_ulan</relation>
+                </source_relation>
+                <target_relation>
+                    <relationship>crm:P1_is_identified_by</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>act_nc_identifier_ulan</source_node>
+                <target_node>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
+                    <entity>
+                        <type>crm:E42_Identifier</type>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="constant">identifier</arg>
+                            <arg name="id" type="xpath">text()</arg>
+                        </instance_generator>
+                        <label_generator name="Literal">
+                            <arg name="text" type="xpath">text()</arg>
+                        </label_generator>
+                        <additional>
+                            <relationship>crm:P2_has_type</relationship>
+                            <entity>
+                                <type>crm:E55_Type</type>
+                                <instance_info>
+                                    <constant/>
+                                </instance_info>
+                                <instance_generator name="URIwithTypeAndId">
+                                    <arg name="type" type="constant">ulan</arg>
+                                    <arg name="id" type="constant">ulan</arg>
+                                </instance_generator>
+                                <label_generator name="Literal">
+                                    <arg name="text" type="constant">ulan</arg>
+                                </label_generator>
+                            </entity>
+                        </additional>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>hls_identifier/act_nc_nc_identifier_hls_1</relation>
+                </source_relation>
+                <target_relation>
+                    <relationship>crm:P1_is_identified_by</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>hls_identifier/act_nc_nc_identifier_hls_1</source_node>
+                <target_node>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
+                    <entity variable="hls">
+                        <type>crm:E42_Identifier</type>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="constant">identifier</arg>
+                            <arg name="id" type="xpath">text()</arg>
+                        </instance_generator>
+                        <label_generator name="Literal">
+                            <arg name="text" type="xpath">text()</arg>
+                        </label_generator>
+                        <additional>
+                            <relationship>crm:P2_has_type</relationship>
+                            <entity>
+                                <type>crm:E55_Type</type>
+                                <instance_info>
+                                    <constant/>
+                                </instance_info>
+                                <instance_generator name="URIwithTypeAndId">
+                                    <arg name="type" type="constant">hls</arg>
+                                    <arg name="id" type="constant">hls</arg>
+                                </instance_generator>
+                                <label_generator name="Literal">
+                                    <arg name="text" type="constant">hls</arg>
+                                </label_generator>
+                            </entity>
+                        </additional>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>hls_identifier/act_nc_nc_identifier_hls_2</relation>
+                </source_relation>
+                <target_relation>
+                    <relationship>crm:P1_is_identified_by</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>hls_identifier/act_nc_nc_identifier_hls_2</source_node>
+                <target_node>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
+                    <entity variable="hls">
+                        <type>crm:E42_Identifier</type>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="constant">identifier</arg>
+                            <arg name="id" type="xpath">text()</arg>
+                        </instance_generator>
+                        <label_generator name="Literal">
+                            <arg name="text" type="xpath">text()</arg>
+                        </label_generator>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>sikart_identifier/act_nc_identifier_sikart_1</relation>
+                </source_relation>
+                <target_relation>
+                    <relationship>crm:P1_is_identified_by</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>sikart_identifier/act_nc_identifier_sikart_1</source_node>
+                <target_node>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
+                    <entity variable="sikart">
+                        <type>crm:E42_Identifier</type>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="constant">identifier</arg>
+                            <arg name="id" type="xpath">text()</arg>
+                        </instance_generator>
+                        <label_generator name="Literal">
+                            <arg name="text" type="xpath">text()</arg>
+                        </label_generator>
+                        <additional>
+                            <relationship>crm:P2_has_type</relationship>
+                            <entity>
+                                <type>crm:E55_Type</type>
+                                <instance_info>
+                                    <constant/>
+                                </instance_info>
+                                <instance_generator name="URIwithTypeAndId">
+                                    <arg name="type" type="constant">sikart</arg>
+                                    <arg name="id" type="constant">sikart</arg>
+                                </instance_generator>
+                                <label_generator name="Literal">
+                                    <arg name="text" type="constant">sikart</arg>
+                                </label_generator>
+                            </entity>
+                        </additional>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>sikart_identifier/act_nc_identifier_sikart_2</relation>
+                </source_relation>
+                <target_relation>
+                    <relationship>crm:P1_is_identified_by</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>sikart_identifier/act_nc_identifier_sikart_2</source_node>
+                <target_node>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
+                    <entity variable="sikart">
+                        <type>crm:E42_Identifier</type>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="constant">identifier</arg>
+                            <arg name="id" type="xpath">text()</arg>
+                        </instance_generator>
+                        <label_generator name="Literal">
+                            <arg name="text" type="xpath">text()</arg>
+                        </label_generator>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>archinform_identifier/act_nc_identifier_archinform_1</relation>
+                </source_relation>
+                <target_relation>
+                    <relationship>crm:P1_is_identified_by</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>archinform_identifier/act_nc_identifier_archinform_1</source_node>
+                <target_node>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
+                    <entity variable="archinform">
+                        <type>crm:E42_Identifier</type>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="constant">identifier</arg>
+                            <arg name="id" type="xpath">text()</arg>
+                        </instance_generator>
+                        <label_generator name="Literal">
+                            <arg name="text" type="xpath">text()</arg>
+                        </label_generator>
+                        <additional>
+                            <relationship>crm:P2_has_type</relationship>
+                            <entity>
+                                <type>crm:E55_Type</type>
+                                <instance_info>
+                                    <constant/>
+                                </instance_info>
+                                <instance_generator name="URIwithTypeAndId">
+                                    <arg name="type" type="constant">archinform</arg>
+                                    <arg name="id" type="constant">archinform</arg>
+                                </instance_generator>
+                                <label_generator name="Literal">
+                                    <arg name="text" type="constant">archinform</arg>
+                                </label_generator>
+                            </entity>
+                        </additional>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>archinform_identifier/act_nc_identifier_archinform_2</relation>
+                </source_relation>
+                <target_relation>
+                    <relationship>crm:P1_is_identified_by</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>archinform_identifier/act_nc_identifier_archinform_2</source_node>
+                <target_node>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
+                    <entity variable="archinform">
+                        <type>crm:E42_Identifier</type>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="constant">identifier</arg>
+                            <arg name="id" type="xpath">text()</arg>
+                        </instance_generator>
+                        <label_generator name="Literal">
+                            <arg name="text" type="xpath">text()</arg>
+                        </label_generator>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>alat_identifier/act_nc_identifier_alat_1</relation>
+                </source_relation>
+                <target_relation>
+                    <relationship>crm:P1_is_identified_by</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>alat_identifier/act_nc_identifier_alat_1</source_node>
+                <target_node>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
+                    <entity variable="alat">
+                        <type>crm:E42_Identifier</type>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="constant">identifier</arg>
+                            <arg name="id" type="xpath">text()</arg>
+                        </instance_generator>
+                        <label_generator name="Literal">
+                            <arg name="text" type="xpath">text()</arg>
+                        </label_generator>
+                        <additional>
+                            <relationship>crm:P2_has_type</relationship>
+                            <entity>
+                                <type>crm:E55_Type</type>
+                                <instance_info>
+                                    <constant/>
+                                </instance_info>
+                                <instance_generator name="URIwithTypeAndId">
+                                    <arg name="type" type="constant">alat</arg>
+                                    <arg name="id" type="constant">alat</arg>
+                                </instance_generator>
+                                <label_generator name="Literal">
+                                    <arg name="text" type="constant">alat</arg>
+                                </label_generator>
+                            </entity>
+                        </additional>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>alat_identifier/act_nc_identifier_alat_2</relation>
+                </source_relation>
+                <target_relation>
+                    <relationship>crm:P1_is_identified_by</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>alat_identifier/act_nc_identifier_alat_2</source_node>
+                <target_node>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
+                    <entity variable="alat">
+                        <type>crm:E42_Identifier</type>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="constant">identifier</arg>
+                            <arg name="id" type="xpath">text()</arg>
+                        </instance_generator>
+                        <label_generator name="Literal">
+                            <arg name="text" type="xpath">text()</arg>
+                        </label_generator>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>fotoch_identifier/act_nc_identifier_fotoch_1</relation>
+                </source_relation>
+                <target_relation>
+                    <relationship>crm:P1_is_identified_by</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>fotoch_identifier/act_nc_identifier_fotoch_1</source_node>
+                <target_node>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
+                    <entity variable="fotoch">
+                        <type>crm:E42_Identifier</type>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="constant">identifier</arg>
+                            <arg name="id" type="xpath">text()</arg>
+                        </instance_generator>
+                        <label_generator name="Literal">
+                            <arg name="text" type="xpath">text()</arg>
+                        </label_generator>
+                        <additional>
+                            <relationship>crm:P2_has_type</relationship>
+                            <entity>
+                                <type>crm:E55_Type</type>
+                                <instance_info>
+                                    <constant/>
+                                </instance_info>
+                                <instance_generator name="URIwithTypeAndId">
+                                    <arg name="type" type="constant">fotoch</arg>
+                                    <arg name="id" type="constant">fotoch</arg>
+                                </instance_generator>
+                                <label_generator name="Literal">
+                                    <arg name="text" type="constant">fotoch</arg>
+                                </label_generator>
+                            </entity>
+                        </additional>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>fotoch_identifier/act_nc_identifier_fotoch_2</relation>
+                </source_relation>
+                <target_relation>
+                    <relationship>crm:P1_is_identified_by</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>fotoch_identifier/act_nc_identifier_fotoch_2</source_node>
+                <target_node>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
+                    <entity variable="fotoch">
+                        <type>crm:E42_Identifier</type>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="constant">identifier</arg>
+                            <arg name="id" type="xpath">text()</arg>
+                        </instance_generator>
+                        <label_generator name="Literal">
+                            <arg name="text" type="xpath">text()</arg>
+                        </label_generator>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>act_social_national_affiliation/act_social_national_affiliation_uuid</relation>
+                </source_relation>
+                <target_relation>
+                    <relationship>crm:P107i_is_current_or_former_member_of</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>act_social_national_affiliation/act_social_national_affiliation_uuid</source_node>
+                <target_node>
+                    <entity>
+                        <type>crm:E40_Legal_Body</type>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="constant">national_affiliation</arg>
+                            <arg name="id" type="xpath">text()</arg>
+                        </instance_generator>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>act_altName/act_alt_nameLiteral</relation>
+                </source_relation>
+                <target_relation>
+                    <relationship>crm:P1_is_identified_by</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>act_altName/act_alt_nameLiteral</source_node>
+                <target_node>
+                    <entity>
+                        <type>crm:E41_Appellation</type>
+                        <instance_generator name="personAppellationUri">
+                            <arg name="person_id" type="xpath">../../_uuid/text()</arg>
+                            <arg name="appellation_id" type="xpath">act_nc_altname_literal/text()</arg>
+                        </instance_generator>
+                        <additional>
+                            <relationship>crm:P2_has_type</relationship>
+                            <entity>
+                                <type>crm:E55_Type</type>
+                                <instance_info>
+                                    <constant/>
+                                </instance_info>
+                                <instance_generator name="URIwithTypeAndId_hashed">
+                                    <arg name="type" type="constant">types</arg>
+                                    <arg name="id" type="constant">Alternative Name</arg>
+                                </instance_generator>
+                                <label_generator name="Literal">
+                                    <arg name="text" type="constant">Alternative Name</arg>
+                                </label_generator>
+                            </entity>
+                        </additional>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>grp_loc_places/grp_location_place</relation>
+                </source_relation>
+                <target_relation>
+                    <relationship>crm:P74_has_current_or_former_residence</relationship>
+                    <entity>
+                        <type>crm:E53_Place</type>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="constant">place</arg>
+                            <arg name="id" type="xpath">text()</arg>
+                        </instance_generator>
+                    </entity>
+                    <relationship>crm:P168_place_is_defined_by</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>grp_loc_places/grp_location_place</source_node>
+                <target_node>
+                    <entity>
+                        <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
+                        <instance_generator name="Literal">
+                            <arg name="text" type="xpath">text()</arg>
+                            <arg name="language" type="constant">en</arg>
+                        </instance_generator>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>grp_formation_place</relation>
+                </source_relation>
+                <target_relation>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
+                    <relationship>crm:P95i_was_formed_by</relationship>
+                    <entity variable="formation">
+                        <type>crm:E66_Formation</type>
+                        <instance_generator name="UUID"/>
+                    </entity>
+                    <relationship>crm:P7_took_place_at</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>grp_formation_place</source_node>
+                <target_node>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
+                    <entity>
+                        <type>crm:E53_Place</type>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="constant">place</arg>
+                            <arg name="id" type="xpath">text()</arg>
+                        </instance_generator>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>grp_formation_timespan_from</relation>
+                </source_relation>
+                <target_relation>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
+                    <relationship>crm:P95i_was_formed_by</relationship>
+                    <entity variable="formation">
+                        <type>crm:E66_Formation</type>
+                        <instance_generator name="UUID"/>
+                    </entity>
+                    <relationship>crm:P4_has_time-span</relationship>
+                    <entity>
+                        <type>crm:E52_Time-Span</type>
+                        <instance_generator name="UUID"/>
+                    </entity>
+                    <relationship>crm:P82a_begin_of_the_begin</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>grp_formation_timespan_from</source_node>
+                <target_node>
+                    <entity>
+                        <type>http://www.w3.org/2001/XMLSchema#dateTime</type>
+                        <instance_generator name="Literal">
+                            <arg name="text" type="xpath">text()</arg>
+                            <arg name="language" type="constant">en</arg>
+                        </instance_generator>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>grp_formation_timespan_to</relation>
+                </source_relation>
+                <target_relation>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
+                    <relationship>crm:P95i_was_formed_by</relationship>
+                    <entity variable="formation">
+                        <type>crm:E66_Formation</type>
+                        <instance_generator name="UUID"/>
+                    </entity>
+                    <relationship>crm:P4_has_time-span</relationship>
+                    <entity>
+                        <type>crm:E52_Time-Span</type>
+                        <instance_generator name="UUID"/>
+                    </entity>
+                    <relationship>crm:P82_at_some_time_within</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>grp_formation_timespan_to</source_node>
+                <target_node>
+                    <entity>
+                        <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
+                        <instance_generator name="Literal">
+                            <arg name="text" type="xpath">text()</arg>
+                            <arg name="language" type="constant">en</arg>
+                        </instance_generator>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>grp_dissolution_place</relation>
+                </source_relation>
+                <target_relation>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
+                    <relationship>crm:P99i_was_dissolved_by</relationship>
+                    <entity variable="dissolution">
+                        <type>crm:E68_Dissolution</type>
+                        <instance_generator name="UUID"/>
+                    </entity>
+                    <relationship>crm:P7_took_place_at</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>grp_dissolution_place</source_node>
+                <target_node>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
+                    <entity>
+                        <type>crm:E53_Place</type>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="constant">place</arg>
+                            <arg name="id" type="xpath">text()</arg>
+                        </instance_generator>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>grp_dissolution_time_span_from</relation>
+                </source_relation>
+                <target_relation>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
+                    <relationship>crm:P99i_was_dissolved_by</relationship>
+                    <entity variable="dissolution">
+                        <type>crm:E68_Dissolution</type>
+                        <instance_generator name="UUID"/>
+                    </entity>
+                    <relationship>crm:P4_has_time-span</relationship>
+                    <entity>
+                        <type>crm:E52_Time-Span</type>
+                        <instance_generator name="UUID"/>
+                    </entity>
+                    <relationship>crm:P82a_begin_of_the_begin</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>grp_dissolution_time_span_from</source_node>
+                <target_node>
+                    <entity>
+                        <type>http://www.w3.org/2001/XMLSchema#dateTime</type>
+                        <instance_generator name="Literal">
+                            <arg name="text" type="xpath">text()</arg>
+                            <arg name="language" type="constant">en</arg>
+                        </instance_generator>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>grp_dissolution_time_span_to</relation>
+                </source_relation>
+                <target_relation>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
+                    <relationship>crm:P99i_was_dissolved_by</relationship>
+                    <entity variable="dissolution">
+                        <type>crm:E68_Dissolution</type>
+                        <instance_generator name="UUID"/>
+                    </entity>
+                    <relationship>crm:P4_has_time-span</relationship>
+                    <entity>
+                        <type>crm:E52_Time-Span</type>
+                        <instance_generator name="UUID"/>
+                    </entity>
+                    <relationship>crm:P82b_end_of_the_end</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>grp_dissolution_time_span_to</source_node>
+                <target_node>
+                    <entity>
+                        <type>http://www.w3.org/2001/XMLSchema#dateTime</type>
+                        <instance_generator name="Literal">
+                            <arg name="text" type="xpath">text()</arg>
+                            <arg name="language" type="constant">en</arg>
+                        </instance_generator>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>actor_activity_floruit/act_activity_floruit_place</relation>
+                </source_relation>
+                <target_relation>
+                    <relationship>crm:P14i_performed</relationship>
+                    <entity variable="floruit">
+                        <type>frbr:F51_Pursuit</type>
+                        <instance_generator name="UUID"/>
+                    </entity>
+                    <relationship>crm:P7_took_place_at</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>actor_activity_floruit/act_activity_floruit_place</source_node>
+                <target_node>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
+                    <entity>
+                        <type>crm:E53_Place</type>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="constant">place</arg>
+                            <arg name="id" type="xpath">text()</arg>
+                        </instance_generator>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>actor_activity_floruit/act_activity_floruit_time-span_from</relation>
+                </source_relation>
+                <target_relation>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
+                    <relationship>crm:P14i_performed</relationship>
+                    <entity variable="floruit">
+                        <type>frbr:F51_Pursuit</type>
+                        <instance_generator name="UUID"/>
+                    </entity>
+                    <relationship>crm:P4_has_time-span</relationship>
+                    <entity>
+                        <type>crm:E52_Time-Span</type>
+                        <instance_generator name="UUID"/>
+                    </entity>
+                    <relationship>crm:P82a_begin_of_the_begin</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>actor_activity_floruit/act_activity_floruit_time-span_from</source_node>
+                <target_node>
+                    <entity>
+                        <type>http://www.w3.org/2001/XMLSchema#dateTime</type>
+                        <instance_generator name="Literal">
+                            <arg name="text" type="xpath">text()</arg>
+                            <arg name="language" type="constant">en</arg>
+                        </instance_generator>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>actor_activity_floruit/act_activity_floruit_time-span_to</relation>
+                </source_relation>
+                <target_relation>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
+                    <relationship>crm:P14i_performed</relationship>
+                    <entity variable="floruit">
+                        <type>frbr:F51_Pursuit</type>
+                        <instance_generator name="UUID"/>
+                    </entity>
+                    <relationship>crm:P4_has_time-span</relationship>
+                    <entity>
+                        <type>crm:E52_Time-Span</type>
+                        <instance_generator name="UUID"/>
+                    </entity>
+                    <relationship>crm:P82b_end_of_the_end</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>actor_activity_floruit/act_activity_floruit_time-span_to</source_node>
+                <target_node>
+                    <entity>
+                        <type>http://www.w3.org/2001/XMLSchema#dateTime</type>
+                        <instance_generator name="Literal">
+                            <arg name="text" type="xpath">text()</arg>
+                            <arg name="language" type="constant">en</arg>
+                        </instance_generator>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>act_social_national_affiliation/act_social_national_affiliation_uuid</relation>
+                </source_relation>
+                <target_relation>
+                    <relationship>crm:P107_has_current_or_former_member</relationship>
+                    <entity>
+                        <type>crm:E74_Group</type>
+                        <instance_generator name="UUID"/>
+                    </entity>
+                    <relationship>crm:P107i_is_current_or_former_member_of</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>act_social_national_affiliation/act_social_national_affiliation_uuid</source_node>
+                <target_node>
+                    <entity>
+                        <type>crm:E74_Group</type>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="constant">group</arg>
+                            <arg name="id" type="xpath">text()</arg>
+                        </instance_generator>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>act_occupations</relation>
+                </source_relation>
+                <target_relation>
+                    <relationship>crm:P14i_performed</relationship>
+                    <entity>
+                        <type>frbr:F51_Pursuit</type>
+                        <instance_generator name="UUID"/>
+                    </entity>
+                    <relationship>frbr:R59_had_typical_subject</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>act_occupations</source_node>
+                <target_node>
+                    <entity>
+                        <type>crm:E55_Type</type>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="constant"/>
+                            <arg name="id" type="xpath">text()</arg>
+                        </instance_generator>
+                        <label_generator name="Literal">
+                            <arg name="text" type="xpath">act_activity_occupation_de/text()</arg>
+                            <arg name="language" type="constant">de</arg>
+                        </label_generator>
+                        <label_generator name="Literal">
+                            <arg name="text" type="xpath">act_activity_occupation_en/text()</arg>
+                            <arg name="language" type="constant">en</arg>
+                        </label_generator>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+    </mapping>
+    <mapping>
+        <domain>
+            <source_node>/root/entry/act_altName/act_alt_nameLiteral</source_node>
+            <target_node>
+                <entity>
+                    <type>crm:E41_Appellation</type>
+                    <instance_generator name="personAppellationUri">
+                        <arg name="person_id" type="xpath">../../_uuid/text()</arg>
+                        <arg name="appellation_id" type="xpath">act_nc_altname_literal/text()</arg>
+                    </instance_generator>
+                    <label_generator name="Literal">
+                        <arg name="text" type="xpath">act_nc_altname_literal/text()</arg>
+                        <arg name="language" type="xpath">act_nc_altname_lang_akronym/text()</arg>
+                    </label_generator>
+                </entity>
+            </target_node>
+        </domain>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>act_nc_altname_type_de</relation>
+                </source_relation>
+                <target_relation>
+                    <relationship>crm:P2_has_type</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>act_nc_altname_type_de</source_node>
+                <target_node>
+                    <entity>
+                        <type>crm:E55_Type</type>
+                        <instance_generator name="URIwithType">
+                            <arg name="type" type="xpath">text()</arg>
+                        </instance_generator>
+                        <label_generator name="Literal">
+                            <arg name="text" type="xpath">text()</arg>
+                            <arg name="language" type="constant">de</arg>
+                        </label_generator>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>act_nc_altname_type_en</relation>
+                </source_relation>
+                <target_relation>
+                    <relationship>crm:P2_has_type</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>act_nc_altname_type_en</source_node>
+                <target_node>
+                    <entity>
+                        <type>crm:E55_Type</type>
+                        <instance_generator name="URIwithType">
+                            <arg name="type" type="xpath">text()</arg>
+                        </instance_generator>
+                        <label_generator name="Literal">
+                            <arg name="text" type="xpath">text()</arg>
+                            <arg name="language" type="constant">en</arg>
+                        </label_generator>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>act_nc_altname_timespan_from</relation>
+                </source_relation>
+                <target_relation>
+                    <relationship>frbr:R64i_was_name_used_by</relationship>
+                    <entity>
+                        <type>frbr:F52_Name_Use_Activity</type>
+                        <instance_generator name="UUID"/>
+                    </entity>
+                    <relationship>crm:P4_has_time-span</relationship>
+                    <entity>
+                        <type>crm:E52_Time-Span</type>
+                        <instance_generator name="UUID"/>
+                    </entity>
+                    <relationship>crm:P82a_begin_of_the_begin</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>act_nc_altname_timespan_from</source_node>
+                <target_node>
+                    <entity>
+                        <type>http://www.w3.org/2001/XMLSchema#dateTime</type>
+                        <instance_generator name="Literal">
+                            <arg name="text" type="xpath">text()</arg>
+                            <arg name="language" type="constant">en</arg>
+                        </instance_generator>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>act_nc_altname_timespan_to</relation>
+                </source_relation>
+                <target_relation>
+                    <relationship>frbr:R64i_was_name_used_by</relationship>
+                    <entity>
+                        <type>frbr:F52_Name_Use_Activity</type>
+                        <instance_generator name="UUID"/>
+                    </entity>
+                    <relationship>crm:P4_has_time-span</relationship>
+                    <entity>
+                        <type>crm:E52_Time-Span</type>
+                        <instance_generator name="UUID"/>
+                    </entity>
+                    <relationship>crm:P82b_end_of_the_end</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>act_nc_altname_timespan_to</source_node>
+                <target_node>
+                    <entity>
+                        <type>http://www.w3.org/2001/XMLSchema#dateTime</type>
+                        <instance_generator name="Literal">
+                            <arg name="text" type="xpath">text()</arg>
+                            <arg name="language" type="constant">en</arg>
+                        </instance_generator>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+    </mapping>
+    <mapping>
+        <domain>
+            <source_node>/root/entry/act_short_bio</source_node>
+            <target_node>
+                <entity>
+                    <type>crm:E73_Information_Object</type>
+                    <instance_generator name="personBiography">
+                        <arg name="person_id" type="xpath">../_uuid/text()</arg>
+                        <arg name="lang" type="xpath">act_doc_biographical_note_akronym/text()</arg>
+                    </instance_generator>
+                </entity>
+            </target_node>
+        </domain>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>act_doc_biographical_note_literal</relation>
+                </source_relation>
+                <target_relation>
+                    <relationship>crm:P3_has_note</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>act_doc_biographical_note_literal</source_node>
+                <target_node>
+                    <entity>
+                        <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
+                        <instance_generator name="Literal">
+                            <arg name="text" type="xpath">text()</arg>
+                            <arg name="language" type="xpath">../act_doc_biographical_note_akronym/text()</arg>
+                        </instance_generator>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+        <link>
+            <path>
+                <source_relation>
+                    <relation>act_doc_biographical_note_source_uuid</relation>
+                </source_relation>
+                <target_relation>
+                    <relationship>crm:P129i_is_subject_of</relationship>
+                    <entity>
+                        <type>crm:E33_Linguistic_Object</type>
+                        <instance_generator name="UUID"/>
+                    </entity>
+                    <relationship>crm:P106i_forms_part_of</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>act_doc_biographical_note_source_uuid</source_node>
+                <target_node>
+                    <entity>
+                        <type>crm:E33_Linguistic_Object</type>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="constant">biographical_note_source</arg>
+                            <arg name="id" type="xpath">text()</arg>
+                        </instance_generator>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+    </mapping>
+</mappings>
 </x3ml>
