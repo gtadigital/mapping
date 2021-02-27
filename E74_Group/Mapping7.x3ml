@@ -903,7 +903,9 @@
                     <relationship>crm:P95i_was_formed_by</relationship>
                     <entity variable="formation">
                         <type>crm:E66_Formation</type>
-                        <instance_generator name="UUID"/>
+                        <instance_generator name="groupFormation">
+                            <arg name="group_id" type="xpath">../_uuid/text()</arg>
+                        </instance_generator>
                     </entity>
                     <relationship>crm:P7_took_place_at</relationship>
                 </target_relation>
@@ -936,12 +938,17 @@
                     <relationship>crm:P95i_was_formed_by</relationship>
                     <entity variable="formation">
                         <type>crm:E66_Formation</type>
-                        <instance_generator name="UUID"/>
+                        <instance_generator name="groupFormation">
+                            <arg name="group_id" type="xpath">../_uuid/text()</arg>
+                        </instance_generator>
                     </entity>
                     <relationship>crm:P4_has_time-span</relationship>
                     <entity>
                         <type>crm:E52_Time-Span</type>
-                        <instance_generator name="UUID"/>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="constant">formation_time_span</arg>
+                            <arg name="id" type="xpath">../_uuid/text()</arg>
+                        </instance_generator>
                     </entity>
                     <relationship>crm:P82a_begin_of_the_begin</relationship>
                 </target_relation>
@@ -971,21 +978,26 @@
                     <relationship>crm:P95i_was_formed_by</relationship>
                     <entity variable="formation">
                         <type>crm:E66_Formation</type>
-                        <instance_generator name="UUID"/>
+                        <instance_generator name="groupFormation">
+                            <arg name="group_id" type="xpath">../_uuid/text()</arg>
+                        </instance_generator>
                     </entity>
                     <relationship>crm:P4_has_time-span</relationship>
                     <entity>
                         <type>crm:E52_Time-Span</type>
-                        <instance_generator name="UUID"/>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="constant">formation_time_span</arg>
+                            <arg name="id" type="xpath">../_uuid/text()</arg>
+                        </instance_generator>
                     </entity>
-                    <relationship>crm:P82_at_some_time_within</relationship>
+                    <relationship>crm:P82b_end_of_the_end</relationship>
                 </target_relation>
             </path>
             <range>
                 <source_node>grp_formation_timespan_to</source_node>
                 <target_node>
                     <entity>
-                        <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
+                        <type>http://www.w3.org/2001/XMLSchema#dateTime</type>
                         <instance_generator name="Literal">
                             <arg name="text" type="xpath">text()</arg>
                             <arg name="language" type="constant">en</arg>
@@ -1006,7 +1018,9 @@
                     <relationship>crm:P99i_was_dissolved_by</relationship>
                     <entity variable="dissolution">
                         <type>crm:E68_Dissolution</type>
-                        <instance_generator name="UUID"/>
+                        <instance_generator name="groupDissolution">
+                            <arg name="group_id" type="xpath">../_uuid/text()</arg>
+                        </instance_generator>
                     </entity>
                     <relationship>crm:P7_took_place_at</relationship>
                 </target_relation>
@@ -1039,12 +1053,17 @@
                     <relationship>crm:P99i_was_dissolved_by</relationship>
                     <entity variable="dissolution">
                         <type>crm:E68_Dissolution</type>
-                        <instance_generator name="UUID"/>
+                        <instance_generator name="groupDissolution">
+                            <arg name="group_id" type="xpath">../_uuid/text()</arg>
+                        </instance_generator>
                     </entity>
                     <relationship>crm:P4_has_time-span</relationship>
                     <entity>
                         <type>crm:E52_Time-Span</type>
-                        <instance_generator name="UUID"/>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="constant">dissolution_time_span</arg>
+                            <arg name="id" type="xpath">../_uuid/text()</arg>
+                        </instance_generator>
                     </entity>
                     <relationship>crm:P82a_begin_of_the_begin</relationship>
                 </target_relation>
@@ -1074,12 +1093,17 @@
                     <relationship>crm:P99i_was_dissolved_by</relationship>
                     <entity variable="dissolution">
                         <type>crm:E68_Dissolution</type>
-                        <instance_generator name="UUID"/>
+                        <instance_generator name="groupDissolution">
+                            <arg name="group_id" type="xpath">../_uuid/text()</arg>
+                        </instance_generator>
                     </entity>
                     <relationship>crm:P4_has_time-span</relationship>
                     <entity>
                         <type>crm:E52_Time-Span</type>
-                        <instance_generator name="UUID"/>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="constant">dissolution_time_span</arg>
+                            <arg name="id" type="xpath">../_uuid/text()</arg>
+                        </instance_generator>
                     </entity>
                     <relationship>crm:P82b_end_of_the_end</relationship>
                 </target_relation>
@@ -1106,7 +1130,9 @@
                     <relationship>crm:P14i_performed</relationship>
                     <entity variable="floruit">
                         <type>frbr:F51_Pursuit</type>
-                        <instance_generator name="UUID"/>
+                        <instance_generator name="groupFloruit">
+                            <arg name="group_id" type="xpath">../../_uuid/text()</arg>
+                        </instance_generator>
                     </entity>
                     <relationship>crm:P7_took_place_at</relationship>
                 </target_relation>
@@ -1139,12 +1165,17 @@
                     <relationship>crm:P14i_performed</relationship>
                     <entity variable="floruit">
                         <type>frbr:F51_Pursuit</type>
-                        <instance_generator name="UUID"/>
+                        <instance_generator name="groupFloruit">
+                            <arg name="group_id" type="xpath">../../_uuid/text()</arg>
+                        </instance_generator>
                     </entity>
                     <relationship>crm:P4_has_time-span</relationship>
                     <entity>
                         <type>crm:E52_Time-Span</type>
-                        <instance_generator name="UUID"/>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="constant">time_span_floruit</arg>
+                            <arg name="id" type="xpath">../../_uuid/text()</arg>
+                        </instance_generator>
                     </entity>
                     <relationship>crm:P82a_begin_of_the_begin</relationship>
                 </target_relation>
@@ -1174,12 +1205,17 @@
                     <relationship>crm:P14i_performed</relationship>
                     <entity variable="floruit">
                         <type>frbr:F51_Pursuit</type>
-                        <instance_generator name="UUID"/>
+                        <instance_generator name="groupFloruit">
+                            <arg name="group_id" type="xpath">../_uuid/text()</arg>
+                        </instance_generator>
                     </entity>
                     <relationship>crm:P4_has_time-span</relationship>
                     <entity>
                         <type>crm:E52_Time-Span</type>
-                        <instance_generator name="UUID"/>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="constant">time_span_floruit</arg>
+                            <arg name="id" type="xpath">../../_uuid/text()</arg>
+                        </instance_generator>
                     </entity>
                     <relationship>crm:P82b_end_of_the_end</relationship>
                 </target_relation>
@@ -1347,7 +1383,10 @@
                     <relationship>crm:P4_has_time-span</relationship>
                     <entity>
                         <type>crm:E52_Time-Span</type>
-                        <instance_generator name="UUID"/>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="constant">time_span_altname</arg>
+                            <arg name="id" type="xpath">../../../_uuid/text()</arg>
+                        </instance_generator>
                     </entity>
                     <relationship>crm:P82a_begin_of_the_begin</relationship>
                 </target_relation>
@@ -1379,7 +1418,10 @@
                     <relationship>crm:P4_has_time-span</relationship>
                     <entity>
                         <type>crm:E52_Time-Span</type>
-                        <instance_generator name="UUID"/>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="constant">time_span_altname</arg>
+                            <arg name="id" type="xpath">../../../_uuid/text()</arg>
+                        </instance_generator>
                     </entity>
                     <relationship>crm:P82b_end_of_the_end</relationship>
                 </target_relation>
