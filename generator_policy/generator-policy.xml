@@ -151,6 +151,9 @@
 	<generator name="groupFormation" prefix="sari">
 		<pattern>group/{group_id}/formation</pattern>
 	</generator>
+	<generator name="groupFloruit" prefix="sari">
+		<pattern>group/{group_id}/floruit</pattern>
+	</generator>
 	<generator name="groupFormationTimespan" prefix="sari">
 		<pattern>group/{group_id}/formation/timespan</pattern>
 	</generator>
