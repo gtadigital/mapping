@@ -868,24 +868,16 @@
                 </source_relation>
                 <target_relation>
                     <relationship>crm:P74_has_current_or_former_residence</relationship>
-                    <entity>
-                        <type>crm:E53_Place</type>
-                        <instance_generator name="URIwithTypeAndId">
-                            <arg name="type" type="constant">place</arg>
-                            <arg name="id" type="xpath">text()</arg>
-                        </instance_generator>
-                    </entity>
-                    <relationship>crm:P168_place_is_defined_by</relationship>
                 </target_relation>
             </path>
             <range>
                 <source_node>grp_loc_places/grp_location_place</source_node>
                 <target_node>
                     <entity>
-                        <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                        <instance_generator name="Literal">
-                            <arg name="text" type="xpath">text()</arg>
-                            <arg name="language" type="constant">en</arg>
+                        <type>crm:E53_Place</type>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="constant">place</arg>
+                            <arg name="id" type="xpath">text()</arg>
                         </instance_generator>
                     </entity>
                 </target_node>
