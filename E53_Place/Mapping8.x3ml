@@ -118,10 +118,9 @@
                 <target_node>
                     <entity>
                         <type>crm:E53_Place</type>
-                        <instance_generator name="placeIdentifierUri">
-                            <arg name="place_id" type="xpath">../plIdentifier_uuid/text()</arg>
-                            <arg name="identifier_type" type="xpath">text()</arg>
-                            <arg name="identifier" type="xpath">text()</arg>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="constant">place</arg>
+                            <arg name="id" type="xpath">text()</arg>
                         </instance_generator>
                     </entity>
                 </target_node>
@@ -175,6 +174,9 @@
             <range>
                 <source_node>plIdentifier_swisstopo_provider</source_node>
                 <target_node>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
                     <entity>
                         <type>crm:E39_Actor</type>
                         <instance_generator name="actorIdentifier">
@@ -182,8 +184,24 @@
                             <arg name="identifier_value" type="xpath">text()</arg>
                         </instance_generator>
                         <label_generator name="Literal">
-                            <arg name="text" type="constant">SwissTopo</arg>
+                            <arg name="text" type="xpath">text()</arg>
                         </label_generator>
+                        <additional>
+                            <relationship>crm:P2_has_type</relationship>
+                            <entity>
+                                <type>crm:E55_Type</type>
+                                <instance_info>
+                                    <constant/>
+                                </instance_info>
+                                <instance_generator name="URIwithTypeAndId">
+                                    <arg name="type" type="constant">swisstopo_provider</arg>
+                                    <arg name="id" type="constant">swisstopo_provider</arg>
+                                </instance_generator>
+                                <label_generator name="Literal">
+                                    <arg name="text" type="constant">swisstopo_provider</arg>
+                                </label_generator>
+                            </entity>
+                        </additional>
                     </entity>
                 </target_node>
             </range>
@@ -274,6 +292,9 @@
             <range>
                 <source_node>plIdentifier_stzh_provider</source_node>
                 <target_node>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
                     <entity>
                         <type>crm:E39_Actor</type>
                         <instance_generator name="actorIdentifier">
@@ -281,8 +302,24 @@
                             <arg name="identifier_value" type="xpath">text()</arg>
                         </instance_generator>
                         <label_generator name="Literal">
-                            <arg name="text" type="constant">StadtZurich</arg>
+                            <arg name="text" type="xpath">text()</arg>
                         </label_generator>
+                        <additional>
+                            <relationship>crm:P2_has_type</relationship>
+                            <entity>
+                                <type>crm:E55_Type</type>
+                                <instance_info>
+                                    <constant/>
+                                </instance_info>
+                                <instance_generator name="URIwithTypeAndId">
+                                    <arg name="type" type="constant">stzh_provider</arg>
+                                    <arg name="id" type="constant">stzh_provider</arg>
+                                </instance_generator>
+                                <label_generator name="Literal">
+                                    <arg name="text" type="constant">stzh_provider</arg>
+                                </label_generator>
+                            </entity>
+                        </additional>
                     </entity>
                 </target_node>
             </range>
@@ -314,6 +351,9 @@
             <range>
                 <source_node>plIdentifier_tgn_provider</source_node>
                 <target_node>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
                     <entity>
                         <type>crm:E39_Actor</type>
                         <instance_generator name="actorIdentifier">
@@ -321,8 +361,24 @@
                             <arg name="identifier_value" type="xpath">text()</arg>
                         </instance_generator>
                         <label_generator name="Literal">
-                            <arg name="text" type="constant">tgn</arg>
+                            <arg name="text" type="xpath">text()</arg>
                         </label_generator>
+                        <additional>
+                            <relationship>crm:P2_has_type</relationship>
+                            <entity>
+                                <type>crm:E55_Type</type>
+                                <instance_info>
+                                    <constant/>
+                                </instance_info>
+                                <instance_generator name="URIwithTypeAndId">
+                                    <arg name="type" type="constant">tgn_provider</arg>
+                                    <arg name="id" type="constant">tgn_provider</arg>
+                                </instance_generator>
+                                <label_generator name="Literal">
+                                    <arg name="text" type="constant">tgn_provider</arg>
+                                </label_generator>
+                            </entity>
+                        </additional>
                     </entity>
                 </target_node>
             </range>
@@ -414,6 +470,9 @@
             <range>
                 <source_node>plIdentifier_wikidata_provider</source_node>
                 <target_node>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
                     <entity>
                         <type>crm:E39_Actor</type>
                         <instance_generator name="actorIdentifier">
@@ -421,8 +480,24 @@
                             <arg name="identifier_value" type="xpath">text()</arg>
                         </instance_generator>
                         <label_generator name="Literal">
-                            <arg name="text" type="constant">wikidata</arg>
+                            <arg name="text" type="xpath">text()</arg>
                         </label_generator>
+                        <additional>
+                            <relationship>crm:P2_has_type</relationship>
+                            <entity>
+                                <type>crm:E55_Type</type>
+                                <instance_info>
+                                    <constant/>
+                                </instance_info>
+                                <instance_generator name="URIwithTypeAndId">
+                                    <arg name="type" type="constant">wikidata_provider</arg>
+                                    <arg name="id" type="constant">wikidata_provider</arg>
+                                </instance_generator>
+                                <label_generator name="Literal">
+                                    <arg name="text" type="constant">wikidata_provider</arg>
+                                </label_generator>
+                            </entity>
+                        </additional>
                     </entity>
                 </target_node>
             </range>
@@ -513,6 +588,9 @@
             <range>
                 <source_node>plIdentifier_geonames_provider</source_node>
                 <target_node>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
                     <entity>
                         <type>crm:E39_Actor</type>
                         <instance_generator name="actorIdentifier">
@@ -520,8 +598,24 @@
                             <arg name="identifier_value" type="xpath">text()</arg>
                         </instance_generator>
                         <label_generator name="Literal">
-                            <arg name="text" type="constant">geonames</arg>
+                            <arg name="text" type="xpath">text()</arg>
                         </label_generator>
+                        <additional>
+                            <relationship>crm:P2_has_type</relationship>
+                            <entity>
+                                <type>crm:E55_Type</type>
+                                <instance_info>
+                                    <constant/>
+                                </instance_info>
+                                <instance_generator name="URIwithTypeAndId">
+                                    <arg name="type" type="constant">geonames_provider</arg>
+                                    <arg name="id" type="constant">geonames_provider</arg>
+                                </instance_generator>
+                                <label_generator name="Literal">
+                                    <arg name="text" type="constant">geonames_provider</arg>
+                                </label_generator>
+                            </entity>
+                        </additional>
                     </entity>
                 </target_node>
             </range>
@@ -612,6 +706,9 @@
             <range>
                 <source_node>plIdentifier_gnd_provider</source_node>
                 <target_node>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
                     <entity>
                         <type>crm:E39_Actor</type>
                         <instance_generator name="actorIdentifier">
@@ -619,8 +716,24 @@
                             <arg name="identifier_value" type="xpath">text()</arg>
                         </instance_generator>
                         <label_generator name="Literal">
-                            <arg name="text" type="constant">gnd</arg>
+                            <arg name="text" type="xpath">text()</arg>
                         </label_generator>
+                        <additional>
+                            <relationship>crm:P2_has_type</relationship>
+                            <entity>
+                                <type>crm:E55_Type</type>
+                                <instance_info>
+                                    <constant/>
+                                </instance_info>
+                                <instance_generator name="URIwithTypeAndId">
+                                    <arg name="type" type="constant">gnd_provider</arg>
+                                    <arg name="id" type="constant">gnd_provider</arg>
+                                </instance_generator>
+                                <label_generator name="Literal">
+                                    <arg name="text" type="constant">gnd_provider</arg>
+                                </label_generator>
+                            </entity>
+                        </additional>
                     </entity>
                 </target_node>
             </range>
@@ -711,6 +824,9 @@
             <range>
                 <source_node>plIdentifier_dbpedia_provider</source_node>
                 <target_node>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
                     <entity>
                         <type>crm:E39_Actor</type>
                         <instance_generator name="actorIdentifier">
@@ -718,8 +834,24 @@
                             <arg name="identifier_value" type="xpath">text()</arg>
                         </instance_generator>
                         <label_generator name="Literal">
-                            <arg name="text" type="constant">dbpedia</arg>
+                            <arg name="text" type="xpath">text()</arg>
                         </label_generator>
+                        <additional>
+                            <relationship>crm:P2_has_type</relationship>
+                            <entity>
+                                <type>crm:E55_Type</type>
+                                <instance_info>
+                                    <constant/>
+                                </instance_info>
+                                <instance_generator name="URIwithTypeAndId">
+                                    <arg name="type" type="constant">dbpedia_provider</arg>
+                                    <arg name="id" type="constant">dbpedia_provider</arg>
+                                </instance_generator>
+                                <label_generator name="Literal">
+                                    <arg name="text" type="constant">dbpedia_provider</arg>
+                                </label_generator>
+                            </entity>
+                        </additional>
                     </entity>
                 </target_node>
             </range>
@@ -810,6 +942,9 @@
             <range>
                 <source_node>plIdentifier_viaf_provider</source_node>
                 <target_node>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
                     <entity>
                         <type>crm:E39_Actor</type>
                         <instance_generator name="actorIdentifier">
@@ -817,8 +952,24 @@
                             <arg name="identifier_value" type="xpath">text()</arg>
                         </instance_generator>
                         <label_generator name="Literal">
-                            <arg name="text" type="constant">viaf</arg>
+                            <arg name="text" type="xpath">text()</arg>
                         </label_generator>
+                        <additional>
+                            <relationship>crm:P2_has_type</relationship>
+                            <entity>
+                                <type>crm:E55_Type</type>
+                                <instance_info>
+                                    <constant/>
+                                </instance_info>
+                                <instance_generator name="URIwithTypeAndId">
+                                    <arg name="type" type="constant">viaf_provider</arg>
+                                    <arg name="id" type="constant">viaf_provider</arg>
+                                </instance_generator>
+                                <label_generator name="Literal">
+                                    <arg name="text" type="constant">viaf_provider</arg>
+                                </label_generator>
+                            </entity>
+                        </additional>
                     </entity>
                 </target_node>
             </range>
