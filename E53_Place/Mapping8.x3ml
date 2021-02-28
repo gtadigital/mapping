@@ -360,6 +360,10 @@
                             <arg name="type" type="constant">tgnURI</arg>
                             <arg name="id" type="xpath">text()</arg>
                         </instance_generator>
+                        <label_generator name="Literal">
+                            <arg name="text" type="xpath">text()</arg>
+                            <arg name="language" type="constant"/>
+                        </label_generator>
                         <additional>
                             <relationship>crm:P2_has_type</relationship>
                             <entity>
@@ -456,6 +460,9 @@
                             <arg name="type" type="constant">wikidataURI</arg>
                             <arg name="id" type="xpath">text()</arg>
                         </instance_generator>
+                        <label_generator name="Literal">
+                            <arg name="text" type="xpath">text()</arg>
+                        </label_generator>
                         <additional>
                             <relationship>crm:P2_has_type</relationship>
                             <entity>
@@ -552,6 +559,9 @@
                             <arg name="type" type="constant">geonamesURI</arg>
                             <arg name="id" type="xpath">text()</arg>
                         </instance_generator>
+                        <label_generator name="Literal">
+                            <arg name="text" type="xpath">text()</arg>
+                        </label_generator>
                         <additional>
                             <relationship>crm:P2_has_type</relationship>
                             <entity>
@@ -648,6 +658,9 @@
                             <arg name="type" type="constant">gndURI</arg>
                             <arg name="id" type="xpath">text()</arg>
                         </instance_generator>
+                        <label_generator name="Literal">
+                            <arg name="text" type="xpath">text()</arg>
+                        </label_generator>
                         <additional>
                             <relationship>crm:P2_has_type</relationship>
                             <entity>
@@ -744,6 +757,9 @@
                             <arg name="type" type="constant">dbpediaURI</arg>
                             <arg name="id" type="xpath">text()</arg>
                         </instance_generator>
+                        <label_generator name="Literal">
+                            <arg name="text" type="xpath">text()</arg>
+                        </label_generator>
                         <additional>
                             <relationship>crm:P2_has_type</relationship>
                             <entity>
@@ -840,6 +856,9 @@
                             <arg name="type" type="constant">viafURI</arg>
                             <arg name="id" type="xpath">text()</arg>
                         </instance_generator>
+                        <label_generator name="Literal">
+                            <arg name="text" type="xpath">text()</arg>
+                        </label_generator>
                         <additional>
                             <relationship>crm:P2_has_type</relationship>
                             <entity>
@@ -1060,6 +1079,4 @@
         </link>
     </mapping>
 </mappings>
-
-
 </x3ml>
