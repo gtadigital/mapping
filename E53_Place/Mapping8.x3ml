@@ -104,6 +104,7 @@
                 </target_node>
             </range>
         </link>
+		<!--
         <link>
             <path>
                 <source_relation>
@@ -116,16 +117,36 @@
             <range>
                 <source_node>plParthood_currentPartOf</source_node>
                 <target_node>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
                     <entity>
                         <type>crm:E53_Place</type>
                         <instance_generator name="URIwithTypeAndId">
                             <arg name="type" type="constant">place</arg>
                             <arg name="id" type="xpath">text()</arg>
                         </instance_generator>
+                        <additional>
+                            <relationship>crm:P2_has_type</relationship>
+                            <entity>
+                                <type>crm:E55_Type</type>
+                                <instance_info>
+                                    <constant/>
+                                </instance_info>
+                                <instance_generator name="URIwithTypeAndId">
+                                    <arg name="type" type="constant">parthood</arg>
+                                    <arg name="id" type="constant">parthood</arg>
+                                </instance_generator>
+                                <label_generator name="Literal">
+                                    <arg name="text" type="constant">parthood</arg>
+                                </label_generator>
+                            </entity>
+                        </additional>
                     </entity>
                 </target_node>
             </range>
         </link>
+		-->
         <link>
             <path>
                 <source_relation>
@@ -324,7 +345,7 @@
                 </target_node>
             </range>
         </link>
-		<link>
+        <link>
             <path>
                 <source_relation>
                     <relation>plIdentifier_stzhURI</relation>
