@@ -326,9 +326,6 @@
                     <relation>ao_production_list/ao_production/ao_production_place_uuid</relation>
                 </source_relation>
                 <target_relation>
-                    <if>
-                        <exists>text()</exists>
-                    </if>
                     <relationship>crm:P108i_was_produced_by</relationship>
                     <entity>
                         <type>crm:E12_Production</type>
@@ -342,6 +339,9 @@
             <range>
                 <source_node>ao_production_list/ao_production/ao_production_place_uuid</source_node>
                 <target_node>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
                     <entity>
                         <type>crm:E53_Place</type>
                         <instance_generator name="URIwithTypeAndId">
@@ -436,9 +436,6 @@
                     <relation>ao_destruction/ao_destruction_place/ao_destruction_place_uuid</relation>
                 </source_relation>
                 <target_relation>
-                    <if>
-                        <exists>text()</exists>
-                    </if>
                     <relationship>crm:P13i_was_destroyed_by</relationship>
                     <entity>
                         <type>crm:E6_Destruction</type>
@@ -452,6 +449,9 @@
             <range>
                 <source_node>ao_destruction/ao_destruction_place/ao_destruction_place_uuid</source_node>
                 <target_node>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
                     <entity>
                         <type>crm:E53_Place</type>
                         <instance_generator name="URIwithTypeAndId">
@@ -671,10 +671,16 @@
                     <relation>ao_cover_places/ao_cover_place/ao_cover_places_uuid</relation>
                 </source_relation>
                 <target_relation>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
                     <relationship>crm:P128_carries</relationship>
                     <entity>
                         <type>crm:E33_Linguistic_Object</type>
-                        <instance_generator name="UUID"/>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="constant">covered_place</arg>
+                            <arg name="id" type="xpath">text()</arg>
+                        </instance_generator>
                     </entity>
                     <relationship>crm:P129_is_about</relationship>
                 </target_relation>
@@ -720,7 +726,10 @@
                     <relationship>crm:P128_carries</relationship>
                     <entity>
                         <type>crm:E33_Linguistic_Object</type>
-                        <instance_generator name="UUID"/>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="constant">covered_actor</arg>
+                            <arg name="id" type="xpath">text()</arg>
+                        </instance_generator>
                     </entity>
                     <relationship>crm:P129_is_about</relationship>
                 </target_relation>
@@ -767,10 +776,16 @@
                     <relation>ao_cover_actors/ao_cover_actors_type</relation>
                 </source_relation>
                 <target_relation>
+                    <if>
+                        <exists>text</exists>
+                    </if>
                     <relationship>crm:P128_carries</relationship>
                     <entity>
                         <type>crm:E33_Linguistic_Object</type>
-                        <instance_generator name="UUID"/>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="constant">covered_actors</arg>
+                            <arg name="id" type="xpath">text()</arg>
+                        </instance_generator>
                     </entity>
                     <relationship>crm:P129_is_about</relationship>
                 </target_relation>
@@ -817,10 +832,16 @@
                     <relation>ao_cover_oeuvres/ao_cover_actors_type/ao_cover_oeuvres_uuid</relation>
                 </source_relation>
                 <target_relation>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
                     <relationship>crm:P128_carries</relationship>
                     <entity>
                         <type>crm:E33_Linguistic_Object</type>
-                        <instance_generator name="UUID"/>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="constant">covered_actors</arg>
+                            <arg name="id" type="xpath">text()</arg>
+                        </instance_generator>
                     </entity>
                     <relationship>crm:P2_has_type</relationship>
                 </target_relation>
@@ -1153,6 +1174,9 @@
                     <relation>ao_cover_oeuvres/ao_cover_oeuvres_role</relation>
                 </source_relation>
                 <target_relation>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
                     <relationship>crm:P128_carries</relationship>
                     <entity>
                         <type>crm:E33_Linguistic_Object</type>
