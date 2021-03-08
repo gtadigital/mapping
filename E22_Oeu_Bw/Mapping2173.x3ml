@@ -899,7 +899,10 @@
                     <relationship>crm:P4_has_time-span</relationship>
                     <entity>
                         <type>crm:E52_Time-Span</type>
-                        <instance_generator name="UUID"/>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="constant">name_used_time_span</arg>
+                            <arg name="id" type="xpath">../../oeu_nc_uuid/text()</arg>
+                        </instance_generator>
                     </entity>
                     <relationship>crm:P82a_begin_of_the_begin</relationship>
                 </target_relation>
@@ -931,7 +934,10 @@
                     <relationship>crm:P4_has_time-span</relationship>
                     <entity>
                         <type>crm:E52_Time-Span</type>
-                        <instance_generator name="UUID"/>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="constant">name_used_time_span</arg>
+                            <arg name="id" type="xpath">../../oeu_nc_uuid/text()</arg>
+                        </instance_generator>
                     </entity>
                     <relationship>crm:P82b_end_of_the_end</relationship>
                 </target_relation>
