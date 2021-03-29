@@ -728,7 +728,7 @@
                         <type>crm:E33_Linguistic_Object</type>
                         <instance_generator name="URIwithTypeAndId">
                             <arg name="type" type="constant">covered_actor</arg>
-                            <arg name="id" type="xpath">text()</arg>
+                            <arg name="id" type="xpath">ao_cover_actor_uuid/text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P129_is_about</relationship>
@@ -784,7 +784,7 @@
                         <type>crm:E33_Linguistic_Object</type>
                         <instance_generator name="URIwithTypeAndId">
                             <arg name="type" type="constant">covered_actors</arg>
-                            <arg name="id" type="xpath">text()</arg>
+                            <arg name="id" type="xpath">ao_cover_actor_uuid/text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P129_is_about</relationship>
@@ -839,7 +839,7 @@
                     <entity>
                         <type>crm:E33_Linguistic_Object</type>
                         <instance_generator name="URIwithTypeAndId">
-                            <arg name="type" type="constant">covered_actors</arg>
+                            <arg name="type" type="constant">covered_oeuvres</arg>
                             <arg name="id" type="xpath">text()</arg>
                         </instance_generator>
                     </entity>
@@ -995,7 +995,6 @@
                         <type>http://www.w3.org/2001/XMLSchema#dateTime</type>
                         <instance_generator name="Literal">
                             <arg name="text" type="xpath">text()</arg>
-                            <arg name="language" type="constant">en</arg>
                         </instance_generator>
                     </entity>
                 </target_node>
@@ -1038,7 +1037,6 @@
                         <type>http://www.w3.org/2001/XMLSchema#dateTime</type>
                         <instance_generator name="Literal">
                             <arg name="text" type="xpath">text()</arg>
-                            <arg name="language" type="constant">en</arg>
                         </instance_generator>
                     </entity>
                 </target_node>
@@ -1119,7 +1117,6 @@
                         <type>http://www.w3.org/2001/XMLSchema#dateTime</type>
                         <instance_generator name="Literal">
                             <arg name="text" type="xpath">text()</arg>
-                            <arg name="language" type="constant">en</arg>
                         </instance_generator>
                     </entity>
                 </target_node>
@@ -1162,7 +1159,6 @@
                         <type>http://www.w3.org/2001/XMLSchema#dateTime</type>
                         <instance_generator name="Literal">
                             <arg name="text" type="xpath">text()</arg>
-                            <arg name="language" type="constant">en</arg>
                         </instance_generator>
                     </entity>
                 </target_node>
@@ -1377,7 +1373,6 @@
                         <type>http://www.w3.org/2001/XMLSchema#dateTime</type>
                         <instance_generator name="Literal">
                             <arg name="text" type="xpath">text()</arg>
-                            <arg name="language" type="constant">en</arg>
                         </instance_generator>
                     </entity>
                 </target_node>
@@ -1415,7 +1410,6 @@
                         <type>http://www.w3.org/2001/XMLSchema#dateTime</type>
                         <instance_generator name="Literal">
                             <arg name="text" type="xpath">text()</arg>
-                            <arg name="language" type="constant">en</arg>
                         </instance_generator>
                     </entity>
                 </target_node>
@@ -1458,7 +1452,6 @@
                         <type>http://www.w3.org/2001/XMLSchema#dateTime</type>
                         <instance_generator name="Literal">
                             <arg name="text" type="xpath">text()</arg>
-                            <arg name="language" type="constant">en</arg>
                         </instance_generator>
                     </entity>
                 </target_node>

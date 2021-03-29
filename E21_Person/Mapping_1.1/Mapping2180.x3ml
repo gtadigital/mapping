@@ -556,11 +556,33 @@
             <range>
                 <source_node>act_nc_identifier_wikidata</source_node>
                 <target_node>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
                     <entity>
                         <type>crm:E42_Identifier</type>
                         <instance_generator name="URIwithWikidataId">
                             <arg name="id" type="xpath">text()</arg>
                         </instance_generator>
+                        <label_generator name="Literal">
+                            <arg name="text" type="xpath">text()</arg>
+                        </label_generator>
+                        <additional>
+                            <relationship>crm:P2_has_type</relationship>
+                            <entity>
+                                <type>crm:E55_Type</type>
+                                <instance_info>
+                                    <constant/>
+                                </instance_info>
+                                <instance_generator name="URIwithTypeAndId">
+                                    <arg name="type" type="constant">wikidata_identifier</arg>
+                                    <arg name="id" type="constant">wikidata_identifier</arg>
+                                </instance_generator>
+                                <label_generator name="Literal">
+                                    <arg name="text" type="constant">wikidata_identifier</arg>
+                                </label_generator>
+                            </entity>
+                        </additional>
                     </entity>
                 </target_node>
             </range>
@@ -772,7 +794,7 @@
                                     <arg name="id" type="constant">Alternative Name</arg>
                                 </instance_generator>
                                 <label_generator name="Literal">
-                                    <arg name="text" type="xpath">Alternative Name</arg>
+                                    <arg name="text" type="constant">Alternative Name</arg>
                                 </label_generator>
                             </entity>
                         </additional>
