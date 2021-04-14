@@ -181,7 +181,7 @@
 	<generator name="URIwithDbPediaId" prefix="dbpedia">
 		<pattern>{id}</pattern>
 	</generator>
-	<generator name="URIwithDbPediaId" prefix="dbpedia">
+	<generator name="URIwithVIAFiaId" prefix="viaf">
 		<pattern>{id}</pattern>
 	</generator>
 	<generator name="URIwithSikartId" prefix="sikart">
