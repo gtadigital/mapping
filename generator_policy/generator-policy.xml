@@ -169,6 +169,21 @@
 	<generator name="URIwithWikidataId" prefix="wikidata">
 		<pattern>{id}</pattern>
 	</generator>
+	<generator name="URIwithTGNId" prefix="tgn">
+		<pattern>{id}</pattern>
+	</generator>
+	<generator name="URIwithGeonamesId" prefix="geonames">
+		<pattern>{id}</pattern>
+	</generator>
+	<generator name="URIwithGNDId" prefix="gnd">
+		<pattern>{id}</pattern>
+	</generator>
+	<generator name="URIwithDbPediaId" prefix="dbpedia">
+		<pattern>{id}</pattern>
+	</generator>
+	<generator name="URIwithVIAFId" prefix="viaf">
+		<pattern>{id}</pattern>
+	</generator>
 	<generator name="URIwithSikartId" prefix="sikart">
 		<pattern>{id}</pattern>
 	</generator>
