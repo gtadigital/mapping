@@ -29,16 +29,16 @@
         <plIdentifier_stzh_provider>4eb6dc22-1873-44b7-98be-aefad8d3c43d</plIdentifier_stzh_provider>
         <plIdentifier_stzhURI/>
         <plIdentifier_tgn_provider>f4ec3230-feea-4d4c-941a-ca1649dbf2ef</plIdentifier_tgn_provider>
-        <plIdentifier_tgnURI>http://vocab.getty.edu/tgn/7003761</plIdentifier_tgnURI>
+        <plIdentifier_tgnURI>7003761</plIdentifier_tgnURI>
         <plIdentifier_wikidata_provider>9f885d77-ab06-4026-8a4a-5149740d99fc</plIdentifier_wikidata_provider>
-        <plIdentifier_wikidataURI>https://www.wikidata.org/entity/Q12404</plIdentifier_wikidataURI>
+        <plIdentifier_wikidataURI>Q12404</plIdentifier_wikidataURI>
         <plIdentifier_geonames_provider>884bcfee-bb33-4d65-80dc-3198abf930e2</plIdentifier_geonames_provider>
-        <plIdentifier_geonamesURI>https://www.geonames.org/2658226</plIdentifier_geonamesURI>
+        <plIdentifier_geonamesURI>2658226</plIdentifier_geonamesURI>
         <plIdentifier_gnd_provider>4a7a4e9c-4aa7-4808-a86f-ab2391b5bdc9</plIdentifier_gnd_provider>
-        <plIdentifier_gndURI>http://d-nb.info/gnd/4062129-7</plIdentifier_gndURI>
+        <plIdentifier_gndURI>4062129-7</plIdentifier_gndURI>
         <plIdentifier_dbpedia_provider>09f6b57c-4ae4-437f-baff-4b04cbc0e639</plIdentifier_dbpedia_provider>
-        <plIdentifier_dbpediaURI>http://dbpedia.org/resource/Canton_of_Uri</plIdentifier_dbpediaURI>
+        <plIdentifier_dbpediaURI>Canton_of_Uri</plIdentifier_dbpediaURI>
         <plIdentifier_viaf_provider>e2ab59d3-5c9b-4147-a1e9-5f46b9446b56</plIdentifier_viaf_provider>
-        <plIdentifier_viafURI>http://viaf.org/viaf/124361741</plIdentifier_viafURI>
+        <plIdentifier_viafURI>124361741</plIdentifier_viafURI>
     </entry>
 </root>
