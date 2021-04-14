@@ -104,7 +104,6 @@
                 </target_node>
             </range>
         </link>
-		<!--
         <link>
             <path>
                 <source_relation>
@@ -146,7 +145,6 @@
                 </target_node>
             </range>
         </link>
-		-->
         <link>
             <path>
                 <source_relation>
@@ -495,13 +493,11 @@
                     </if>
                     <entity>
                         <type>crm:E73_Information_Object</type>
-                        <instance_generator name="URIwithTypeAndId">
-                            <arg name="type" type="constant">tgnURI</arg>
+                        <instance_generator name="URIwithTGNId">
                             <arg name="id" type="xpath">text()</arg>
                         </instance_generator>
                         <label_generator name="Literal">
                             <arg name="text" type="xpath">text()</arg>
-                            <arg name="language" type="constant"/>
                         </label_generator>
                         <additional>
                             <relationship>crm:P2_has_type</relationship>
@@ -614,8 +610,7 @@
                     </if>
                     <entity>
                         <type>crm:E73_Information_Object</type>
-                        <instance_generator name="URIwithTypeAndId">
-                            <arg name="type" type="constant">wikidataURI</arg>
+                        <instance_generator name="URIwithWikidataId">
                             <arg name="id" type="xpath">text()</arg>
                         </instance_generator>
                         <label_generator name="Literal">
@@ -732,8 +727,7 @@
                     </if>
                     <entity>
                         <type>crm:E73_Information_Object</type>
-                        <instance_generator name="URIwithTypeAndId">
-                            <arg name="type" type="constant">geonamesURI</arg>
+                        <instance_generator name="URIwithGeonamesId">
                             <arg name="id" type="xpath">text()</arg>
                         </instance_generator>
                         <label_generator name="Literal">
@@ -850,8 +844,7 @@
                     </if>
                     <entity>
                         <type>crm:E73_Information_Object</type>
-                        <instance_generator name="URIwithTypeAndId">
-                            <arg name="type" type="constant">gndURI</arg>
+                        <instance_generator name="URIwithGndId">
                             <arg name="id" type="xpath">text()</arg>
                         </instance_generator>
                         <label_generator name="Literal">
@@ -968,8 +961,7 @@
                     </if>
                     <entity>
                         <type>crm:E73_Information_Object</type>
-                        <instance_generator name="URIwithTypeAndId">
-                            <arg name="type" type="constant">dbpediaURI</arg>
+                        <instance_generator name="URIwithDbPediaId">
                             <arg name="id" type="xpath">text()</arg>
                         </instance_generator>
                         <label_generator name="Literal">
@@ -1086,8 +1078,7 @@
                     </if>
                     <entity>
                         <type>crm:E73_Information_Object</type>
-                        <instance_generator name="URIwithTypeAndId">
-                            <arg name="type" type="constant">viafURI</arg>
+                        <instance_generator name="URIwithVIAFId">
                             <arg name="id" type="xpath">text()</arg>
                         </instance_generator>
                         <label_generator name="Literal">
