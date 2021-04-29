@@ -190,6 +190,10 @@
 	<generator name="URIwithOneType" prefix="sari" uuid="true">
 		<pattern>{type}/</pattern>
 	</generator>
+	<generator name="URIwithTransurbicide" prefix="tu">
+		<pattern>{id}</pattern>
+	</generator>
+	
 	<generator name="dateNormalizerGen">
 		<custom generatorClass="gr.forth.DateNormalizer">
 			<set-arg name="text"/>
