@@ -23,6 +23,9 @@
 	<generator name="URIwith2TypesAndId" prefix="sari">
 		<pattern>{type1}/{type2}/{id}</pattern>
 	</generator>
+	<generator name="timeSpan" prefix="sari">
+		<pattern>event/timespan/{hash_time_span_value}</pattern>
+	</generator>
 	<!-- PLACE DEFINITION -->
 	<generator name="placeAppellationUri" prefix="sari" shorten="true">
 		<pattern>place/{place_id}/appellation/{appellation_id}</pattern>
@@ -32,6 +35,12 @@
 	</generator>
 	<generator name="placeIdentifierUri-hashed" prefix="sari">
 		<pattern>place/{place_id}/{identifier_type}/{identifier}</pattern>
+	</generator>
+	<generator name="actorIdentifier" prefix="sari">
+		<pattern>place/{place_id}/identifier/{identifier_value}</pattern>
+	</generator>
+	<generator name="identifierAssignment" prefix="sari">
+		<pattern>place/{place_id}/identifier_assignment/{identifier_value}</pattern>
 	</generator>
 	<!-- PERSON DEFINITION -->
 	<generator name="personAppellationUri" prefix="sari" shorten="true">
@@ -59,6 +68,9 @@
 	<generator name="builtworkAppellationUri" prefix="sari" shorten="true">
 		<pattern>builtwork/{built_work_id}/appellation/{appellation_id}</pattern>
 	</generator>
+	<generator name="builtworkAlternativeAppellationUri" prefix="sari" shorten="true">
+		<pattern>builtwork/{built_work_id}/alternative_appellation/{appellation_id}</pattern>
+	</generator>
 	<generator name="builtworkIdentifierUri" prefix="sari">
 		<pattern>builtwork/{builtwork_id}/{identifier_type}/{identifier}</pattern>
 	</generator>
@@ -82,6 +94,12 @@
 	</generator>
 	<generator name="builtworkCreationPlace" prefix="sari">
 		<pattern>builtwork/{builtwork_id}/place</pattern>
+	</generator>
+		<generator name="builtworkProduction" prefix="sari">
+		<pattern>builtwork/{builtwork_id}/production</pattern>
+	</generator>
+	<generator name="builtworkDestruction" prefix="sari">
+		<pattern>builtwork/{builtwork_id}/destruction</pattern>
 	</generator>
 		<!-- ARCHIVAL OBJECT -->
 	<generator name="archivalobjectAppellationUri" prefix="sari" shorten="true">
@@ -110,6 +128,12 @@
 	</generator>
 	<generator name="archivalobjectCreationPlace" prefix="sari">
 		<pattern>archivalobject/{archivalobject_id}/place</pattern>
+	</generator>
+	<generator name="archivalobjectProduction" prefix="sari">
+		<pattern>archivalobject/{archivalobject_id}/production</pattern>
+	</generator>
+	<generator name="archivalobjectDestruction" prefix="sari">
+		<pattern>archivalobject/{archivalobject_id}/destruction</pattern>
 	</generator>
 	<!-- GROUP DEFINITION -->
 	<generator name="groupIdentifierUri" prefix="sari">

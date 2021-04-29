@@ -32,7 +32,7 @@
 				<ao_alternative_title_lang>en</ao_alternative_title_lang>
 				<ao_alternative_title_used_by_actor>
 					<ao_title_used_by_actor_uuid>fddae085-34f4-4798-9a41-a3ddbf938db7</ao_title_used_by_actor_uuid>
-					<ao_title_used_by_actor_type>E21_Person</ao_title_used_by_actor_type>
+					<ao_title_used_by_actor_type/>
 				</ao_alternative_title_used_by_actor>
 			</ao_alternative_titles>
 		</ao_alternative_titles_list>
@@ -46,35 +46,35 @@
 		<actor>
 			<ao_actor_creator>
 				<ao_actor_type>
-					<ao_actor_creator_uuid>0f876ee5-8fa7-44ef-a955-90d7096b72b8</ao_actor_creator_uuid>
+					<ao_actor_creator_type_uuid>0f876ee5-8fa7-44ef-a955-90d7096b72b8</ao_actor_creator_type_uuid>
 					<ao_actor_creator_type>E21_Person</ao_actor_creator_type>
 				</ao_actor_type>
 				<ao_actor_role>
-					<ao_actor_creator_uuid>2d547f4b-8460-4413-a187-f232e9a35d16</ao_actor_creator_uuid>
+					<ao_actor_creator_role_uuid>2d547f4b-8460-4413-a187-f232e9a35d16</ao_actor_creator_role_uuid>
 					<ao_actor_creator_role_name>Verfasser</ao_actor_creator_role_name>
 				</ao_actor_role>
 			</ao_actor_creator>
 			<ao_actor_creator>
 				<ao_actor_type>
-					<ao_actor_creator_uuid>fddae085-34f4-4798-9a41-a3ddbf938db7</ao_actor_creator_uuid>
-					<ao_actor_creator_type>Test_entity</ao_actor_creator_type>
+					<ao_actor_creator_type_uuid>fddae085-34f4-4798-9a41-a3ddbf938db7</ao_actor_creator_type_uuid>
+					<ao_actor_creator_type/>
 				</ao_actor_type>
 				<ao_actor_role>
-					<ao_actor_creator_uuid>1a06f302-27ae-42f7-852c-e626580390ee</ao_actor_creator_uuid>
+					<ao_actor_creator_role_uuid>1a06f302-27ae-42f7-852c-e626580390ee</ao_actor_creator_role_uuid>
 					<ao_actor_creator_role_name>Empfängerin</ao_actor_creator_role_name>
 				</ao_actor_role>
 			</ao_actor_creator>
 		</actor>
 		<actor_user>
 			<ao_actor_user>
-				<ao_actor_type>
-					<ao_actor_user_uuid>c956599e-1a5a-4468-8bea-fd48b148a475</ao_actor_user_uuid>
+				<ao_actor_user_type_>
+					<ao_actor_user_type_uuid>c956599e-1a5a-4468-8bea-fd48b148a475</ao_actor_user_type_uuid>
 					<ao_actor_user_type>E21_Person</ao_actor_user_type>
-				</ao_actor_type>
+				</ao_actor_user_type_>
 				<ao_actor_user_role>
-					<ao_actor_creator_uuid>acedf2b7-71a9-4df1-8200-19393342d13e</ao_actor_creator_uuid>
-					<ao_actor_creator_role_name_de>Fotograf/in</ao_actor_creator_role_name_de>
-					<ao_actor_creator_role_name_en>Photographer</ao_actor_creator_role_name_en>
+					<ao_actor_user_uuid>acedf2b7-71a9-4df1-8200-19393342d13e</ao_actor_user_uuid>
+					<ao_actor_user_role_name_de>Fotograf/in</ao_actor_user_role_name_de>
+					<ao_actor_user_role_name_en>Photographer</ao_actor_user_role_name_en>
 				</ao_actor_user_role>
 			</ao_actor_user>
 		</actor_user>
@@ -104,17 +104,17 @@
 				<ao_correspondance_place_from>93ea9d29-0e89-4721-a1d8-3ed1f33df767</ao_correspondance_place_from>
 			</ao_correspondance_from_place>
 			<ao_correspondance_from_time_span>
-				<ao_correspondance_time_span_from>2020-10-15</ao_correspondance_time_span_from>
-				<ao_correspondance_time_span_to>2020-10-15</ao_correspondance_time_span_to>
+				<ao_correspondance_time_span_from_earliest>2020-10-15</ao_correspondance_time_span_from_earliest>
+				<ao_correspondance_time_span_from_latest>2020-10-15</ao_correspondance_time_span_from_latest>
 			</ao_correspondance_from_time_span>
 		</ao_correspondance_from>
 		<ao_correspondance_to>
 			<ao_correspondance_to_place>
-				<ao_correspondance_place_from>6ddf2312-b0e9-4aa3-b297-48e8f48dcfc2</ao_correspondance_place_from>
+				<ao_correspondance_place_to>6ddf2312-b0e9-4aa3-b297-48e8f48dcfc2</ao_correspondance_place_to>
 			</ao_correspondance_to_place>
 			<ao_correspondance_to_time_span>
-				<ao_correspondance_time_span_from>2020-11-22</ao_correspondance_time_span_from>
-				<ao_correspondance_time_span_to>2020-11-22</ao_correspondance_time_span_to>
+				<ao_correspondance_time_span_to_earliest>2020-11-22</ao_correspondance_time_span_to_earliest>
+				<ao_correspondance_time_span_to_latest>2020-11-22</ao_correspondance_time_span_to_latest>
 			</ao_correspondance_to_time_span>
 		</ao_correspondance_to>
 		<ao_cover_places>
@@ -177,9 +177,6 @@
 		<ao_former_ownerhsip>
 			<ao_former_owner>
 				<ao_former_owner_uuid>fddae085-34f4-4798-9a41-a3ddbf938db7</ao_former_owner_uuid>
-				<ao_former_owner_type>
-					<ao_owner_type_name>E21_Person</ao_owner_type_name>
-				</ao_former_owner_type>
 				<ownership_obtaining>
 					<ao_actorrelation_former_ownership_timespan_obtaining_from>2020-10-15</ao_actorrelation_former_ownership_timespan_obtaining_from>
 					<ao_actorrelation_former_ownership_timespan_obtaining_to>2020-10-31</ao_actorrelation_former_ownership_timespan_obtaining_to>
