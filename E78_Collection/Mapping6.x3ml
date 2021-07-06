@@ -62,7 +62,7 @@
         <namespace prefix="sari" uri="https://resource.swissartresearch.net/"/>
 		 <namespace prefix="tu" uri="https://resources.gta.arch.ethz.ch/terminology/transurbicide/"/>
     </namespaces>
-   <mappings>
+  <mappings>
     <mapping>
         <domain>
             <source_node>/root/entry</source_node>
@@ -80,14 +80,14 @@
         <link>
             <path>
                 <source_relation>
-                    <relation>ao_system_object_id</relation>
+                    <relation>_id</relation>
                 </source_relation>
                 <target_relation>
                     <relationship>crm:P1_is_identified_by</relationship>
                 </target_relation>
             </path>
             <range>
-                <source_node>ao_system_object_id</source_node>
+                <source_node>_id</source_node>
                 <target_node>
                     <entity>
                         <type>crm:E42_Identifier</type>
@@ -1601,6 +1601,261 @@
                 </target_node>
             </range>
         </link>
+		<!-- archive -->
+		<link>
+            <path>
+                <source_relation>
+                    <relation>ao_type_isag/ao_type_isad_uri</relation>
+                </source_relation>
+                <target_relation>
+                    <relationship>crm:P2_has_type</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>ao_type_isag/ao_type_isad_uri</source_node>
+                <target_node>
+                    <if>
+                        <and>
+                            <if>
+                                <equals value="https://resources.swissartresearch.net/vocab/isad-g/archive">text()</equals>
+                            </if>
+                            <if>
+                                <exists>text()</exists>
+                            </if>
+                        </and>
+                    </if>
+                    <entity>
+                        <type>crm:E55_Type</type>
+                        <instance_generator name="URIwithType">
+                            <arg name="type" type="xpath">text()</arg>
+                        </instance_generator>
+                        <label_generator name="Literal">
+                            <arg name="text" type="xpath">text()</arg>
+                        </label_generator>
+                        <additional>
+                            <relationship>crm:P2_has_type</relationship>
+                            <entity>
+                                <type>crm:E55_Type</type>
+                                <instance_info>
+                                    <constant/>
+                                </instance_info>
+                                <instance_generator name="URIwithTypeAndId">
+                                    <arg name="type" type="constant">vocab/isad-g</arg>
+                                    <arg name="id" type="constant">archive</arg>
+                                </instance_generator>
+                                <label_generator name="Literal">
+                                    <arg name="text" type="constant">Archive</arg>
+                                </label_generator>
+                            </entity>
+                        </additional>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+        <!-- fond -->
+		<link>
+            <path>
+                <source_relation>
+                    <relation>ao_type_isag/ao_type_isad_uri</relation>
+                </source_relation>
+                <target_relation>
+                    <relationship>crm:P2_has_type</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>ao_type_isag/ao_type_isad_uri</source_node>
+                <target_node>
+                    <if>
+                        <and>
+                            <if>
+                                <equals value="https://resources.swissartresearch.net/vocab/isad-g/fond">text()</equals>
+                            </if>
+                            <if>
+                                <exists>text()</exists>
+                            </if>
+                        </and>
+                    </if>
+                    <entity>
+                        <type>crm:E55_Type</type>
+                        <instance_generator name="URIwithType">
+                            <arg name="type" type="xpath">text()</arg>
+                        </instance_generator>
+                        <label_generator name="Literal">
+                            <arg name="text" type="xpath">text()</arg>
+                        </label_generator>
+                        <additional>
+                            <relationship>crm:P2_has_type</relationship>
+                            <entity>
+                                <type>crm:E55_Type</type>
+                                <instance_info>
+                                    <constant/>
+                                </instance_info>
+                                <instance_generator name="URIwithTypeAndId">
+                                    <arg name="type" type="constant">vocab/isad-g</arg>
+                                    <arg name="id" type="constant">fond</arg>
+                                </instance_generator>
+                                <label_generator name="Literal">
+                                    <arg name="text" type="constant">Bequest/Fond</arg>
+                                </label_generator>
+                            </entity>
+                        </additional>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+		<!-- file -->
+		<link>
+            <path>
+                <source_relation>
+                    <relation>ao_type_isag/ao_type_isad_uri</relation>
+                </source_relation>
+                <target_relation>
+                    <relationship>crm:P2_has_type</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>ao_type_isag/ao_type_isad_uri</source_node>
+                <target_node>
+                    <if>
+                        <and>
+                            <if>
+                                <equals value="https://resources.swissartresearch.net/vocab/isad-g/file">text()</equals>
+                            </if>
+                            <if>
+                                <exists>text()</exists>
+                            </if>
+                        </and>
+                    </if>
+                    <entity>
+                        <type>crm:E55_Type</type>
+                        <instance_generator name="URIwithType">
+                            <arg name="type" type="xpath">text()</arg>
+                        </instance_generator>
+                        <label_generator name="Literal">
+                            <arg name="text" type="xpath">text()</arg>
+                        </label_generator>
+                        <additional>
+                            <relationship>crm:P2_has_type</relationship>
+                            <entity>
+                                <type>crm:E55_Type</type>
+                                <instance_info>
+                                    <constant/>
+                                </instance_info>
+                                <instance_generator name="URIwithTypeAndId">
+                                    <arg name="type" type="constant">vocab/isad-g</arg>
+                                    <arg name="id" type="constant">file</arg>
+                                </instance_generator>
+                                <label_generator name="Literal">
+                                    <arg name="text" type="constant">File</arg>
+                                </label_generator>
+                            </entity>
+                        </additional>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+		<!-- document -->
+		<link>
+            <path>
+                <source_relation>
+                    <relation>ao_type_isag/ao_type_isad_uri</relation>
+                </source_relation>
+                <target_relation>
+                    <relationship>crm:P2_has_type</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>ao_type_isag/ao_type_isad_uri</source_node>
+                <target_node>
+                    <if>
+                        <and>
+                            <if>
+                                <equals value="https://resources.swissartresearch.net/vocab/isad-g/item">text()</equals>
+                            </if>
+                            <if>
+                                <exists>text()</exists>
+                            </if>
+                        </and>
+                    </if>
+                    <entity>
+                        <type>crm:E55_Type</type>
+                        <instance_generator name="URIwithType">
+                            <arg name="type" type="xpath">text()</arg>
+                        </instance_generator>
+                        <label_generator name="Literal">
+                            <arg name="text" type="xpath">text()</arg>
+                        </label_generator>
+                        <additional>
+                            <relationship>crm:P2_has_type</relationship>
+                            <entity>
+                                <type>crm:E55_Type</type>
+                                <instance_info>
+                                    <constant/>
+                                </instance_info>
+                                <instance_generator name="URIwithTypeAndId">
+                                    <arg name="type" type="constant">vocab/isad-g</arg>
+                                    <arg name="id" type="constant">item</arg>
+                                </instance_generator>
+                                <label_generator name="Literal">
+                                    <arg name="text" type="constant">Document</arg>
+                                </label_generator>
+                            </entity>
+                        </additional>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
+		<!-- piece -->
+		<link>
+            <path>
+                <source_relation>
+                    <relation>ao_type_isag/ao_type_isad_uri</relation>
+                </source_relation>
+                <target_relation>
+                    <relationship>crm:P2_has_type</relationship>
+                </target_relation>
+            </path>
+            <range>
+                <source_node>ao_type_isag/ao_type_isad_uri</source_node>
+                <target_node>
+                    <if>
+                        <and>
+                            <if>
+                                <equals value="https://resources.swissartresearch.net/vocab/isad-g/piece">text()</equals>
+                            </if>
+                            <if>
+                                <exists>text()</exists>
+                            </if>
+                        </and>
+                    </if>
+                    <entity>
+                        <type>crm:E55_Type</type>
+                        <instance_generator name="URIwithType">
+                            <arg name="type" type="xpath">text()</arg>
+                        </instance_generator>
+                        <label_generator name="Literal">
+                            <arg name="text" type="xpath">text()</arg>
+                        </label_generator>
+                        <additional>
+                            <relationship>crm:P2_has_type</relationship>
+                            <entity>
+                                <type>crm:E55_Type</type>
+                                <instance_info>
+                                    <constant/>
+                                </instance_info>
+                                <instance_generator name="URIwithTypeAndId">
+                                    <arg name="type" type="constant">vocab/isad-g</arg>
+                                    <arg name="id" type="constant">piece</arg>
+                                </instance_generator>
+                                <label_generator name="Literal">
+                                    <arg name="text" type="constant">Part of a document</arg>
+                                </label_generator>
+                            </entity>
+                        </additional>
+                    </entity>
+                </target_node>
+            </range>
+        </link>
         <link>
             <path>
                 <source_relation>
@@ -1652,7 +1907,7 @@
                 <if>
                     <exists>text()</exists>
                 </if>
-                <entity>
+                <entity global_variable="alternative_title">
                     <type>crm:E35_Title</type>
                     <instance_generator name="URIwithTypeAndId">
                         <arg name="type" type="xpath">ao_title_alt_title/text()</arg>
@@ -1716,7 +1971,7 @@
                 <if>
                     <exists>text()</exists>
                 </if>
-                <entity global_variable="alternative_identifiers">
+                <entity>
                     <type>crm:E42_Identifier</type>
                     <instance_generator name="URIwithTypeAndId">
                         <arg name="type" type="xpath">ao_identifiers_type_uuid/text()</arg>
