@@ -1,0 +1,79 @@
+<root>
+	<entry>
+		<ao_system_object_id>140828</ao_system_object_id>
+		<ao_record_uuid>25525f5e-033d-4293-a520-ad7607feede5</ao_record_uuid>
+		<_id>21513</_id>
+		<_id_parent>26532</_id_parent>
+		<ao_last_modified>2021-06-04T06:22:55Z</ao_last_modified>
+		<ao_created>2020-01-25T09:52:26Z</ao_created>
+		<ao_type_isag>
+			<ao_type_isad_uri>https://resources.swissartresearch.net/vocab/isad-g/fond</ao_type_isad_uri>
+		</ao_type_isag>
+		<ao_preferred_identifier>217</ao_preferred_identifier>
+		<ao_alternative_identifiers_list/>
+		<ao_acquisition_identifier/>
+		<ao_file_name>
+			<ao_title_de>Heinz Isler</ao_title_de>
+			<ao_title_en/>
+		</ao_file_name>
+		<ao_alternative_titles_list/>
+		<ao_document_type_list/>
+		<ao_generic_content_lang/>
+		<actor/>
+		<actor_user/>
+		<ao_production_list>
+			<ao_production_time_span>
+				<ao_production_time_span_from>2011-01-01</ao_production_time_span_from>
+				<ao_production_time_span_to>2012-01-01</ao_production_time_span_to>
+			</ao_production_time_span>
+		</ao_production_list>
+		<ao_destruction>
+			<ao_destruction_time_span>
+				<ao_destruction_time_span_from/>
+				<ao_destruction_time_span_to/>
+			</ao_destruction_time_span>
+		</ao_destruction>
+		<ao_correspondance_from>
+			<ao_correspondance_from_time_span>
+				<ao_correspondance_time_span_from_earliest/>
+				<ao_correspondance_time_span_from_latest/>
+			</ao_correspondance_from_time_span>
+		</ao_correspondance_from>
+		<ao_correspondance_to>
+			<ao_correspondance_to_time_span>
+				<ao_correspondance_time_span_to_earliest/>
+				<ao_correspondance_time_span_to_latest/>
+			</ao_correspondance_to_time_span>
+		</ao_correspondance_to>
+		<ao_cover_places/>
+		<ao_cover_actors/>
+		<ao_cover_oeuvres/>
+		<ao_descriptions>
+			<ao_descr_scholar_descriptions_de>Gymnasium in Zürich bis ca. 1945 (Zeichnen bei Max Bucherer); 1953/54 Besuch des Vorkurses der Kunstgewerbeschule Zürich (Lehrer u.a. Ernst Gubler, Walter Roshardt). - Literatur: Toni Kotnik: Ganzheitlichkeit des Seins. Die Eis-Versuche von Heinz Isler. In: archithese H. 3/2013. S. 44-47.</ao_descr_scholar_descriptions_de>
+			<ao_scholar_descriptions_en/>
+			<ao_ao_descr_notes_de/>
+			<ao_ao_descr_notes_en/>
+			<ao_descr_holding_de>Pläne, Fotos und Akten zu Bauten und Entwürfen; zahlreiche Modelle; umfangreicher Fotobestand; Zeichnungen und Skizzenbücher; Korrespondenz; Schriften, Vorträge und Materialien zur Lehre; thematische Konvolute; Tonbänder und Filmmaterial; Bibliothek (ca. 15 Lm); Werklisten und Verzeichnisse</ao_descr_holding_de>
+			<ao_descr_holding_en/>
+			<ao_descr_archivierung>S., M., RS., HR., SB., offen, PAL</ao_descr_archivierung>
+			<ao_descr_transcription/>
+			<ao_descr_actor_display_legacy>Bestandesbildner: Heinz Isler (26.07.1926 in Zollikon – 20.06.2009 in Bern)</ao_descr_actor_display_legacy>
+			<ao_descr_place_display_de/>
+			<ao_descr_chrono_display_de>Einholung 2011/2012</ao_descr_chrono_display_de>
+		</ao_descriptions>
+		<ao_archive_location>
+			<ao_loc_name_archive>
+				<ao_loc_name>HIG A 17.8</ao_loc_name>
+			</ao_loc_name_archive>
+			<ao_loc_name_archive>
+				<ao_loc_name>HIL A° 70.5</ao_loc_name>
+			</ao_loc_name_archive>
+		</ao_archive_location>
+		<ao_current_owner_list/>
+		<ao_former_ownerhsip>
+			<ao_former_ownership_note_de/>
+			<ao_former_ownership_note_en/>
+		</ao_former_ownerhsip>
+		<ao_entry_tax/>
+	</entry>
+</root>

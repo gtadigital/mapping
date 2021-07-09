@@ -135,6 +135,9 @@
 	<generator name="archivalobjectDestruction" prefix="sari">
 		<pattern>archivalobject/{archivalobject_id}/destruction</pattern>
 	</generator>
+	<generator name="fond" prefix="sari">
+		<pattern>vocab/isad-g/fond</pattern>
+	</generator>
 	<!-- GROUP DEFINITION -->
 	<generator name="groupIdentifierUri" prefix="sari">
 		<pattern>group/{group_id}/{identifier_type}/{identifier}</pattern>
@@ -151,6 +154,9 @@
 	<generator name="groupFormation" prefix="sari">
 		<pattern>group/{group_id}/formation</pattern>
 	</generator>
+	<generator name="groupFloruit" prefix="sari">
+		<pattern>group/{group_id}/floruit</pattern>
+	</generator>
 	<generator name="groupFormationTimespan" prefix="sari">
 		<pattern>group/{group_id}/formation/timespan</pattern>
 	</generator>
@@ -166,12 +172,31 @@
 	<generator name="URIwithWikidataId" prefix="wikidata">
 		<pattern>{id}</pattern>
 	</generator>
+	<generator name="URIwithTGNId" prefix="tgn">
+		<pattern>{id}</pattern>
+	</generator>
+	<generator name="URIwithGeonamesId" prefix="geonames">
+		<pattern>{id}</pattern>
+	</generator>
+	<generator name="URIwithGNDId" prefix="gnd">
+		<pattern>{id}</pattern>
+	</generator>
+	<generator name="URIwithDbPediaId" prefix="dbpedia">
+		<pattern>{id}</pattern>
+	</generator>
+	<generator name="URIwithVIAFId" prefix="viaf">
+		<pattern>{id}</pattern>
+	</generator>
 	<generator name="URIwithSikartId" prefix="sikart">
 		<pattern>{id}</pattern>
 	</generator>
 	<generator name="URIwithOneType" prefix="sari" uuid="true">
 		<pattern>{type}/</pattern>
 	</generator>
+	<generator name="URIwithTransurbicide" prefix="tu">
+		<pattern>{id}</pattern>
+	</generator>
+	
 	<generator name="dateNormalizerGen">
 		<custom generatorClass="gr.forth.DateNormalizer">
 			<set-arg name="text"/>
