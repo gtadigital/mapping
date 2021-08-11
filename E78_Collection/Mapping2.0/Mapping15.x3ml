@@ -62,7 +62,7 @@
         <namespace prefix="sari" uri="https://resource.swissartresearch.net/"/>
         <namespace prefix="tu" uri="https://resources.gta.arch.ethz.ch/terminology/transurbicide/"/>
     </namespaces>
-  <mappings>
+ <mappings>
     <mapping>
         <domain>
             <source_node>/root/entry</source_node>
@@ -1284,7 +1284,7 @@
                     <entity>
                         <type>crm:E55_Type</type>
                         <instance_generator name="URIwithTypeAndId">
-                            <arg name="type" type="constant">builtwork</arg>
+                            <arg name="type" type="constant">oeuvres_role_type</arg>
                             <arg name="id" type="xpath">../ao_cover_oeuvre_type/ao_cover_oeuvres_uuid/text()</arg>
                         </instance_generator>
                         <label_generator name="Literal">
