@@ -62,7 +62,7 @@
         <namespace prefix="sari" uri="https://resource.swissartresearch.net/"/>
         <namespace prefix="tu" uri="https://resources.gta.arch.ethz.ch/terminology/transurbicide/"/>
     </namespaces>
- <mappings>
+<mappings>
     <mapping>
         <domain>
             <source_node>/root/entry</source_node>
@@ -1912,7 +1912,10 @@
                     <relationship>crm:P128_carries</relationship>
                     <entity>
                         <type>crm:E73_Information_Object</type>
-                        <instance_generator name="UUID"/>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="constant">information_object</arg>
+                            <arg name="id" type="xpath">ao_cover_oeuvre_type/ao_cover_oeuvres_uuid/text()</arg>
+                        </instance_generator>
                     </entity>
                     <relationship>crm:P129_is_about</relationship>
                 </target_relation>
@@ -1922,7 +1925,10 @@
                 <target_node>
                     <entity>
                         <type>crm:E22_Man-Made_Object</type>
-                        <instance_generator name="UUID"/>
+                        <instance_generator name="URIwithTypeAndId">
+                            <arg name="type" type="constant">builtwork</arg>
+                            <arg name="id" type="xpath">ao_cover_oeuvre_type/ao_cover_oeuvres_uuid/text()</arg>
+                        </instance_generator>
                     </entity>
                 </target_node>
             </range>
@@ -1932,30 +1938,40 @@
         <domain>
             <source_node>/root/entry/ao_cover_oeuvres</source_node>
             <target_node>
-                <entity>
+                <entity >
                     <type>crm:E22_Man-Made_Object</type>
-                    <instance_generator name="UUID"/>
+                    <instance_generator name="URIwithTypeAndId">
+                        <arg name="type" type="constant">builtwork</arg>
+                        <arg name="id" type="xpath">ao_cover_oeuvre_type/ao_cover_oeuvres_uuid/text()</arg>
+                    </instance_generator>
                 </entity>
             </target_node>
         </domain>
         <link>
             <path>
                 <source_relation>
-                    <relation>ao_cover_oeuvre_type/ao_cover_oeuvres_uuid</relation>
+                    <relation>ao_cover_oeuvres_role/ao_cover_oeuvres_type_de</relation>
                 </source_relation>
                 <target_relation>
                     <relationship>crm:P2_has_type</relationship>
                 </target_relation>
             </path>
             <range>
-                <source_node>ao_cover_oeuvre_type/ao_cover_oeuvres_uuid</source_node>
+                <source_node>ao_cover_oeuvres_role/ao_cover_oeuvres_type_de</source_node>
                 <target_node>
+                    <if>
+                        <exists>text()</exists>
+                    </if>
                     <entity>
                         <type>crm:E55_Type</type>
                         <instance_generator name="URIwithTypeAndId">
-                            <arg name="type" type="constant">builtwork</arg>
-                            <arg name="id" type="xpath">text()</arg>
+                            <arg name="type" type="constant">oeuvre_type</arg>
+                            <arg name="id" type="xpath">../../ao_cover_oeuvre_type/ao_cover_oeuvres_uuid/text()</arg>
                         </instance_generator>
+                        <label_generator name="Literal">
+                            <arg name="text" type="xpath">text()</arg>
+                            <arg name="language" type="constant">de</arg>
+                        </label_generator>
                     </entity>
                 </target_node>
             </range>
@@ -2541,6 +2557,4 @@
         </link>
     </mapping>
 </mappings>
-
-
 </x3ml>
