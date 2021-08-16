@@ -1938,7 +1938,7 @@
         <domain>
             <source_node>/root/entry/ao_cover_oeuvres</source_node>
             <target_node>
-                <entity >
+                <entity>
                     <type>crm:E22_Man-Made_Object</type>
                     <instance_generator name="URIwithTypeAndId">
                         <arg name="type" type="constant">builtwork</arg>
@@ -1972,6 +1972,19 @@
                             <arg name="text" type="xpath">text()</arg>
                             <arg name="language" type="constant">de</arg>
                         </label_generator>
+                        <additional>
+                            <relationship>crm:P2_has_type</relationship>
+                            <entity>
+                                <type>crm:E55_Type</type>
+                                <instance_info>
+                                    <constant/>
+                                </instance_info>
+                                <instance_generator name="URIwithTypeAndId">
+                                    <arg name="type" type="constant">oeuvre_role</arg>
+                                    <arg name="id" type="constant">oeuvre_role</arg>
+                                </instance_generator>
+                            </entity>
+                        </additional>
                     </entity>
                 </target_node>
             </range>
