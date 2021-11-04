@@ -135,6 +135,44 @@
 	<generator name="archivalobjectDestruction" prefix="sari">
 		<pattern>archivalobject/{archivalobject_id}/destruction</pattern>
 	</generator>
+
+		<!-- DIGITAL OBJECT -->
+	<generator name="digitalobjectAppellationUri" prefix="sari" shorten="true">
+		<pattern>digitalobject/{digitalobject_id}/appellation/{appellation_id}</pattern>
+	</generator>
+	<generator name="digitalobjectIdentifierUri" prefix="sari">
+		<pattern>digitalobject/{digitalobject_id}/{identifier_type}/{identifier}</pattern>
+	</generator>
+	<generator name="digitalobjectIdentifierUri-hashed" prefix="sari">
+		<pattern>digitalobject/{digitalobject_id}/{identifier_type}/{identifier}</pattern>
+	</generator>
+	<generator name="digitalobjectTimespanConstruction" prefix="sari">
+		<pattern>digitalobject/{digitalobject_id}/construction/timespan</pattern>
+	</generator>
+	<generator name="digitalobjectTimespanDestruction" prefix="sari">
+		<pattern>digitalobject/{digitalobject_id}/destruction/timespan</pattern>
+	</generator>
+	<generator name="digitalobjectCitationUUID" prefix="sari">
+		<pattern>digitalobject/{digitalobject_id}/bibliographicitem/{identifier}</pattern>
+	</generator>
+	<generator name="digitalobjectCitation" prefix="sari">
+		<pattern>digitalobject/{digitalobject_id}/bibliographicitem</pattern>
+	</generator>
+	<generator name="digitalobjectCreationPlace_id" prefix="sari">
+		<pattern>digitalobject/{digitalobject_id}/place/{place_id}</pattern>
+	</generator>
+	<generator name="digitalobjectCreationPlace" prefix="sari">
+		<pattern>digitalobject/{digitalobject_id}/place</pattern>
+	</generator>
+	<generator name="digitalobjectProduction" prefix="sari">
+		<pattern>digitalobject/{digitalobject_id}/production</pattern>
+	</generator>
+	<generator name="digitalobjectModification" prefix="sari">
+		<pattern>digitalobject/{digitalobject_id}/modification</pattern>
+	</generator>
+	<generator name="digitalobjectDestruction" prefix="sari">
+		<pattern>digitalobject/{digitalobject_id}/destruction</pattern>
+	</generator>
 	
 	<!-- GROUP DEFINITION -->
 	<generator name="groupIdentifierUri" prefix="sari">
