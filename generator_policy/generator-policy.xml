@@ -39,7 +39,7 @@
 	<generator name="actorIdentifier" prefix="sari">
 		<pattern>place/{place_id}/identifier/{identifier_value}</pattern>
 	</generator>
-	<generator name="identifierAssignment" prefix="sari">
+	<generator name="PlaceidentifierAssignment" prefix="sari">
 		<pattern>place/{place_id}/identifier_assignment/{identifier_value}</pattern>
 	</generator>
 	<generator name="URIwithWikidataId" prefix="wikidata">
@@ -197,6 +197,9 @@
 	</generator>
 	<generator name="URIwithIIIFLocator" prefix="iiif">
 		<pattern>{id}</pattern>
+	</generator>
+	<generator name="DOidentifierAssignment" prefix="sari">
+		<pattern>digitalobject/{digitalobject_id}/identifier_assignment/{identifier_value}</pattern>
 	</generator>
 
 	<!-- GROUP DEFINITION -->
