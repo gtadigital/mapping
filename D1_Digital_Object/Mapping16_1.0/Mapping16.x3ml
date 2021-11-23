@@ -21,7 +21,7 @@
             <target_info>
                 <target_schema schema_file="CRMdig_v3.2___26-01-2021152750___5085.rdfs" type="rdfs" version="3.2">CRMdig</target_schema>
                 <namespaces>
-                    <namespace prefix="crmdig" uri="http://www.ics.forth.gr/isl/CRMext/CRMdig.rdfs/"/>
+                    <namespace prefix="crmdig" uri="http://www.ics.forth.gr/isl/CRMdig/"/>
                 </namespaces>
             </target_info>
             <target_info>
