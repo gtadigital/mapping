@@ -51,7 +51,7 @@
         </mapping_info>
         <example_data_info>
             <example_data_from/>
-            <example_data_contact_person/>
+            <example_data_contgrp_person/>
             <example_data_source_record xml_link="E74_test___26-02-2021075636___510.xml"/>
             <generator_policy_info generator_link="generator-policy___19-02-2021161012___13738.xml"/>
             <example_data_target_record/>
@@ -70,7 +70,7 @@
                     <type>crm:E74_Group</type>
                     <instance_generator name="URIwithTypeAndId">
                         <arg name="type" type="constant">group</arg>
-                        <arg name="id" type="xpath">_uuid/text()</arg>
+                        <arg name="id" type="xpath">grp_uuid/text()</arg>
                     </instance_generator>
                 </entity>
             </target_node>
@@ -78,20 +78,20 @@
         <link>
             <path>
                 <source_relation>
-                    <relation>_uuid</relation>
+                    <relation>grp_uuid</relation>
                 </source_relation>
                 <target_relation>
                     <relationship>crm:P1_is_identified_by</relationship>
                 </target_relation>
             </path>
             <range>
-                <source_node>_uuid</source_node>
+                <source_node>grp_uuid</source_node>
                 <target_node>
                     <entity>
                         <type>crm:E42_Identifier</type>
                         <instance_generator name="URIwithTypeAndId">
                             <arg name="type" type="constant">type</arg>
-                            <arg name="id" type="xpath">../_uuid/text()</arg>
+                            <arg name="id" type="xpath">../grp_uuid/text()</arg>
                         </instance_generator>
                         <label_generator name="Literal">
                             <arg name="text" type="xpath">text()</arg>
@@ -104,14 +104,14 @@
         <link>
             <path>
                 <source_relation>
-                    <relation>act_system_object_id</relation>
+                    <relation>grp_system_object_id</relation>
                 </source_relation>
                 <target_relation>
                     <relationship>crm:P1_is_identified_by</relationship>
                 </target_relation>
             </path>
             <range>
-                <source_node>act_system_object_id</source_node>
+                <source_node>grp_system_object_id</source_node>
                 <target_node>
                     <if>
                         <exists>text()</exists>
@@ -120,7 +120,7 @@
                         <type>crm:E42_Identifier</type>
                         <instance_generator name="URIwithTypeAndId">
                             <arg name="type" type="constant">type</arg>
-                            <arg name="id" type="xpath">../_uuid/text()</arg>
+                            <arg name="id" type="xpath">../grp_uuid/text()</arg>
                         </instance_generator>
                         <label_generator name="Literal">
                             <arg name="text" type="xpath">text()</arg>
@@ -148,24 +148,24 @@
         <link>
             <path>
                 <source_relation>
-                    <relation>act_nc_name</relation>
+                    <relation>grp_nc_name</relation>
                 </source_relation>
                 <target_relation>
                     <relationship>crm:P1_is_identified_by</relationship>
                 </target_relation>
             </path>
             <range>
-                <source_node>act_nc_name</source_node>
+                <source_node>grp_nc_name</source_node>
                 <target_node>
                     <entity>
                         <type>crm:E41_Appellation</type>
                         <instance_generator name="personAppellationUri">
-                            <arg name="person_id" type="xpath">../_uuid/text()</arg>
+                            <arg name="person_id" type="xpath">../grp_uuid/text()</arg>
                             <arg name="appellation_id" type="xpath">text()</arg>
                         </instance_generator>
                         <label_generator name="Literal">
                             <arg name="text" type="xpath">text()</arg>
-                            <arg name="language" type="xpath">../act_nc_name_lang_akronym/text()</arg>
+                            <arg name="language" type="xpath">../grp_nc_name_lang_akronym/text()</arg>
                         </label_generator>
                         <additional>
                             <relationship>crm:P2_has_type</relationship>
@@ -190,20 +190,20 @@
         <link>
             <path>
                 <source_relation>
-                    <relation>act_short_bio</relation>
+                    <relation>grp_short_bio</relation>
                 </source_relation>
                 <target_relation>
                     <relationship>crm:P67i_is_referred_to_by</relationship>
                 </target_relation>
             </path>
             <range>
-                <source_node>act_short_bio</source_node>
+                <source_node>grp_short_bio</source_node>
                 <target_node>
                     <entity>
                         <type>crm:E73_Information_Object</type>
                         <instance_generator name="personBiography">
-                            <arg name="person_id" type="xpath">../_uuid/text()</arg>
-                            <arg name="lang" type="xpath">act_doc_biographical_note_akronym/text()</arg>
+                            <arg name="person_id" type="xpath">../grp_uuid/text()</arg>
+                            <arg name="lang" type="xpath">grp_doc_biographical_note_akronym/text()</arg>
                         </instance_generator>
                     </entity>
                 </target_node>
@@ -212,14 +212,14 @@
         <link>
             <path>
                 <source_relation>
-                    <relation>gnd_identifiers/act_nc_identifier_gnd_1</relation>
+                    <relation>gnd_identifiers/grp_nc_identifier_gnd_1</relation>
                 </source_relation>
                 <target_relation>
                     <relationship>crm:P1_is_identified_by</relationship>
                 </target_relation>
             </path>
             <range>
-                <source_node>gnd_identifiers/act_nc_identifier_gnd_1</source_node>
+                <source_node>gnd_identifiers/grp_nc_identifier_gnd_1</source_node>
                 <target_node>
                     <if>
                         <exists>text()</exists>
@@ -256,14 +256,14 @@
         <link>
             <path>
                 <source_relation>
-                    <relation>gnd_identifiers/act_nc_identifier_gnd_2</relation>
+                    <relation>gnd_identifiers/grp_nc_identifier_gnd_2</relation>
                 </source_relation>
                 <target_relation>
                     <relationship>crm:P1_is_identified_by</relationship>
                 </target_relation>
             </path>
             <range>
-                <source_node>gnd_identifiers/act_nc_identifier_gnd_2</source_node>
+                <source_node>gnd_identifiers/grp_nc_identifier_gnd_2</source_node>
                 <target_node>
                     <if>
                         <exists>text()</exists>
@@ -284,14 +284,14 @@
         <link>
             <path>
                 <source_relation>
-                    <relation>wikidata_identifiers/act_nc_identifier_wikidata_1</relation>
+                    <relation>wikidata_identifiers/grp_nc_identifier_wikidata_1</relation>
                 </source_relation>
                 <target_relation>
                     <relationship>crm:P1_is_identified_by</relationship>
                 </target_relation>
             </path>
             <range>
-                <source_node>wikidata_identifiers/act_nc_identifier_wikidata_1</source_node>
+                <source_node>wikidata_identifiers/grp_nc_identifier_wikidata_1</source_node>
                 <target_node>
                     <if>
                         <exists>text()</exists>
@@ -328,14 +328,14 @@
         <link>
             <path>
                 <source_relation>
-                    <relation>wikidata_identifiers/act_nc_identifier_wikidata_2</relation>
+                    <relation>wikidata_identifiers/grp_nc_identifier_wikidata_2</relation>
                 </source_relation>
                 <target_relation>
                     <relationship>crm:P1_is_identified_by</relationship>
                 </target_relation>
             </path>
             <range>
-                <source_node>wikidata_identifiers/act_nc_identifier_wikidata_2</source_node>
+                <source_node>wikidata_identifiers/grp_nc_identifier_wikidata_2</source_node>
                 <target_node>
                     <if>
                         <exists>text()</exists>
@@ -356,14 +356,14 @@
         <link>
             <path>
                 <source_relation>
-                    <relation>act_nc_identifier_akl</relation>
+                    <relation>grp_nc_identifier_akl</relation>
                 </source_relation>
                 <target_relation>
                     <relationship>crm:P1_is_identified_by</relationship>
                 </target_relation>
             </path>
             <range>
-                <source_node>act_nc_identifier_akl</source_node>
+                <source_node>grp_nc_identifier_akl</source_node>
                 <target_node>
                     <if>
                         <exists>text()</exists>
@@ -400,14 +400,14 @@
         <link>
             <path>
                 <source_relation>
-                    <relation>act_nc_identifier_ulan</relation>
+                    <relation>grp_nc_identifier_ulan</relation>
                 </source_relation>
                 <target_relation>
                     <relationship>crm:P1_is_identified_by</relationship>
                 </target_relation>
             </path>
             <range>
-                <source_node>act_nc_identifier_ulan</source_node>
+                <source_node>grp_nc_identifier_ulan</source_node>
                 <target_node>
                     <if>
                         <exists>text()</exists>
@@ -444,14 +444,14 @@
         <link>
             <path>
                 <source_relation>
-                    <relation>hls_identifier/act_nc_nc_identifier_hls_1</relation>
+                    <relation>hls_identifier/grp_nc_nc_identifier_hls_1</relation>
                 </source_relation>
                 <target_relation>
                     <relationship>crm:P1_is_identified_by</relationship>
                 </target_relation>
             </path>
             <range>
-                <source_node>hls_identifier/act_nc_nc_identifier_hls_1</source_node>
+                <source_node>hls_identifier/grp_nc_nc_identifier_hls_1</source_node>
                 <target_node>
                     <if>
                         <exists>text()</exists>
@@ -488,14 +488,14 @@
         <link>
             <path>
                 <source_relation>
-                    <relation>hls_identifier/act_nc_nc_identifier_hls_2</relation>
+                    <relation>hls_identifier/grp_nc_nc_identifier_hls_2</relation>
                 </source_relation>
                 <target_relation>
                     <relationship>crm:P1_is_identified_by</relationship>
                 </target_relation>
             </path>
             <range>
-                <source_node>hls_identifier/act_nc_nc_identifier_hls_2</source_node>
+                <source_node>hls_identifier/grp_nc_nc_identifier_hls_2</source_node>
                 <target_node>
                     <if>
                         <exists>text()</exists>
@@ -516,14 +516,14 @@
         <link>
             <path>
                 <source_relation>
-                    <relation>sikart_identifier/act_nc_identifier_sikart_1</relation>
+                    <relation>sikart_identifier/grp_nc_identifier_sikart_1</relation>
                 </source_relation>
                 <target_relation>
                     <relationship>crm:P1_is_identified_by</relationship>
                 </target_relation>
             </path>
             <range>
-                <source_node>sikart_identifier/act_nc_identifier_sikart_1</source_node>
+                <source_node>sikart_identifier/grp_nc_identifier_sikart_1</source_node>
                 <target_node>
                     <if>
                         <exists>text()</exists>
@@ -560,14 +560,14 @@
         <link>
             <path>
                 <source_relation>
-                    <relation>sikart_identifier/act_nc_identifier_sikart_2</relation>
+                    <relation>sikart_identifier/grp_nc_identifier_sikart_2</relation>
                 </source_relation>
                 <target_relation>
                     <relationship>crm:P1_is_identified_by</relationship>
                 </target_relation>
             </path>
             <range>
-                <source_node>sikart_identifier/act_nc_identifier_sikart_2</source_node>
+                <source_node>sikart_identifier/grp_nc_identifier_sikart_2</source_node>
                 <target_node>
                     <if>
                         <exists>text()</exists>
@@ -588,14 +588,14 @@
         <link>
             <path>
                 <source_relation>
-                    <relation>archinform_identifier/act_nc_identifier_archinform_1</relation>
+                    <relation>archinform_identifier/grp_nc_identifier_archinform_1</relation>
                 </source_relation>
                 <target_relation>
                     <relationship>crm:P1_is_identified_by</relationship>
                 </target_relation>
             </path>
             <range>
-                <source_node>archinform_identifier/act_nc_identifier_archinform_1</source_node>
+                <source_node>archinform_identifier/grp_nc_identifier_archinform_1</source_node>
                 <target_node>
                     <if>
                         <exists>text()</exists>
@@ -632,14 +632,14 @@
         <link>
             <path>
                 <source_relation>
-                    <relation>archinform_identifier/act_nc_identifier_archinform_2</relation>
+                    <relation>archinform_identifier/grp_nc_identifier_archinform_2</relation>
                 </source_relation>
                 <target_relation>
                     <relationship>crm:P1_is_identified_by</relationship>
                 </target_relation>
             </path>
             <range>
-                <source_node>archinform_identifier/act_nc_identifier_archinform_2</source_node>
+                <source_node>archinform_identifier/grp_nc_identifier_archinform_2</source_node>
                 <target_node>
                     <if>
                         <exists>text()</exists>
@@ -660,14 +660,14 @@
         <link>
             <path>
                 <source_relation>
-                    <relation>alat_identifier/act_nc_identifier_alat_1</relation>
+                    <relation>alat_identifier/grp_nc_identifier_alat_1</relation>
                 </source_relation>
                 <target_relation>
                     <relationship>crm:P1_is_identified_by</relationship>
                 </target_relation>
             </path>
             <range>
-                <source_node>alat_identifier/act_nc_identifier_alat_1</source_node>
+                <source_node>alat_identifier/grp_nc_identifier_alat_1</source_node>
                 <target_node>
                     <if>
                         <exists>text()</exists>
@@ -704,14 +704,14 @@
         <link>
             <path>
                 <source_relation>
-                    <relation>alat_identifier/act_nc_identifier_alat_2</relation>
+                    <relation>alat_identifier/grp_nc_identifier_alat_2</relation>
                 </source_relation>
                 <target_relation>
                     <relationship>crm:P1_is_identified_by</relationship>
                 </target_relation>
             </path>
             <range>
-                <source_node>alat_identifier/act_nc_identifier_alat_2</source_node>
+                <source_node>alat_identifier/grp_nc_identifier_alat_2</source_node>
                 <target_node>
                     <if>
                         <exists>text()</exists>
@@ -732,14 +732,14 @@
         <link>
             <path>
                 <source_relation>
-                    <relation>fotoch_identifier/act_nc_identifier_fotoch_1</relation>
+                    <relation>fotoch_identifier/grp_nc_identifier_fotoch_1</relation>
                 </source_relation>
                 <target_relation>
                     <relationship>crm:P1_is_identified_by</relationship>
                 </target_relation>
             </path>
             <range>
-                <source_node>fotoch_identifier/act_nc_identifier_fotoch_1</source_node>
+                <source_node>fotoch_identifier/grp_nc_identifier_fotoch_1</source_node>
                 <target_node>
                     <if>
                         <exists>text()</exists>
@@ -776,14 +776,14 @@
         <link>
             <path>
                 <source_relation>
-                    <relation>fotoch_identifier/act_nc_identifier_fotoch_2</relation>
+                    <relation>fotoch_identifier/grp_nc_identifier_fotoch_2</relation>
                 </source_relation>
                 <target_relation>
                     <relationship>crm:P1_is_identified_by</relationship>
                 </target_relation>
             </path>
             <range>
-                <source_node>fotoch_identifier/act_nc_identifier_fotoch_2</source_node>
+                <source_node>fotoch_identifier/grp_nc_identifier_fotoch_2</source_node>
                 <target_node>
                     <if>
                         <exists>text()</exists>
@@ -804,14 +804,14 @@
         <link>
             <path>
                 <source_relation>
-                    <relation>act_social_national_affiliation/act_social_national_affiliation_uuid</relation>
+                    <relation>grp_social_national_affiliation/grp_social_national_affiliation_uuid</relation>
                 </source_relation>
                 <target_relation>
                     <relationship>crm:P107i_is_current_or_former_member_of</relationship>
                 </target_relation>
             </path>
             <range>
-                <source_node>act_social_national_affiliation/act_social_national_affiliation_uuid</source_node>
+                <source_node>grp_social_national_affiliation/grp_social_national_affiliation_uuid</source_node>
                 <target_node>
                     <entity>
                         <type>crm:E40_Legal_Body</type>
@@ -826,20 +826,20 @@
         <link>
             <path>
                 <source_relation>
-                    <relation>act_altName/act_alt_nameLiteral</relation>
+                    <relation>grp_altName/grp_alt_nameLiteral</relation>
                 </source_relation>
                 <target_relation>
                     <relationship>crm:P1_is_identified_by</relationship>
                 </target_relation>
             </path>
             <range>
-                <source_node>act_altName/act_alt_nameLiteral</source_node>
+                <source_node>grp_altName/grp_alt_nameLiteral</source_node>
                 <target_node>
                     <entity>
                         <type>crm:E41_Appellation</type>
                         <instance_generator name="personAppellationUri">
-                            <arg name="person_id" type="xpath">../../_uuid/text()</arg>
-                            <arg name="appellation_id" type="xpath">act_nc_altname_literal/text()</arg>
+                            <arg name="person_id" type="xpath">../../grp_uuid/text()</arg>
+                            <arg name="appellation_id" type="xpath">grp_nc_altname_literal/text()</arg>
                         </instance_generator>
                         <additional>
                             <relationship>crm:P2_has_type</relationship>
@@ -896,7 +896,7 @@
                     <entity variable="formation">
                         <type>crm:E66_Formation</type>
                         <instance_generator name="groupFormation">
-                            <arg name="group_id" type="xpath">../_uuid/text()</arg>
+                            <arg name="group_id" type="xpath">../grp_uuid/text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P7_took_place_at</relationship>
@@ -931,7 +931,7 @@
                     <entity variable="formation">
                         <type>crm:E66_Formation</type>
                         <instance_generator name="groupFormation">
-                            <arg name="group_id" type="xpath">../_uuid/text()</arg>
+                            <arg name="group_id" type="xpath">../grp_uuid/text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P4_has_time-span</relationship>
@@ -939,7 +939,7 @@
                         <type>crm:E52_Time-Span</type>
                         <instance_generator name="URIwithTypeAndId">
                             <arg name="type" type="constant">formation_time_span</arg>
-                            <arg name="id" type="xpath">../_uuid/text()</arg>
+                            <arg name="id" type="xpath">../grp_uuid/text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P82a_begin_of_the_begin</relationship>
@@ -971,7 +971,7 @@
                     <entity variable="formation">
                         <type>crm:E66_Formation</type>
                         <instance_generator name="groupFormation">
-                            <arg name="group_id" type="xpath">../_uuid/text()</arg>
+                            <arg name="group_id" type="xpath">../grp_uuid/text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P4_has_time-span</relationship>
@@ -979,7 +979,7 @@
                         <type>crm:E52_Time-Span</type>
                         <instance_generator name="URIwithTypeAndId">
                             <arg name="type" type="constant">formation_time_span</arg>
-                            <arg name="id" type="xpath">../_uuid/text()</arg>
+                            <arg name="id" type="xpath">../grp_uuid/text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P82b_end_of_the_end</relationship>
@@ -1011,7 +1011,7 @@
                     <entity variable="dissolution">
                         <type>crm:E68_Dissolution</type>
                         <instance_generator name="groupDissolution">
-                            <arg name="group_id" type="xpath">../_uuid/text()</arg>
+                            <arg name="group_id" type="xpath">../grp_uuid/text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P7_took_place_at</relationship>
@@ -1046,7 +1046,7 @@
                     <entity variable="dissolution">
                         <type>crm:E68_Dissolution</type>
                         <instance_generator name="groupDissolution">
-                            <arg name="group_id" type="xpath">../_uuid/text()</arg>
+                            <arg name="group_id" type="xpath">../grp_uuid/text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P4_has_time-span</relationship>
@@ -1054,7 +1054,7 @@
                         <type>crm:E52_Time-Span</type>
                         <instance_generator name="URIwithTypeAndId">
                             <arg name="type" type="constant">dissolution_time_span</arg>
-                            <arg name="id" type="xpath">../_uuid/text()</arg>
+                            <arg name="id" type="xpath">../grp_uuid/text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P82a_begin_of_the_begin</relationship>
@@ -1086,7 +1086,7 @@
                     <entity variable="dissolution">
                         <type>crm:E68_Dissolution</type>
                         <instance_generator name="groupDissolution">
-                            <arg name="group_id" type="xpath">../_uuid/text()</arg>
+                            <arg name="group_id" type="xpath">../grp_uuid/text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P4_has_time-span</relationship>
@@ -1094,7 +1094,7 @@
                         <type>crm:E52_Time-Span</type>
                         <instance_generator name="URIwithTypeAndId">
                             <arg name="type" type="constant">dissolution_time_span</arg>
-                            <arg name="id" type="xpath">../_uuid/text()</arg>
+                            <arg name="id" type="xpath">../grp_uuid/text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P82b_end_of_the_end</relationship>
@@ -1116,21 +1116,21 @@
         <link>
             <path>
                 <source_relation>
-                    <relation>actor_activity_floruit/act_activity_floruit_place</relation>
+                    <relation>actor_activity_floruit/grp_activity_floruit_place</relation>
                 </source_relation>
                 <target_relation>
                     <relationship>crm:P14i_performed</relationship>
                     <entity variable="floruit">
                         <type>frbr:F51_Pursuit</type>
                         <instance_generator name="groupFloruit">
-                            <arg name="group_id" type="xpath">../../_uuid/text()</arg>
+                            <arg name="group_id" type="xpath">../../grp_uuid/text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P7_took_place_at</relationship>
                 </target_relation>
             </path>
             <range>
-                <source_node>actor_activity_floruit/act_activity_floruit_place</source_node>
+                <source_node>actor_activity_floruit/grp_activity_floruit_place</source_node>
                 <target_node>
                     <if>
                         <exists>text()</exists>
@@ -1148,7 +1148,7 @@
         <link>
             <path>
                 <source_relation>
-                    <relation>actor_activity_floruit/act_activity_floruit_time-span_from</relation>
+                    <relation>actor_activity_floruit/grp_activity_floruit_time-span_from</relation>
                 </source_relation>
                 <target_relation>
                     <if>
@@ -1158,7 +1158,7 @@
                     <entity variable="floruit">
                         <type>frbr:F51_Pursuit</type>
                         <instance_generator name="groupFloruit">
-                            <arg name="group_id" type="xpath">../../_uuid/text()</arg>
+                            <arg name="group_id" type="xpath">../../grp_uuid/text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P4_has_time-span</relationship>
@@ -1166,14 +1166,14 @@
                         <type>crm:E52_Time-Span</type>
                         <instance_generator name="URIwithTypeAndId">
                             <arg name="type" type="constant">time_span_floruit</arg>
-                            <arg name="id" type="xpath">../../_uuid/text()</arg>
+                            <arg name="id" type="xpath">../../grp_uuid/text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P82a_begin_of_the_begin</relationship>
                 </target_relation>
             </path>
             <range>
-                <source_node>actor_activity_floruit/act_activity_floruit_time-span_from</source_node>
+                <source_node>actor_activity_floruit/grp_activity_floruit_time-span_from</source_node>
                 <target_node>
                     <entity>
                         <type>http://www.w3.org/2001/XMLSchema#dateTime</type>
@@ -1188,7 +1188,7 @@
         <link>
             <path>
                 <source_relation>
-                    <relation>actor_activity_floruit/act_activity_floruit_time-span_to</relation>
+                    <relation>actor_activity_floruit/grp_activity_floruit_time-span_to</relation>
                 </source_relation>
                 <target_relation>
                     <if>
@@ -1198,7 +1198,7 @@
                     <entity variable="floruit">
                         <type>frbr:F51_Pursuit</type>
                         <instance_generator name="groupFloruit">
-                            <arg name="group_id" type="xpath">../_uuid/text()</arg>
+                            <arg name="group_id" type="xpath">../grp_uuid/text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P4_has_time-span</relationship>
@@ -1206,14 +1206,14 @@
                         <type>crm:E52_Time-Span</type>
                         <instance_generator name="URIwithTypeAndId">
                             <arg name="type" type="constant">time_span_floruit</arg>
-                            <arg name="id" type="xpath">../../_uuid/text()</arg>
+                            <arg name="id" type="xpath">../../grp_uuid/text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P82b_end_of_the_end</relationship>
                 </target_relation>
             </path>
             <range>
-                <source_node>actor_activity_floruit/act_activity_floruit_time-span_to</source_node>
+                <source_node>actor_activity_floruit/grp_activity_floruit_time-span_to</source_node>
                 <target_node>
                     <entity>
                         <type>http://www.w3.org/2001/XMLSchema#dateTime</type>
@@ -1228,7 +1228,7 @@
         <link>
             <path>
                 <source_relation>
-                    <relation>act_social_national_affiliation/act_social_national_affiliation_uuid</relation>
+                    <relation>grp_social_national_affiliation/grp_social_national_affiliation_uuid</relation>
                 </source_relation>
                 <target_relation>
                     <relationship>crm:P107_has_current_or_former_member</relationship>
@@ -1240,7 +1240,7 @@
                 </target_relation>
             </path>
             <range>
-                <source_node>act_social_national_affiliation/act_social_national_affiliation_uuid</source_node>
+                <source_node>grp_social_national_affiliation/grp_social_national_affiliation_uuid</source_node>
                 <target_node>
                     <entity>
                         <type>crm:E74_Group</type>
@@ -1255,11 +1255,11 @@
         <link>
             <path>
                 <source_relation>
-                    <relation>act_occupations</relation>
+                    <relation>grp_occupations</relation>
                 </source_relation>
                 <target_relation>
                     <if>
-                        <exists>act_activity_occupation_de/text()</exists>
+                        <exists>grp_activity_occupation_de/text()</exists>
                     </if>
                     <relationship>crm:P14i_performed</relationship>
                     <entity>
@@ -1270,23 +1270,23 @@
                 </target_relation>
             </path>
             <range>
-                <source_node>act_occupations</source_node>
+                <source_node>grp_occupations</source_node>
                 <target_node>
                     <if>
-                        <exists>act_activity_occupation_de/text()</exists>
+                        <exists>grp_activity_occupation_de/text()</exists>
                     </if>
                     <entity>
                         <type>crm:E55_Type</type>
                         <instance_generator name="URIwithTypeAndId">
                             <arg name="type" type="constant">occupation</arg>
-                            <arg name="id" type="xpath">act_activity_occupation_de/text()</arg>
+                            <arg name="id" type="xpath">grp_activity_occupation_de/text()</arg>
                         </instance_generator>
                         <label_generator name="Literal">
-                            <arg name="text" type="xpath">act_activity_occupation_de/text()</arg>
+                            <arg name="text" type="xpath">grp_activity_occupation_de/text()</arg>
                             <arg name="language" type="constant">de</arg>
                         </label_generator>
                         <label_generator name="Literal">
-                            <arg name="text" type="xpath">act_activity_occupation_en/text()</arg>
+                            <arg name="text" type="xpath">grp_activity_occupation_en/text()</arg>
                             <arg name="language" type="constant">en</arg>
                         </label_generator>
                     </entity>
@@ -1296,17 +1296,17 @@
     </mapping>
     <mapping>
         <domain>
-            <source_node>/root/entry/act_altName/act_alt_nameLiteral</source_node>
+            <source_node>/root/entry/grp_altName/grp_alt_nameLiteral</source_node>
             <target_node>
                 <entity>
                     <type>crm:E41_Appellation</type>
                     <instance_generator name="personAppellationUri">
-                        <arg name="person_id" type="xpath">../../_uuid/text()</arg>
-                        <arg name="appellation_id" type="xpath">act_nc_altname_literal/text()</arg>
+                        <arg name="person_id" type="xpath">../../grp_uuid/text()</arg>
+                        <arg name="appellation_id" type="xpath">grp_nc_altname_literal/text()</arg>
                     </instance_generator>
                     <label_generator name="Literal">
-                        <arg name="text" type="xpath">act_nc_altname_literal/text()</arg>
-                        <arg name="language" type="xpath">act_nc_altname_lang_akronym/text()</arg>
+                        <arg name="text" type="xpath">grp_nc_altname_literal/text()</arg>
+                        <arg name="language" type="xpath">grp_nc_altname_lang_akronym/text()</arg>
                     </label_generator>
                 </entity>
             </target_node>
@@ -1314,14 +1314,14 @@
         <link>
             <path>
                 <source_relation>
-                    <relation>act_nc_altname_type_de</relation>
+                    <relation>grp_nc_altname_type_de</relation>
                 </source_relation>
                 <target_relation>
                     <relationship>crm:P2_has_type</relationship>
                 </target_relation>
             </path>
             <range>
-                <source_node>act_nc_altname_type_de</source_node>
+                <source_node>grp_nc_altname_type_de</source_node>
                 <target_node>
                     <entity>
                         <type>crm:E55_Type</type>
@@ -1339,14 +1339,14 @@
         <link>
             <path>
                 <source_relation>
-                    <relation>act_nc_altname_type_en</relation>
+                    <relation>grp_nc_altname_type_en</relation>
                 </source_relation>
                 <target_relation>
                     <relationship>crm:P2_has_type</relationship>
                 </target_relation>
             </path>
             <range>
-                <source_node>act_nc_altname_type_en</source_node>
+                <source_node>grp_nc_altname_type_en</source_node>
                 <target_node>
                     <entity>
                         <type>crm:E55_Type</type>
@@ -1364,7 +1364,7 @@
         <link>
             <path>
                 <source_relation>
-                    <relation>act_nc_altname_timespan_from</relation>
+                    <relation>grp_nc_altname_timespan_from</relation>
                 </source_relation>
                 <target_relation>
                     <relationship>frbr:R64i_was_name_used_by</relationship>
@@ -1377,14 +1377,14 @@
                         <type>crm:E52_Time-Span</type>
                         <instance_generator name="URIwithTypeAndId">
                             <arg name="type" type="constant">time_span_altname</arg>
-                            <arg name="id" type="xpath">../../../_uuid/text()</arg>
+                            <arg name="id" type="xpath">../../../grp_uuid/text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P82a_begin_of_the_begin</relationship>
                 </target_relation>
             </path>
             <range>
-                <source_node>act_nc_altname_timespan_from</source_node>
+                <source_node>grp_nc_altname_timespan_from</source_node>
                 <target_node>
                     <entity>
                         <type>http://www.w3.org/2001/XMLSchema#dateTime</type>
@@ -1399,7 +1399,7 @@
         <link>
             <path>
                 <source_relation>
-                    <relation>act_nc_altname_timespan_to</relation>
+                    <relation>grp_nc_altname_timespan_to</relation>
                 </source_relation>
                 <target_relation>
                     <relationship>frbr:R64i_was_name_used_by</relationship>
@@ -1412,14 +1412,14 @@
                         <type>crm:E52_Time-Span</type>
                         <instance_generator name="URIwithTypeAndId">
                             <arg name="type" type="constant">time_span_altname</arg>
-                            <arg name="id" type="xpath">../../../_uuid/text()</arg>
+                            <arg name="id" type="xpath">../../../grp_uuid/text()</arg>
                         </instance_generator>
                     </entity>
                     <relationship>crm:P82b_end_of_the_end</relationship>
                 </target_relation>
             </path>
             <range>
-                <source_node>act_nc_altname_timespan_to</source_node>
+                <source_node>grp_nc_altname_timespan_to</source_node>
                 <target_node>
                     <entity>
                         <type>http://www.w3.org/2001/XMLSchema#dateTime</type>
@@ -1434,13 +1434,13 @@
     </mapping>
     <mapping>
         <domain>
-            <source_node>/root/entry/act_short_bio</source_node>
+            <source_node>/root/entry/grp_short_bio</source_node>
             <target_node>
                 <entity>
                     <type>crm:E73_Information_Object</type>
                     <instance_generator name="personBiography">
-                        <arg name="person_id" type="xpath">../_uuid/text()</arg>
-                        <arg name="lang" type="xpath">act_doc_biographical_note_akronym/text()</arg>
+                        <arg name="person_id" type="xpath">../grp_uuid/text()</arg>
+                        <arg name="lang" type="xpath">grp_doc_biographical_note_akronym/text()</arg>
                     </instance_generator>
                 </entity>
             </target_node>
@@ -1448,20 +1448,20 @@
         <link>
             <path>
                 <source_relation>
-                    <relation>act_doc_biographical_note_literal</relation>
+                    <relation>grp_doc_biographical_note_literal</relation>
                 </source_relation>
                 <target_relation>
                     <relationship>crm:P3_has_note</relationship>
                 </target_relation>
             </path>
             <range>
-                <source_node>act_doc_biographical_note_literal</source_node>
+                <source_node>grp_doc_biographical_note_literal</source_node>
                 <target_node>
                     <entity>
                         <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
                         <instance_generator name="Literal">
                             <arg name="text" type="xpath">text()</arg>
-                            <arg name="language" type="xpath">../act_doc_biographical_note_akronym/text()</arg>
+                            <arg name="language" type="xpath">../grp_doc_biographical_note_akronym/text()</arg>
                         </instance_generator>
                     </entity>
                 </target_node>
@@ -1470,7 +1470,7 @@
         <link>
             <path>
                 <source_relation>
-                    <relation>act_doc_biographical_note_source_uuid</relation>
+                    <relation>grp_doc_biographical_note_source_uuid</relation>
                 </source_relation>
                 <target_relation>
                     <relationship>crm:P129i_is_subject_of</relationship>
@@ -1482,7 +1482,7 @@
                 </target_relation>
             </path>
             <range>
-                <source_node>act_doc_biographical_note_source_uuid</source_node>
+                <source_node>grp_doc_biographical_note_source_uuid</source_node>
                 <target_node>
                     <entity>
                         <type>crm:E33_Linguistic_Object</type>
