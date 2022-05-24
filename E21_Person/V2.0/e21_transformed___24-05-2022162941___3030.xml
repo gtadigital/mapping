@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><root>
+  <entry>
+    <per_type_crm_uri>E21_Person</per_type_crm_uri>
+    <per_identifiers>
+      <_id>42156</_id>
+      <per_cms_id>819738</per_cms_id>
+      <per_nc_identifier_ulan>500027041</per_nc_identifier_ulan>
+      <per_nc_identifier_wikidata>Q4724</per_nc_identifier_wikidata>
+      <per_nc_identifier_akl>database/AKL/entry/_00106179T/html</per_nc_identifier_akl>
+      <per_nc_identifier_morphe>le-corbusier-3</per_nc_identifier_morphe>
+      <per_nc_identifier_sikart>kuenstlerinnen.aspx?id=4000293</per_nc_identifier_sikart>
+      <per_nc_identifier_hls>019085/</per_nc_identifier_hls>
+      <per_nc_identifier_archinform>346.htm</per_nc_identifier_archinform>
+      <per_nc_identifier_fotoch>?a=fotograph&amp;id=30790</per_nc_identifier_fotoch>
+      <per_nc_identifier_alat>362.htm</per_nc_identifier_alat>
+      <per_nc_identifier_gnd>118676873</per_nc_identifier_gnd>
+    </per_identifiers>
+    <per_last_modified>2022-05-24T13:54:01Z</per_last_modified>
+    <per_nc_name>[RDF TEST] Jeanneret-Gris, Charles-Édouard</per_nc_name>
+    <per_nc_name_lang_akronym>fr</per_nc_name_lang_akronym>
+    <per_nc_honname>Chevalier de la Légion d'honneur</per_nc_honname>
+    <per_nc_honname_lang_akronym>fr</per_nc_honname_lang_akronym>
+    <act_altName>
+      <act_alt_nameLiteral>
+        <per_nc_altname_literal>Le Corbusier</per_nc_altname_literal>
+        <per_nc_altname_lang_akronym>fr</per_nc_altname_lang_akronym>
+        <per_nc_altname_type_de>Künstlername</per_nc_altname_type_de>
+        <per_nc_altname_type_en>Artist Name</per_nc_altname_type_en>
+      </act_alt_nameLiteral>
+    </act_altName>
+    <per_person_gender_de>männlich</per_person_gender_de>
+    <per_person_gender_en>male</per_person_gender_en>
+    <per_short_bio>
+      <DE>Schweizer Architekt, Maler und Theoretiker, 1887-1965</DE>
+      <EN>Swiss architect, painter and theorist, 1887-1965</EN>
+    </per_short_bio>
+    <per_long_bio>
+      <DE>L. nahm 1930 als gebürtiger Schweizer im Jahr seiner Hochzeit mit Yvonne Gallis die frz. Staatsbürgerschaft an. Sein Vater war Emailleur von Uhrengehäusen, die Mutter war Pianistin, der Bruder Geiger. Die Laufbahn L.s umfasst drei wesentliche Etappen. Frühe Ausbildungsjahre in La Chaux-de-Fonds, darauf folgte die Phase der "forcierten Sesshaftwerdung" in seiner Geburtsstadt, in der Frühwerke der Archit., der Malerei, Bildhauerei und Möbelentwürfe entstanden. In der dritten Phase ("dem Heimatboden entwachsen"), profitierte er von seinen Erfahrungen und versuchte sich in der Stadtplanung und im Schreiben [AKL]</DE>
+      <EN>Charles-Édouard Jeanneret (6 October 1887 – 27 August 1965), known as Le Corbusier (UK: /lə kɔːrˈbjuːzieɪ/ lə kor-BEW-zee-ay,[2] US: /lə ˌkɔːrbuːˈzjeɪ, -ˈsjeɪ/ lə KOR-boo-ZYAY, -⁠SYAY,[3][4] French: [lə kɔʁbyzje]; roughly, "the crowlike one"[5]), was a Swiss-French architect, designer, painter, urban planner, writer, and one of the pioneers of what is now regarded as modern architecture. He was born in Switzerland and became a French citizen in 1930. His career spanned five decades, and he designed buildings in Europe, Japan, India, and North and South America. [Wikipedia en]</EN>
+    </per_long_bio>
+    <per_exist_birth_place_id>48480</per_exist_birth_place_id>
+    <per_exist_birth_timespan_from>1887-10-06</per_exist_birth_timespan_from>
+    <per_exist_birth_timespan_to>1887-10-06</per_exist_birth_timespan_to>
+    <per_exist_death_place>109559</per_exist_death_place>
+    <per_exist_death_timespan_from>1965-08-27</per_exist_death_timespan_from>
+    <per_exist_death_timespan_to>1965-08-27</per_exist_death_timespan_to>
+    <per_social_father_id>7485</per_social_father_id>
+    <per_social_mother_id>13501</per_social_mother_id>
+    <act_social_national_affiliation_archive>
+      <per_social_national_affiliation_id>33</per_social_national_affiliation_id>
+      <per_social_national_affiliation_id>34</per_social_national_affiliation_id>
+    </act_social_national_affiliation_archive>
+  </entry>
+</root>

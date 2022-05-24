@@ -52,7 +52,7 @@
         <example_data_info>
             <example_data_from/>
             <example_data_contact_person/>
-            <example_data_source_record xml_link="e21_transformed___24-05-2022090628___7226.xml"/>
+            <example_data_source_record xml_link="e21_transformed___24-05-2022162941___3030.xml"/>
             <generator_policy_info generator_link="generator-policy___24-05-2022075338___10808.xml"/>
             <example_data_target_record/>
             <thesaurus_info/>
@@ -63,7 +63,7 @@
         <namespace prefix="cms" uri="https://collections.gta.arch.ethz.ch/detail/"/>
         <namespace prefix="ulan" uri="http://vocab.getty.edu/ulan/"/>
         <namespace prefix="wikidata" uri="https://www.wikidata.org/wiki/"/>
-        <namespace prefix="akl" uri="https://www.degruyter.com/document/database/AKL/entry/"/>
+        <namespace prefix="akl" uri="https://www.degruyter.com/"/>
         <namespace prefix="morphe" uri="https://morphe.epfl.ch/index.php/"/>
         <namespace prefix="sikart" uri="http://www.sikart.ch/"/>
         <namespace prefix="hls" uri="https://hls-dhs-dss.ch/de/articles/"/>
@@ -79,9 +79,9 @@
                 <source_node>/root/entry</source_node>
                 <target_node>
                     <entity>
-                        <type>crm:E74_Group</type>
+                        <type>crm:E21_Person</type>
                         <instance_generator name="URIwithTypeAndId">
-                            <arg name="type" type="constant">group</arg>
+                            <arg name="type" type="constant">person</arg>
                             <arg name="id" type="xpath">per_identifiers/_id/text()</arg>
                         </instance_generator>
                     </entity>
