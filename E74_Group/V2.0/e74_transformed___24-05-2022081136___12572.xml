@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><root>
   <entry>
-    <grp_type_crm_uri>http://www.cidoc-crm.org/cidoc-crm/E74_Group</grp_type_crm_uri>
+    <grp_type_crm_uri>E74_Group</grp_type_crm_uri>
     <grp_last_modified>2022-04-28T14:38:09Z</grp_last_modified>
     <grp_identifiers>
       <_id>42157</_id>
@@ -72,3 +72,4 @@
     </act_occupations>
   </entry>
 </root>
+
