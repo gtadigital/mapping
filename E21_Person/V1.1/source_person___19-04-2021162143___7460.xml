@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<root>
+      
+    <entry>
+        <act_type_crm_de>E21_Person</act_type_crm_de>
+        <act_type_crm_en>E21_Person</act_type_crm_en>
+        <act_type_crm_it>E21_Person</act_type_crm_it>
+        <act_type_crm_fr>E21_Person</act_type_crm_fr>
+        <_uuid>debb2cce-9ab9-4f68-8782-efea2ed5e152</_uuid>
+        <act_nc_name>Le Corbusier</act_nc_name>
+        <act_nc_name_lang_akronym>en</act_nc_name_lang_akronym>
+        <act_nc_honname>Grand officier de la Légion d'honneur (1964)</act_nc_honname>
+        <act_nc_honname_lang_akronym>fr</act_nc_honname_lang_akronym>
+        <act_altName>
+            <act_alt_nameLiteral>
+                <act_nc_altname_literal>Le Corbusier</act_nc_altname_literal>
+                <act_nc_altname_lang_akronym>fr</act_nc_altname_lang_akronym>
+                <act_nc_altname_type_de>Künstlername</act_nc_altname_type_de>
+                <act_nc_altname_type_en>Artist Name</act_nc_altname_type_en>
+            </act_alt_nameLiteral>
+            <act_alt_nameLiteral>
+                <act_nc_altname_literal>Jeanneret-Gris, Charles-Edouard</act_nc_altname_literal>
+                <act_nc_altname_lang_akronym>fr</act_nc_altname_lang_akronym>
+                <act_nc_altname_type_de>Amtlicher Name</act_nc_altname_type_de>
+                <act_nc_altname_type_en>Official Name</act_nc_altname_type_en>
+            </act_alt_nameLiteral>
+        </act_altName>
+        <act_person_gender_de>männlich</act_person_gender_de>
+        <act_person_gender_en>male</act_person_gender_en>
+        <act_short_bio>
+            <act_doc_biographical_note_literal>Schweizerisch-Französischer Architekt, Städtebauer, Maler, Designer und Theoretiker, 1887–1965</act_doc_biographical_note_literal>
+            <act_doc_biographical_note_akronym>de</act_doc_biographical_note_akronym>
+            <act_doc_biographical_note_source_uuid>972907d6-bd01-4bba-bf2b-180416e5e947</act_doc_biographical_note_source_uuid>
+        </act_short_bio>
+        <act_nc_identifier_gnd>118676873</act_nc_identifier_gnd>
+        <generic_contributor_sari_gnd_uuid>4a7a4e9c-4aa7-4808-a86f-ab2391b5bdc9</generic_contributor_sari_gnd_uuid>
+        <act_nc_identifier_sikart>4000293</act_nc_identifier_sikart>
+        <generic_contributor_sari_sikart_uuid/>
+        <act_nc_identifier_ulan>500027041</act_nc_identifier_ulan>
+        <generic_contributor_sari_ulan_uuid>f4ec3230-feea-4d4c-941a-ca1649dbf2ef</generic_contributor_sari_ulan_uuid>
+        <act_nc_identifier_wikidata>Q4724</act_nc_identifier_wikidata>
+        <generic_contributor_sari_wikidata_uuid>9f885d77-ab06-4026-8a4a-5149740d99fc</generic_contributor_sari_wikidata_uuid>
+        <act_exist_birth_place_uuid>e56dc84d-04f0-4d40-880f-05d2958f5882</act_exist_birth_place_uuid>
+        <act_exist_birth_timespan_from>1887-10-06</act_exist_birth_timespan_from>
+        <act_exist_birth_timespan_to>1887-10-06</act_exist_birth_timespan_to>
+        <act_exist_death_place>3b0eb8fd-84f8-41b6-b3da-59160a3083ae</act_exist_death_place>
+        <act_exist_death_timespan_from>1887-10-06</act_exist_death_timespan_from>
+        <act_exist_death_timespan_to>1887-10-06</act_exist_death_timespan_to>
+        <act_social_father_uuid>a864ee87-a70d-45db-abe9-be4755050165</act_social_father_uuid>
+        <act_social_mother_uuid>cdbccef4-daa2-4fbb-a911-b0a296169879</act_social_mother_uuid>
+        <act_social_national_affiliation>
+            <act_social_national_affiliation_uuid>3752fd5a-05f4-458a-bed6-762c8a48b7f0</act_social_national_affiliation_uuid>
+            <act_social_national_affiliation_uuid>4be8f6b9-8678-4c52-93fb-feecb0efea5b</act_social_national_affiliation_uuid>
+        </act_social_national_affiliation>
+    </entry>
+
+</root>
