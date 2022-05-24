@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><root>
+  <entry>
+    <per_type_crm_uri>E21_Person</per_type_crm_uri>
+    <per_identifiers>
+      <_id>42156</_id>
+      <per_cms_id>819738</per_cms_id>
+      <per_nc_identifier_ulan>500225014</per_nc_identifier_ulan>
+      <per_nc_identifier_wikidata>Q1234561</per_nc_identifier_wikidata>
+      <per_nc_identifier_akl>_10140486/html</per_nc_identifier_akl>
+      <per_nc_identifier_morphe>hans-brechbuhler</per_nc_identifier_morphe>
+      <per_nc_identifier_sikart>kuenstlerinnen.aspx?id=4000046</per_nc_identifier_sikart>
+      <per_nc_identifier_hls>027318/2014-11-24/</per_nc_identifier_hls>
+      <per_nc_identifier_archinform>1287.htm</per_nc_identifier_archinform>
+      <per_nc_identifier_fotoch>?a=fotograph&amp;id=33890&amp;lang=de</per_nc_identifier_fotoch>
+      <per_nc_identifier_alat>580.htm</per_nc_identifier_alat>
+      <per_nc_identifier_gnd>118676873</per_nc_identifier_gnd>
+    </per_identifiers>
+    <per_last_modified>2022-04-28T10:42:19Z</per_last_modified>
+    <per_nc_name>Name_</per_nc_name>
+    <per_nc_name_lang_akronym>en</per_nc_name_lang_akronym>
+    <per_nc_honname>Name_honorific</per_nc_honname>
+    <per_nc_honname_lang_akronym>en</per_nc_honname_lang_akronym>
+    <act_altName>
+      <act_alt_nameLiteral>
+        <per_nc_altname_literal>Name_alt</per_nc_altname_literal>
+        <per_nc_altname_lang_akronym>en</per_nc_altname_lang_akronym>
+        <per_nc_altname_type_de>Married Name</per_nc_altname_type_de>
+        <per_nc_altname_type_en>Married Name</per_nc_altname_type_en>
+      </act_alt_nameLiteral>
+    </act_altName>
+    <per_person_gender_de>weiblich</per_person_gender_de>
+    <per_person_gender_en>female</per_person_gender_en>
+    <per_short_bio>
+      <DE>Schweizer Bauingenieur, 1926-2009</DE>
+      <EN/>
+    </per_short_bio>
+    <per_long_bio>
+      <DE>von Wädenswil und Zürich, Studium ETH Zürich 1945-1950, 1950-1953 Assistent von Prof. Pierre Lardy, 1954-1959 Arbeitsgemeinschaft mit dem Ingenieurbüro Weder &amp; Prim in Burgdorf, ab 1959 eigenes Büro in Burgdorf, international anerkannter Schalenbaupionier, aktives Mitglied der International Association of Shell Structures IASS</DE>
+      <EN/>
+    </per_long_bio>
+    <per_exist_birth_place_id>44587</per_exist_birth_place_id>
+    <per_exist_birth_timespan_from>2005-02-14</per_exist_birth_timespan_from>
+    <per_exist_birth_timespan_to>2005-02-14</per_exist_birth_timespan_to>
+    <per_exist_death_place>113123</per_exist_death_place>
+    <per_exist_death_timespan_from>2007-08-01</per_exist_death_timespan_from>
+    <per_exist_death_timespan_to>2007-08-01</per_exist_death_timespan_to>
+    <per_social_father_id>28114</per_social_father_id>
+    <per_social_mother_id>31647</per_social_mother_id>
+    <act_social_national_affiliation_archive>
+      <per_social_national_affiliation_id>33</per_social_national_affiliation_id>
+      <per_social_national_affiliation_id>34</per_social_national_affiliation_id>
+    </act_social_national_affiliation_archive>
+  </entry>
+</root>
+

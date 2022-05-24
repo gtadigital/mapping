@@ -39,9 +39,58 @@
 	<generator name="actorIdentifier" prefix="sari">
 		<pattern>place/{place_id}/identifier/{identifier_value}</pattern>
 	</generator>
-	<generator name="identifierAssignment" prefix="sari">
+	<generator name="PlaceidentifierAssignment" prefix="sari">
 		<pattern>place/{place_id}/identifier_assignment/{identifier_value}</pattern>
 	</generator>
+	<generator name="URIwithWikidataId" prefix="wikidata">
+		<pattern>{id}</pattern>
+	</generator>
+	<generator name="URIwithTGNId" prefix="tgn">
+		<pattern>{id}</pattern>
+	</generator>
+	<generator name="URIwithGeonamesId" prefix="geonames">
+		<pattern>{id}</pattern>
+	</generator>
+	<generator name="URIwithGNDId" prefix="gnd">
+		<pattern>{id}</pattern>
+	</generator>
+	<generator name="URIwithDbPediaId" prefix="dbpedia">
+		<pattern>{id}</pattern>
+	</generator>
+	<generator name="URIwithVIAFId" prefix="viaf">
+		<pattern>{id}</pattern>
+	</generator>
+	<generator name="URIwithSikartId" prefix="sikart">
+		<pattern>{id}</pattern>
+	</generator>
+	<generator name="URIwithCMS" prefix="cms">
+		<pattern>{id}</pattern>
+	</generator>
+	<generator name="URIwithULAN" prefix="ulan">
+		<pattern>{id}</pattern>
+	</generator>
+	<generator name="URIwithAKL" prefix="akl">
+		<pattern>{id}</pattern>
+	</generator>
+	<generator name="URIwithMORPHE" prefix="morphe">
+		<pattern>{id}</pattern>
+	</generator>
+	<generator name="URIwithHLS" prefix="hls">
+		<pattern>{id}</pattern>
+	</generator>
+	<generator name="URIwithARCHINFORM" prefix="archinform">
+		<pattern>{id}</pattern>
+	</generator>
+	<generator name="URIwithFOTOCH" prefix="fotoch">
+		<pattern>{id}</pattern>
+	</generator>
+	<generator name="URIwithALAT" prefix="alat">
+		<pattern>{id}</pattern>
+	</generator>
+		<generator name="URIwithCIDOC" prefix="cidoc-crm">
+		<pattern>{id}</pattern>
+	</generator>
+
 	<!-- PERSON DEFINITION -->
 	<generator name="personAppellationUri" prefix="sari" shorten="true">
 		<pattern>person/{person_id}/appellation/{appellation_id}</pattern>
@@ -135,6 +184,51 @@
 	<generator name="archivalobjectDestruction" prefix="sari">
 		<pattern>archivalobject/{archivalobject_id}/destruction</pattern>
 	</generator>
+
+		<!-- DIGITAL OBJECT -->
+	<generator name="digitalobjectAppellationUri" prefix="sari" shorten="true">
+		<pattern>digitalobject/{digitalobject_id}/appellation/{appellation_id}</pattern>
+	</generator>
+	<generator name="digitalobjectIdentifierUri" prefix="sari">
+		<pattern>digitalobject/{digitalobject_id}/{identifier_type}/{identifier}</pattern>
+	</generator>
+	<generator name="digitalobjectIdentifierUri-hashed" prefix="sari">
+		<pattern>digitalobject/{digitalobject_id}/{identifier_type}/{identifier}</pattern>
+	</generator>
+	<generator name="digitalobjectTimespanConstruction" prefix="sari">
+		<pattern>digitalobject/{digitalobject_id}/construction/timespan</pattern>
+	</generator>
+	<generator name="digitalobjectTimespanDestruction" prefix="sari">
+		<pattern>digitalobject/{digitalobject_id}/destruction/timespan</pattern>
+	</generator>
+	<generator name="digitalobjectCitationUUID" prefix="sari">
+		<pattern>digitalobject/{digitalobject_id}/bibliographicitem/{identifier}</pattern>
+	</generator>
+	<generator name="digitalobjectCitation" prefix="sari">
+		<pattern>digitalobject/{digitalobject_id}/bibliographicitem</pattern>
+	</generator>
+	<generator name="digitalobjectCreationPlace_id" prefix="sari">
+		<pattern>digitalobject/{digitalobject_id}/place/{place_id}</pattern>
+	</generator>
+	<generator name="digitalobjectCreationPlace" prefix="sari">
+		<pattern>digitalobject/{digitalobject_id}/place</pattern>
+	</generator>
+	<generator name="digitalobjectProduction" prefix="sari">
+		<pattern>digitalobject/{digitalobject_id}/production</pattern>
+	</generator>
+	<generator name="digitalobjectModification" prefix="sari">
+		<pattern>digitalobject/{digitalobject_id}/modification</pattern>
+	</generator>
+	<generator name="digitalobjectDestruction" prefix="sari">
+		<pattern>digitalobject/{digitalobject_id}/destruction</pattern>
+	</generator>
+	<generator name="URIwithIIIFLocator" prefix="iiif">
+		<pattern>{id}</pattern>
+	</generator>
+	<generator name="DOidentifierAssignment" prefix="sari">
+		<pattern>digitalobject/{digitalobject_id}/identifier_assignment/{identifier_value}</pattern>
+	</generator>
+
 	<!-- GROUP DEFINITION -->
 	<generator name="groupIdentifierUri" prefix="sari">
 		<pattern>group/{group_id}/{identifier_type}/{identifier}</pattern>
@@ -166,30 +260,15 @@
 	<generator name="URIwithUlanId" prefix="ulan">
 		<pattern>{id}</pattern>
 	</generator>
-	<generator name="URIwithWikidataId" prefix="wikidata">
-		<pattern>{id}</pattern>
-	</generator>
-	<generator name="URIwithTGNId" prefix="tgn">
-		<pattern>{id}</pattern>
-	</generator>
-	<generator name="URIwithGeonamesId" prefix="geonames">
-		<pattern>{id}</pattern>
-	</generator>
-	<generator name="URIwithGNDId" prefix="gnd">
-		<pattern>{id}</pattern>
-	</generator>
-	<generator name="URIwithDbPediaId" prefix="dbpedia">
-		<pattern>{id}</pattern>
-	</generator>
-	<generator name="URIwithVIAFId" prefix="viaf">
-		<pattern>{id}</pattern>
-	</generator>
-	<generator name="URIwithSikartId" prefix="sikart">
-		<pattern>{id}</pattern>
-	</generator>
+
 	<generator name="URIwithOneType" prefix="sari" uuid="true">
 		<pattern>{type}/</pattern>
 	</generator>
+
+	<generator name="URIwithTransurbicide" prefix="tu">
+		<pattern>{id}</pattern>
+	</generator>
+
 	<generator name="dateNormalizerGen">
 		<custom generatorClass="gr.forth.DateNormalizer">
 			<set-arg name="text"/>
