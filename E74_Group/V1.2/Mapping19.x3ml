@@ -52,7 +52,7 @@
         <example_data_info>
             <example_data_from/>
             <example_data_contact_person/>
-            <example_data_source_record xml_link="e74_transformed___24-05-2022081136___12572.xml"/>
+            <example_data_source_record xml_link="e74_transformed___08-06-2022160707___9143.xml"/>
             <generator_policy_info generator_link="generator-policy___24-05-2022075338___10808.xml"/>
             <example_data_target_record/>
             <thesaurus_info/>
@@ -642,10 +642,19 @@
                     <target_node>
                         <entity>
                             <type>crm:E73_Information_Object</type>
-                            <instance_generator name="personBiography">
-                                <arg name="person_id" type="xpath">../grp_identifiers/_id/text()</arg>
-                                <arg name="lang" type="constant">German</arg>
-                            </instance_generator>
+                            <instance_generator name="UUID"/>
+                            <additional>
+                                <relationship>crm:P2_has_type</relationship>
+                                <entity>
+                                    <type>crm:E55_Type</type>
+                                    <instance_info>
+                                        <constant/>
+                                    </instance_info>
+                                    <instance_generator name="URIwithType">
+                                        <arg name="type" type="constant">short_bio</arg>
+                                    </instance_generator>
+                                </entity>
+                            </additional>
                         </entity>
                     </target_node>
                 </range>
@@ -664,10 +673,19 @@
                     <target_node>
                         <entity>
                             <type>crm:E73_Information_Object</type>
-                            <instance_generator name="personBiography">
-                                <arg name="person_id" type="xpath">../grp_identifiers/_id/text()</arg>
-                                <arg name="lang" type="constant">Long Bio</arg>
-                            </instance_generator>
+                            <instance_generator name="UUID"/>
+                            <additional>
+                                <relationship>crm:P2_has_type</relationship>
+                                <entity>
+                                    <type>crm:E55_Type</type>
+                                    <instance_info>
+                                        <constant/>
+                                    </instance_info>
+                                    <instance_generator name="URIwithType">
+                                        <arg name="type" type="constant">long_bio</arg>
+                                    </instance_generator>
+                                </entity>
+                            </additional>
                         </entity>
                     </target_node>
                 </range>
@@ -1271,6 +1289,11 @@
                         <relation>act_social_national_affiliation/grp_social_national_affiliation_id</relation>
                     </source_relation>
                     <target_relation>
+                        <relationship>crm:P107_has_current_or_former_member</relationship>
+                        <entity>
+                            <type>crm:E74_Group</type>
+                            <instance_generator name="UUID"/>
+                        </entity>
                         <relationship>crm:P107i_is_current_or_former_member_of</relationship>
                     </target_relation>
                 </path>
@@ -1278,11 +1301,24 @@
                     <source_node>act_social_national_affiliation/grp_social_national_affiliation_id</source_node>
                     <target_node>
                         <entity>
-                            <type>crm:E40_Legal_Body</type>
+                            <type>crm:E74_Group</type>
                             <instance_generator name="URIwithTypeAndId">
-                                <arg name="type" type="constant">national_affiliation</arg>
+                                <arg name="type" type="constant">group</arg>
                                 <arg name="id" type="xpath">text()</arg>
                             </instance_generator>
+                            <additional>
+                                <relationship>crm:P2_has_type</relationship>
+                                <entity>
+                                    <type>crm:E55_Type</type>
+                                    <instance_info>
+                                        <constant/>
+                                    </instance_info>
+                                    <instance_generator name="URIwithTypeAndId">
+                                        <arg name="type" type="constant">social_national_affiliation</arg>
+                                        <arg name="id" type="constant">social_national_affiliation</arg>
+                                    </instance_generator>
+                                </entity>
+                            </additional>
                         </entity>
                     </target_node>
                 </range>
@@ -1290,24 +1326,24 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>act_altName/act_alt_nameLiteral/grp_nc_altname_literal</relation>
+                        <relation>act_altName/act_alt_nameLiteral</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P1_is_identified_by</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>act_altName/act_alt_nameLiteral/grp_nc_altname_literal</source_node>
+                    <source_node>act_altName/act_alt_nameLiteral</source_node>
                     <target_node>
                         <entity>
                             <type>crm:E41_Appellation</type>
                             <instance_generator name="personAppellationUri">
-                                <arg name="person_id" type="xpath">../../../grp_identifiers/_id/text()</arg>
-                                <arg name="appellation_id" type="xpath">text()</arg>
+                                <arg name="person_id" type="xpath">../../grp_identifiers/_id/text()</arg>
+                                <arg name="appellation_id" type="xpath">grp_nc_altname_literal/text()</arg>
                             </instance_generator>
                             <label_generator name="Literal">
-                                <arg name="text" type="xpath">text()</arg>
-                                <arg name="language" type="xpath">../grp_nc_altname_lang_akronym/text()</arg>
+                                <arg name="text" type="xpath">grp_nc_altname_literal/text()</arg>
+                                <arg name="language" type="xpath">grp_nc_altname_lang_akronym/text()</arg>
                             </label_generator>
                             <additional>
                                 <relationship>crm:P2_has_type</relationship>
@@ -1622,21 +1658,21 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>actor_activity_floruit/act_activity_floruit_place</relation>
+                        <relation>actor_activity_floruit/grp_activity_floruit_place</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P14i_performed</relationship>
                         <entity variable="floruit">
                             <type>frbr:F51_Pursuit</type>
                             <instance_generator name="groupFloruit">
-                                <arg name="group_id" type="xpath">../../_id/text()</arg>
+                                <arg name="group_id" type="xpath">../../grp_identifiers/_id/text()</arg>
                             </instance_generator>
                         </entity>
                         <relationship>crm:P7_took_place_at</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>actor_activity_floruit/act_activity_floruit_place</source_node>
+                    <source_node>actor_activity_floruit/grp_activity_floruit_place</source_node>
                     <target_node>
                         <if>
                             <exists>text()</exists>
@@ -1654,7 +1690,7 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>actor_activity_floruit/act_activity_floruit_time-span_from</relation>
+                        <relation>actor_activity_floruit/grp_activity_floruit_time-span_from</relation>
                     </source_relation>
                     <target_relation>
                         <if>
@@ -1664,7 +1700,7 @@
                         <entity variable="floruit">
                             <type>frbr:F51_Pursuit</type>
                             <instance_generator name="groupFloruit">
-                                <arg name="group_id" type="xpath">../../_id/text()</arg>
+                                <arg name="group_id" type="xpath">../../grp_identifiers/_id/text()</arg>
                             </instance_generator>
                         </entity>
                         <relationship>crm:P4_has_time-span</relationship>
@@ -1672,14 +1708,14 @@
                             <type>crm:E52_Time-Span</type>
                             <instance_generator name="URIwithTypeAndId">
                                 <arg name="type" type="constant">time_span_floruit</arg>
-                                <arg name="id" type="xpath">../../_id/text()</arg>
+                                <arg name="id" type="xpath">../../grp_identifiers/_id/text()</arg>
                             </instance_generator>
                         </entity>
                         <relationship>crm:P82a_begin_of_the_begin</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>actor_activity_floruit/act_activity_floruit_time-span_from</source_node>
+                    <source_node>actor_activity_floruit/grp_activity_floruit_time-span_from</source_node>
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2001/XMLSchema#dateTime</type>
@@ -1693,7 +1729,7 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>actor_activity_floruit/act_activity_floruit_time-span_to</relation>
+                        <relation>actor_activity_floruit/grp_activity_floruit_time-span_to</relation>
                     </source_relation>
                     <target_relation>
                         <if>
@@ -1703,7 +1739,7 @@
                         <entity variable="floruit">
                             <type>frbr:F51_Pursuit</type>
                             <instance_generator name="groupFloruit">
-                                <arg name="group_id" type="xpath">../_id/text()</arg>
+                                <arg name="group_id" type="xpath">../../grp_identifiers/_id/text()</arg>
                             </instance_generator>
                         </entity>
                         <relationship>crm:P4_has_time-span</relationship>
@@ -1711,14 +1747,14 @@
                             <type>crm:E52_Time-Span</type>
                             <instance_generator name="URIwithTypeAndId">
                                 <arg name="type" type="constant">time_span_floruit</arg>
-                                <arg name="id" type="xpath">../../_id/text()</arg>
+                                <arg name="id" type="xpath">../../grp_identifiers/_id/text()</arg>
                             </instance_generator>
                         </entity>
                         <relationship>crm:P82b_end_of_the_end</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>actor_activity_floruit/act_activity_floruit_time-span_to</source_node>
+                    <source_node>actor_activity_floruit/grp_activity_floruit_time-span_to</source_node>
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2001/XMLSchema#dateTime</type>
@@ -1752,6 +1788,19 @@
                                 <arg name="type" type="constant">group</arg>
                                 <arg name="id" type="xpath">text()</arg>
                             </instance_generator>
+                            <additional>
+                                <relationship>crm:P2_has_type</relationship>
+                                <entity>
+                                    <type>crm:E55_Type</type>
+                                    <instance_info>
+                                        <constant/>
+                                    </instance_info>
+                                    <instance_generator name="URIwithTypeAndId">
+                                        <arg name="type" type="constant">national_affiliation</arg>
+                                        <arg name="id" type="constant">national_affiliation</arg>
+                                    </instance_generator>
+                                </entity>
+                            </additional>
                         </entity>
                     </target_node>
                 </range>
@@ -1759,12 +1808,9 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>act_occupations</relation>
+                        <relation>act_occupations/grp_activity_occupation_de</relation>
                     </source_relation>
                     <target_relation>
-                        <if>
-                            <exists>grp_activity_occupation_de/text()</exists>
-                        </if>
                         <relationship>crm:P14i_performed</relationship>
                         <entity>
                             <type>frbr:F51_Pursuit</type>
@@ -1774,19 +1820,16 @@
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>act_occupations</source_node>
+                    <source_node>act_occupations/grp_activity_occupation_de</source_node>
                     <target_node>
-                        <if>
-                            <exists>grp_activity_occupation_de/text()</exists>
-                        </if>
                         <entity>
                             <type>crm:E55_Type</type>
                             <instance_generator name="URIwithTypeAndId">
                                 <arg name="type" type="constant">occupation</arg>
-                                <arg name="id" type="xpath">grp_activity_occupation_de/text()</arg>
+                                <arg name="id" type="xpath">../../grp_identifiers/_id/text()</arg>
                             </instance_generator>
                             <label_generator name="Literal">
-                                <arg name="text" type="xpath">grp_activity_occupation_de/text()</arg>
+                                <arg name="text" type="xpath">text()</arg>
                                 <arg name="language" type="constant">de</arg>
                             </label_generator>
                         </entity>
@@ -1796,12 +1839,9 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>act_occupations</relation>
+                        <relation>act_occupations/grp_activity_occupation_en</relation>
                     </source_relation>
                     <target_relation>
-                        <if>
-                            <exists>grp_activity_occupation_en/text()</exists>
-                        </if>
                         <relationship>crm:P14i_performed</relationship>
                         <entity>
                             <type>frbr:F51_Pursuit</type>
@@ -1811,19 +1851,16 @@
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>act_occupations</source_node>
+                    <source_node>act_occupations/grp_activity_occupation_en</source_node>
                     <target_node>
-                        <if>
-                            <exists>grp_activity_occupation_en/text()</exists>
-                        </if>
                         <entity>
                             <type>crm:E55_Type</type>
                             <instance_generator name="URIwithTypeAndId">
                                 <arg name="type" type="constant">occupation</arg>
-                                <arg name="id" type="xpath">grp_activity_occupation_en/text()</arg>
+                                <arg name="id" type="xpath">../../grp_identifiers/_id/text()</arg>
                             </instance_generator>
                             <label_generator name="Literal">
-                                <arg name="text" type="xpath">grp_activity_occupation_en/text()</arg>
+                                <arg name="text" type="xpath">text()</arg>
                                 <arg name="language" type="constant">en</arg>
                             </label_generator>
                         </entity>
@@ -1934,13 +1971,30 @@
                     <target_node>
                         <entity>
                             <type>crm:E55_Type</type>
-                            <instance_generator name="URIwithType">
-                                <arg name="type" type="xpath">text()</arg>
+                            <instance_generator name="URIwithTypeAndId">
+                                <arg name="type" type="constant">altname_type</arg>
+                                <arg name="id" type="xpath">../../../grp_identifiers/_id/text()</arg>
                             </instance_generator>
                             <label_generator name="Literal">
                                 <arg name="text" type="xpath">text()</arg>
                                 <arg name="language" type="constant">de</arg>
                             </label_generator>
+                            <additional>
+                                <relationship>crm:P2_has_type</relationship>
+                                <entity>
+                                    <type>crm:E55_Type</type>
+                                    <instance_info>
+                                        <constant/>
+                                    </instance_info>
+                                    <instance_generator name="URIwithTypeAndId_hashed">
+                                        <arg name="type" type="constant">altname_type</arg>
+                                        <arg name="id" type="constant">altname_type</arg>
+                                    </instance_generator>
+                                    <label_generator name="Literal">
+                                        <arg name="text" type="constant">altname_type</arg>
+                                    </label_generator>
+                                </entity>
+                            </additional>
                         </entity>
                     </target_node>
                 </range>
@@ -1959,13 +2013,30 @@
                     <target_node>
                         <entity>
                             <type>crm:E55_Type</type>
-                            <instance_generator name="URIwithType">
-                                <arg name="type" type="xpath">text()</arg>
+                            <instance_generator name="URIwithTypeAndId">
+                                <arg name="type" type="constant">altname_type</arg>
+                                <arg name="id" type="xpath">../../../grp_identifiers/_id/text()</arg>
                             </instance_generator>
                             <label_generator name="Literal">
                                 <arg name="text" type="xpath">text()</arg>
                                 <arg name="language" type="constant">en</arg>
                             </label_generator>
+                            <additional>
+                                <relationship>crm:P2_has_type</relationship>
+                                <entity>
+                                    <type>crm:E55_Type</type>
+                                    <instance_info>
+                                        <constant/>
+                                    </instance_info>
+                                    <instance_generator name="URIwithTypeAndId_hashed">
+                                        <arg name="type" type="constant">altname_type</arg>
+                                        <arg name="id" type="constant">altname_type</arg>
+                                    </instance_generator>
+                                    <label_generator name="Literal">
+                                        <arg name="text" type="constant">altname_type</arg>
+                                    </label_generator>
+                                </entity>
+                            </additional>
                         </entity>
                     </target_node>
                 </range>
@@ -2045,10 +2116,7 @@
                 <target_node>
                     <entity>
                         <type>crm:E73_Information_Object</type>
-                        <instance_generator name="personBiography">
-                            <arg name="person_id" type="xpath">../grp_identifiers/_id/text()</arg>
-                            <arg name="lang" type="constant">GERMAN</arg>
-                        </instance_generator>
+                        <instance_generator name="UUID"/>
                     </entity>
                 </target_node>
             </domain>
@@ -2068,7 +2136,7 @@
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
                             <instance_generator name="Literal">
                                 <arg name="text" type="xpath">text()</arg>
-                                <arg name="language" type="constant">German</arg>
+                                <arg name="language" type="constant">de</arg>
                             </instance_generator>
                         </entity>
                     </target_node>
@@ -2090,7 +2158,7 @@
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
                             <instance_generator name="Literal">
                                 <arg name="text" type="xpath">text()</arg>
-                                <arg name="language" type="constant">English</arg>
+                                <arg name="language" type="constant">en</arg>
                             </instance_generator>
                         </entity>
                     </target_node>
@@ -2103,10 +2171,7 @@
                 <target_node>
                     <entity>
                         <type>crm:E73_Information_Object</type>
-                        <instance_generator name="personBiography">
-                            <arg name="person_id" type="xpath">../grp_identifiers/_id/text()</arg>
-                            <arg name="lang" type="constant">GERMAN</arg>
-                        </instance_generator>
+                        <instance_generator name="UUID"/>
                     </entity>
                 </target_node>
             </domain>
@@ -2126,7 +2191,7 @@
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
                             <instance_generator name="Literal">
                                 <arg name="text" type="xpath">text()</arg>
-                                <arg name="language" type="constant">German</arg>
+                                <arg name="language" type="constant">de</arg>
                             </instance_generator>
                         </entity>
                     </target_node>
@@ -2148,7 +2213,7 @@
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
                             <instance_generator name="Literal">
                                 <arg name="text" type="xpath">text()</arg>
-                                <arg name="language" type="constant">English</arg>
+                                <arg name="language" type="constant">en</arg>
                             </instance_generator>
                         </entity>
                     </target_node>

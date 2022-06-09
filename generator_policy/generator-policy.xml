@@ -70,7 +70,7 @@
 		<pattern>{id}</pattern>
 	</generator>
 	<generator name="URIwithAKL" prefix="akl">
-		<pattern>{id}</pattern>
+		<pattern>{id}/html</pattern>
 	</generator>
 	<generator name="URIwithMORPHE" prefix="morphe">
 		<pattern>{id}</pattern>
@@ -79,13 +79,13 @@
 		<pattern>{id}</pattern>
 	</generator>
 	<generator name="URIwithARCHINFORM" prefix="archinform">
-		<pattern>{id}</pattern>
+		<pattern>{id}.htm</pattern>
 	</generator>
 	<generator name="URIwithFOTOCH" prefix="fotoch">
 		<pattern>{id}</pattern>
 	</generator>
 	<generator name="URIwithALAT" prefix="alat">
-		<pattern>{id}</pattern>
+		<pattern>{id}.htm</pattern>
 	</generator>
 		<generator name="URIwithCIDOC" prefix="cidoc-crm">
 		<pattern>{id}</pattern>
@@ -258,6 +258,9 @@
 		<pattern>{id}</pattern>
 	</generator>
 	<generator name="URIwithUlanId" prefix="ulan">
+		<pattern>{id}</pattern>
+	</generator>
+	<generator name="URIwithLinkedArtId" prefix="la">
 		<pattern>{id}</pattern>
 	</generator>
 

@@ -6,13 +6,13 @@
       <per_cms_id>819738</per_cms_id>
       <per_nc_identifier_ulan>500027041</per_nc_identifier_ulan>
       <per_nc_identifier_wikidata>Q4724</per_nc_identifier_wikidata>
-      <per_nc_identifier_akl>database/AKL/entry/_00106179T/html</per_nc_identifier_akl>
+      <per_nc_identifier_akl>_00106179T</per_nc_identifier_akl>
       <per_nc_identifier_morphe>le-corbusier-3</per_nc_identifier_morphe>
-      <per_nc_identifier_sikart>kuenstlerinnen.aspx?id=4000293</per_nc_identifier_sikart>
-      <per_nc_identifier_hls>019085/</per_nc_identifier_hls>
-      <per_nc_identifier_archinform>346.htm</per_nc_identifier_archinform>
-      <per_nc_identifier_fotoch>?a=fotograph&amp;id=30790</per_nc_identifier_fotoch>
-      <per_nc_identifier_alat>362.htm</per_nc_identifier_alat>
+      <per_nc_identifier_sikart>4000293</per_nc_identifier_sikart>
+      <per_nc_identifier_hls>019085</per_nc_identifier_hls>
+      <per_nc_identifier_archinform>346</per_nc_identifier_archinform>
+      <per_nc_identifier_fotoch>30790</per_nc_identifier_fotoch>
+      <per_nc_identifier_alat>362</per_nc_identifier_alat>
       <per_nc_identifier_gnd>118676873</per_nc_identifier_gnd>
     </per_identifiers>
     <per_last_modified>2022-05-24T13:54:01Z</per_last_modified>
@@ -52,3 +52,4 @@
     </act_social_national_affiliation_archive>
   </entry>
 </root>
+

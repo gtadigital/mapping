@@ -255,7 +255,7 @@
                 <source_node>oeu_nc_actor_relation/oeu_nc_actor</source_node>
                 <target_node>
                     <if>
-                        <equals value="E21_Person">oeu_nc_actor_type/text()</equals>
+                        <equals value="1">oeu_nc_actor_type/text()</equals>
                     </if>
                     <entity>
                         <type>crm:E39_Actor</type>
@@ -306,7 +306,7 @@
                 <source_node>oeu_nc_actor_relation/oeu_nc_actor</source_node>
                 <target_node>
                     <if>
-                        <equals value="E74_Group">oeu_nc_actor_type/text()</equals>
+                        <equals value="3">oeu_nc_actor_type/text()</equals>
                     </if>
                     <entity>
                         <type>crm:E39_Actor</type>

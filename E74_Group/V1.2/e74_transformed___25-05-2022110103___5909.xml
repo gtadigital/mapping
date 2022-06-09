@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><root>
+  <entry>
+    <grp_type_crm_uri>E74_Group</grp_type_crm_uri>
+    <grp_last_modified>2022-05-24T14:30:52Z</grp_last_modified>
+    <grp_identifiers>
+      <_id>42157</_id>
+      <grp_cms_id>819739</grp_cms_id>
+      <grp_nc_identifier_ulan>500116220</grp_nc_identifier_ulan>
+      <grp_nc_identifier_wikidata>Q727738</grp_nc_identifier_wikidata>
+      <grp_nc_identifier_akl/>
+      <grp_nc_identifier_morphe>congres-international-darchitecture-moderne-ciam</grp_nc_identifier_morphe>
+      <grp_nc_identifier_sikart>kuenstlerinnen.aspx?id=4000293</grp_nc_identifier_sikart>
+      <grp_nc_identifier_hls>031360/</grp_nc_identifier_hls>
+      <grp_nc_identifier_archinform>18220.htm</grp_nc_identifier_archinform>
+      <grp_nc_identifier_fotoch>?a=fotograph&amp;id=25179&amp;lang=de</grp_nc_identifier_fotoch>
+      <grp_nc_identifier_alat>362.htm</grp_nc_identifier_alat>
+      <per_nc_identifier_gnd>4710741-8</per_nc_identifier_gnd>
+    </grp_identifiers>
+    <grp_nc_name>[RDF TEST] Congrès Internationaux d'Architecture Moderne</grp_nc_name>
+    <grp_nc_name_lang_akronym>fr</grp_nc_name_lang_akronym>
+    <act_altName>
+      <act_alt_nameLiteral>
+        <grp_nc_altname_literal>CIAM</grp_nc_altname_literal>
+        <grp_nc_altname_lang_akronym>fr</grp_nc_altname_lang_akronym>
+        <grp_nc_altname_type_de>Kürzel</grp_nc_altname_type_de>
+        <grp_nc_altname_type_en/>
+        <grp_nc_altname_timespan_from>1928-01-01</grp_nc_altname_timespan_from>
+        <grp_nc_altname_timespan_to>1959-01-01</grp_nc_altname_timespan_to>
+      </act_alt_nameLiteral>
+    </act_altName>
+    <grp_nc_honname>Honorary Congrès Internationaux d'Architecture Moderne</grp_nc_honname>
+    <grp_nc_honname_lang_akronym/>
+    <grp_formation_place>47829</grp_formation_place>
+    <grp_formation_timespan_from>1928-01-01</grp_formation_timespan_from>
+    <grp_formation_timespan_to>1928-01-01</grp_formation_timespan_to>
+    <grp_dissolution_place>32464</grp_dissolution_place>
+    <grp_dissolution_time_span_from>1954-01-01</grp_dissolution_time_span_from>
+    <grp_dissolution_time_span_to>1954-01-01</grp_dissolution_time_span_to>
+    <grp_loc_places>
+      <grp_location_place>45504</grp_location_place>
+    </grp_loc_places>
+    <grp_short_bio>
+      <DE>Internationale Kongresse Moderne Architektur, 1928–1959</DE>
+      <EN>Organization, network and series of congresses about the Modern Movement in architecture, 1928–1959</EN>
+    </grp_short_bio>
+    <grp_long_bio>
+      <DE>Die Congrès Internationaux d’Architecture Moderne (CIAM) (dt.: Internationale Kongresse Moderner Architektur) waren eine in den Jahren von 1928 bis 1959 stattfindende Reihe von Kongressen für Architekten und Stadtplaner, die als Denkfabrik zu verschiedensten Themen der Architektur und des Städtebaus fungierte.</DE>
+      <EN>The Congrès internationaux d'architecture moderne (CIAM), or International Congresses of Modern Architecture, was an organization founded in 1928 and disbanded in 1959, responsible for a series of events and congresses arranged across Europe by the most prominent architects of the time, with the objective of spreading the principles of the Modern Movement focusing in all the main domains of architecture (such as landscape, urbanism, industrial design, and many others).</EN>
+    </grp_long_bio>
+    <act_social_national_affiliation>
+      <grp_social_national_affiliation_id>39</grp_social_national_affiliation_id>
+    </act_social_national_affiliation>
+    <grp_foundation_member>
+      <grp_foundation_member_id>28114</grp_foundation_member_id>
+      <grp_foundation_member_id>28147</grp_foundation_member_id>
+    </grp_foundation_member>
+    <act_nat_id>
+      <grp_national_affiliation>33</grp_national_affiliation>
+    </act_nat_id>
+    <actor_activity_floruit>
+      <grp_activity_floruit_place>45504</grp_activity_floruit_place>
+      <grp_activity_floruit_time-span_from>1928-1-1</grp_activity_floruit_time-span_from>
+      <grp_activity_floruit_time-span_to>1959-1-1</grp_activity_floruit_time-span_to>
+    </actor_activity_floruit>
+    <act_occupations>
+      <grp_activity_occupation_de>Designer/in</grp_activity_occupation_de>
+      <grp_activity_occupation_en>designer</grp_activity_occupation_en>
+      <grp_activity_occupation_id>252</grp_activity_occupation_id>
+      <grp_activity_occupation_de>Künstler/in</grp_activity_occupation_de>
+      <grp_activity_occupation_en>artist</grp_activity_occupation_en>
+      <grp_activity_occupation_id>21</grp_activity_occupation_id>
+    </act_occupations>
+  </entry>
+</root>
